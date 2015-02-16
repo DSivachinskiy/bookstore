@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Texxt review:</strong>
+  <%= @rating.texxt_review %>
+</p>
+
+<p>
+  <strong>Rating number:</strong>
+  <%= @rating.rating_number %>
+</p>
+
+<%= link_to 'Edit', edit_rating_path(@rating) %> |
+<%= link_to 'Back', ratings_path %>

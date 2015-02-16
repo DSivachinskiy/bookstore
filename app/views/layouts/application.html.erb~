@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bookstore</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<style>
+.style1 {
+text-align: center;
+}
+
+</style>
+<body>
+
+<%= render "layouts/header" %>
+
+
+ 
+<%= yield %>
+
+</body>
+</html>

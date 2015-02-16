@@ -1,0 +1,7 @@
+class CreditCard < ActiveRecord::Base
+
+belongs_to :costumer
+has_many :orders
+
+validates :, presence: true
+end

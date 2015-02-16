@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @book.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @book.price %>
+</p>
+
+<p>
+  <strong>Books in stock:</strong>
+  <%= @book.books_in_stock %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @book.total_rating %>
+</p>
+
+<%= link_to 'Back', books_path %>
