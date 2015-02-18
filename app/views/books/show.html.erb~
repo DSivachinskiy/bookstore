@@ -6,6 +6,13 @@
 </p>
 
 <p>
+  <strong>Author:</strong>
+  <% Author.where(id: @book.author_id).find do |author| %>
+<%="#{author.firstname + ' '+ author.lastname}"%>
+<%end%>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @book.description %>
 </p>
@@ -16,13 +23,14 @@
 </p>
 
 <p>
+  <strong>Rating:</strong>
+  <%= @book.total_rating %>
+</p>
+
+<p>
   <strong>Books in stock:</strong>
   <%= @book.books_in_stock %>
 </p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @book.total_rating %>
-</p>
 
 <%= link_to 'Back', books_path %>

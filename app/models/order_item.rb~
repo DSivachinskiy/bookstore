@@ -3,6 +3,17 @@ class OrderItem < ActiveRecord::Base
 belongs_to :book
 belongs_to :order
 
-validates :price, presence: true
+
+
 validates :quantity, presence: true
+before_save :price
+
+def price
+Book.where(id: book_id).find do |b|
+a = b.price*quantity
+update_attribute(:price, a)
+end
+
+end
+
 end

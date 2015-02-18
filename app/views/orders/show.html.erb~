@@ -18,7 +18,7 @@
 <table>
 <%OrderItem.where(order_id: @order.id).find_each do |o|%>
 <tr><td>
-<%=link_to o.id, o%>
+<%=o.id%>
 <%end%>
 </td></tr></table>
 <%= link_to 'Back', orders_path %>

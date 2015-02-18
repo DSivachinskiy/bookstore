@@ -6,6 +6,13 @@
 </p>
 
 <p>
+  <strong>Author:</strong>
+  <% Author.where(id: @book.author_id).find do |author| %>
+<%=link_to "#{author.firstname + ' '+ author.lastname}", author%>
+<%end%>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @book.description %>
 </p>

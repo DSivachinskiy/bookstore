@@ -10,7 +10,7 @@
   <tbody>
     <% @order_items.each do |order_item| %>
       <tr>
-        <td><%= link_to order_item.id, order_item %></td>
+        <td><%= link_to @order_item.id, order_item %></td>
         
       </tr>
     <% end %>

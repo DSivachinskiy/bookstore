@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216144620) do
+ActiveRecord::Schema.define(version: 20150218184145) do
 
   create_table "admins", force: true do |t|
     t.string   "email"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20150216144620) do
     t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "order_id"
   end
 
   create_table "authors", force: true do |t|
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150216144620) do
     t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "order_id"
   end
 
   create_table "books", force: true do |t|
@@ -71,6 +73,7 @@ ActiveRecord::Schema.define(version: 20150216144620) do
     t.datetime "updated_at"
     t.float    "total_rating"
     t.integer  "category_id"
+    t.integer  "author_id"
   end
 
   create_table "carts", force: true do |t|
@@ -141,6 +144,7 @@ ActiveRecord::Schema.define(version: 20150216144620) do
     t.datetime "updated_at"
     t.integer  "book_id"
     t.integer  "order_item_id"
+    t.integer  "costumer_id"
   end
 
   create_table "ratings", force: true do |t|

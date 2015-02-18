@@ -6,14 +6,14 @@ class Costumer < ActiveRecord::Base
 
 has_many :orders
 has_many :ratings
-has_one :cart
+
 
 validates :email, presence: true, uniqueness: true
 validates :password, presence: true
 validates :firstname, presence: true
 validates :lastname, presence: true
 
-before_save :add_cart
+
 
 def add_new_order(params)
   orders.create(params)
@@ -23,8 +23,6 @@ def current_order
   orders.find(state:'in progress')
 end
 
-def add_cart(params)
-carts.create(params)
-end
+
 
 end

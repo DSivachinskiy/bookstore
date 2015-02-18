@@ -8,7 +8,7 @@
 
 <%Book.where(category_id: @category.id).find_each do |book| %>
 <tr><td>
-<%=link_to book.title, book%>
+<%=book.title%>
 <%end%>
 </td>
 </tr>

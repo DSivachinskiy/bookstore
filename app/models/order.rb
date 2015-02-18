@@ -9,7 +9,7 @@ has_one :billing_adress
 
 
 
-validates :total_price, presence: true
+validates :costumer_id, presence: true
 validates :completed_date, presence: true
 validates :state, presence: true
 

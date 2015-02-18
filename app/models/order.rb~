@@ -7,9 +7,9 @@ has_many :order_items
 has_one :adress
 has_one :billing_adress
 
-before_create :set_order_status
 
-validates :total_price, presence: true
+
+
 validates :completed_date, presence: true
 validates :state, presence: true
 

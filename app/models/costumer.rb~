@@ -13,6 +13,8 @@ validates :password, presence: true
 validates :firstname, presence: true
 validates :lastname, presence: true
 
+before_save :add_cart
+
 def add_new_order(params)
   orders.create(params)
 end
