@@ -12,7 +12,7 @@ validates :price, presence: true
 validates :books_in_stock, presence: true
 
 def total_rating
-ratings.sum(:rating_number)
+ratings.sum(:rating_number)/ratings.size
 end
 
 end

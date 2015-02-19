@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218184145) do
+ActiveRecord::Schema.define(version: 20150219145141) do
 
   create_table "admins", force: true do |t|
     t.string   "email"
@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(version: 20150218184145) do
     t.integer  "zipcode"
     t.string   "city"
     t.string   "phone"
-    t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "order_id"
+    t.integer  "country_id"
   end
 
   create_table "authors", force: true do |t|
@@ -58,10 +58,10 @@ ActiveRecord::Schema.define(version: 20150218184145) do
     t.integer  "zipcode"
     t.string   "city"
     t.string   "phone"
-    t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "order_id"
+    t.integer  "country_id"
   end
 
   create_table "books", force: true do |t|
@@ -136,15 +136,20 @@ ActiveRecord::Schema.define(version: 20150218184145) do
     t.integer  "book_id"
   end
 
+  create_table "order_statuses", force: true do |t|
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orders", force: true do |t|
     t.float    "total_price"
     t.date     "completed_date"
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "book_id"
-    t.integer  "order_item_id"
     t.integer  "costumer_id"
+    t.integer  "order_status_id"
   end
 
   create_table "ratings", force: true do |t|
@@ -153,6 +158,7 @@ ActiveRecord::Schema.define(version: 20150218184145) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "book_id"
+    t.integer  "costumer_id"
   end
 
 end

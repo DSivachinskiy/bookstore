@@ -2,23 +2,26 @@ class Order < ActiveRecord::Base
 
 belongs_to :costumer
 belongs_to :credit_card
+belongs_to :order_status
 
 has_many :order_items
 has_one :adress
 has_one :billing_adress
-
+ :order_status
 
 
 validates :costumer_id, presence: true
 validates :completed_date, presence: true
-validates :state, presence: true
 
-def add_order_item(order_item)
-  update_attribute(:order_item_id, order_item.id)
-end
+
+
 
 def total_price
-  order_items.sum(:price)
+sum=0  
+OrderItem.where(order_id: id).find_each do |o|
+sum += o.price
+end
+return sum
 end
 
 

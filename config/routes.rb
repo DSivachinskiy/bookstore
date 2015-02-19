@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :order_statuses
+
   resources :carts, only: [:show]
 
   devise_for :admins
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :order_items
 
+  get "my_orders_path" => "orders#my_orders"
   resources :orders
 
   devise_for :costumers, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
@@ -24,6 +27,7 @@ Rails.application.routes.draw do
 
   resources :books
  root 'books#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

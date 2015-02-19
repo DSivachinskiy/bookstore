@@ -8,7 +8,7 @@
 </head>
 <style>
 .style1 {
-text-align: center;
+text-align: left;
 }
 
 </style>
@@ -16,7 +16,7 @@ text-align: center;
 
 <%= render "layouts/header" %>
 
-
+<%= render "my_orders" %>
  
 <%= yield %>
 

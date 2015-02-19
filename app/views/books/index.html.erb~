@@ -1,7 +1,7 @@
 <center>
 <h1>Listing books</h1>
 
-<table border=1px width=90% class="style1">
+<table width=90% class="style1">
  
 
     <tr>
@@ -11,7 +11,7 @@
 <td><%= link_to "Categories", categories_path%></td>
 </tr>
 <tr>
-<td>Authors</td>
+<td><%= link_to "Authors", authors_path%></td>
 </tr>
 </table>
 </td>

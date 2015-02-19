@@ -14,6 +14,7 @@
   <strong>Biography:</strong>
   <%= @author.biography %>
 </p>
+<strong>Books:</strong>
 <table>
 <%Book.where(author_id: @author.id).find_each do |book| %>
 <tr><td>

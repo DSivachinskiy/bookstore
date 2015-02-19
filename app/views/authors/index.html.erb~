@@ -1,3 +1,4 @@
+<center>
 <h1>Listing authors</h1>
 
 <table>
@@ -15,7 +16,7 @@
       <tr>
         <td><%=link_to "#{author.firstname + ' ' + author.lastname}", author %></td>
       
-        <td><%= author.biography %></td>
+       
         
       </tr>
     <% end %>
@@ -24,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Author', new_author_path %>
+</center>

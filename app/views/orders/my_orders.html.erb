@@ -1,0 +1,8 @@
+My Orders<br>
+<table>
+<%Order.where(costumer_id: current_costumer.id).find_each do |o|%>
+<tr><td>
+<%=link_to "Order# #{o.id}", o %>
+<%end%>
+</td></tr>
+</table>

@@ -1,16 +1,18 @@
+<center>
 <p id="notice"><%= notice %></p>
-
+</center>
 <p>
   <strong>Title:</strong>
   <%= @category.title %>
 </p>
-<table border=1px>
-
+<table>
+<strong>Books:</strong>
 <%Book.where(category_id: @category.id).find_each do |book| %>
 <tr><td>
-<%=book.title%>
+<%=link_to book.title, book%>
 <%end%>
 </td>
 </tr>
 </table>
+
 <%= link_to 'Back', categories_path %>

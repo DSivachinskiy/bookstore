@@ -1,6 +1,6 @@
      
 
-<table  width=100% border=1px>
+<table  width=100%>
 
 <tr>
 <td width=33%><%=image_tag("books.png", height: 150)%></td>
@@ -10,7 +10,7 @@
 <table aling="left">
 <tr>
 <td>
-
+<%= link_to "orders", "orders/my_orders_path" %>
 </td>
 </tr>
 </table>

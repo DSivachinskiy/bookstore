@@ -10,10 +10,8 @@ before_save :price
 
 def price
 Book.where(id: book_id).find do |b|
-a = b.price*quantity
-update_attribute(:price, a)
+return b.price*quantity
 end
-
 end
 
 end
