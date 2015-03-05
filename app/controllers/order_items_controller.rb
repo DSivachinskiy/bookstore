@@ -1,6 +1,6 @@
 class OrderItemsController < ApplicationController
   before_action :set_order_item, only: [:show, :edit, :update, :destroy]
-
+ 
   # GET /order_items
   # GET /order_items.json
   def index
@@ -15,6 +15,7 @@ class OrderItemsController < ApplicationController
   # GET /order_items/new
   def new
     @order_item = OrderItem.new
+
   end
 
   # GET /order_items/1/edit
@@ -25,7 +26,12 @@ class OrderItemsController < ApplicationController
   # POST /order_items.json
   def create
     @order_item = OrderItem.new(order_item_params)
-
+     @order_item.book_id = cookies[:id]
+       
+    current_order.find do |o|
+      @order_item.order_id = o.id
+    end
+    
     respond_to do |format|
       if @order_item.save
         format.html { redirect_to @order_item, notice: 'Order item was successfully created.' }
@@ -56,7 +62,7 @@ class OrderItemsController < ApplicationController
   def destroy
     @order_item.destroy
     respond_to do |format|
-      format.html { redirect_to order_items_url, notice: 'Order item was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Order item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +75,7 @@ class OrderItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_item_params
-      params[:order_item]
+      params.require(:order_item).permit(:quantity, :order_id, :book_id)
+  
     end
 end

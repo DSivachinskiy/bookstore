@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+<center>
+<table>
+<tr>
+<td><strong>Shipping Adresses:</strong></td>
+<td><strong>Billing Adresses:</strong></td>
+<td><strong>Credit cards:</strong></td>
+</tr>
+<tr><td>
+<table>
+
+<%Adress.where(costumer_id: @costumer.id).find_each do |a|%>
+
+<%Country.where(id: a.country_id).find do |c|%>
+<tr><td>Country: <%=c.name%></td></tr>
+<%end%>
+
+<tr><td>City: <%=a.city%></td></tr>
+<tr><td>Street: <%=a.adress%></td></tr>
+<tr><td>Zipcode: <%=a.zipcode%></td></tr>
+<tr><td>Phone: <%=a.phone%></td></tr>
+ <tr><td><%=link_to "Edit", edit_adress_path(a)%></td></tr> 
+ <tr><td><%=link_to "Delete", a, method: :delete, data: { confirm: 'Are you sure?' }%></td></tr> 
+ <tr><td><hr></td></tr> 
+
+<%end%>
+
+</table>
+</td>
+<td>
+<table>
+
+<%BillingAdress.where(costumer_id: @costumer.id).find_each do |a|%>
+<%Country.where(id: a.country_id).find do |c|%>
+<tr><td>Country: <%=c.name%></td></tr>
+<%end%>
+<tr><td>City: <%=a.city%></td></tr>
+<tr><td>Street: <%=a.adress%></td></tr>
+<tr><td>Zipcode: <%=a.zipcode%></td></tr>
+<tr><td>Phone: <%=a.phone%></td></tr>
+<tr><td><%=link_to "Edit", edit_billing_adress_path(a)%></td></tr> 
+ <tr><td><%=link_to "Delete", a, method: :delete, data: { confirm: 'Are you sure?' }%></td></tr> 
+ <tr><td><hr></td></tr>
+<%end%>
+
+</table>
+</td>
+<td>
+<table>
+<%CreditCard.where(costumer_id: @costumer.id).find_each do |c|%>
+  <tr><td>Number: <%=c.number%></td></tr>
+  <tr><td>CVV: <%=c.cvv%></td></tr>
+   <tr><td>Expiration_month: <%=c.expiration_month%></td></tr>
+   <tr><td>Expiration_year: <%=c.expiration_year%></td></tr>
+   <tr><td>Firstname: <%=c.firstname%></td></tr>
+   <tr><td>Lastname: <%=c.lastname%></td></tr>
+   <tr><td><%=link_to "Edit", edit_credit_card_path(c)%></td></tr> 
+    <tr><td><%=link_to "Delete", c, method: :delete, data: { confirm: 'Are you sure?' }%></td></tr> 
+   <tr><td><hr></td></tr>
+<%end%>
+
+</table>
+</td>
+</tr></table>
+
+<%= link_to 'New shipping adress', new_adress_path %>
+<%= link_to 'New billing adress', new_billing_adress_path %>
+<%= link_to 'New credit card', new_credit_card_path %>

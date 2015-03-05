@@ -20,5 +20,12 @@
 </table>
 
 <br>
+<%if signed_in?%>
+<%if current_costumer.role_id == 1%>
+
+  
+<%=link_to 'New', new_category_path%>
+<%end%>
+<%end%>
 </center>
 

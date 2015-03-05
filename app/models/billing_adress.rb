@@ -1,7 +1,8 @@
 class BillingAdress < ActiveRecord::Base
 
-belongs_to :order
+has_many :orders
 belongs_to :country
+belongs_to :costumer
 
 validates :adress, presence: true
 validates :zipcode, presence: true

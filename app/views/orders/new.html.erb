@@ -1,5 +1,42 @@
 <h1>New order</h1>
 
-<%= render 'form' %>
+<h1>Editing order</h1>
 
-<%= link_to 'Back', orders_path %>
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :completed_date %><br>
+    <%= f.date_select :completed_date %>
+  </div>
+
+   <div class="field">
+    Shipping adress
+    <%= f.select(:adress_id, options_for_select(Adress.where(costumer_id: current_costumer.id).collect { |adress| [adress.adress, adress.id] })) %>
+  </div>
+  <div class="field">
+    Billing adress
+    <%= f.select(:billing_adress_id, options_for_select(BillingAdress.where(costumer_id: current_costumer.id).collect { |adress| [adress.adress, adress.id] })) %>
+  </div>
+  <div class="field">
+    Credit Card
+    <%= f.select(:credit_card_id, options_for_select(CreditCard.where(costumer_id: current_costumer.id).collect { |card| [card.number, card.id] })) %>
+  </div>
+<div class="field">
+    
+    <%= f.select(:order_status_id, options_for_select(OrderStatus.where(id: 1).collect { |status| [status.status, status.id] })) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

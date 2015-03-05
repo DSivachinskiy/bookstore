@@ -11,7 +11,15 @@
     </div>
   <% end %>
 
+<div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.text_field :quantity  %>
+  </div>
+<%Book.where(id: cookies[:id]).find do |b|%>
+  <%=b.id%>
+  <%end%>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+

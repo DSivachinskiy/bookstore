@@ -1,8 +1,0 @@
-My Orders<br>
-<table>
-<%Order.where(costumer_id: current_costumer.id).find_each do |o|%>
-<tr><td>
-<%= o.id %>
-<%end%>
-</td></tr>
-</table>

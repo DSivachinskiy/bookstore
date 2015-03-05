@@ -18,22 +18,25 @@ class BillingAdressesController < ApplicationController
   end
 
   def edit
+
   end
 
   def create
     @billing_adress = BillingAdress.new(billing_adress_params)
+    @billing_adress.costumer_id = current_costumer.id
     @billing_adress.save
-    respond_with(@billing_adress)
+     redirect_to current_costumer
   end
 
   def update
     @billing_adress.update(billing_adress_params)
-    respond_with(@billing_adress)
+     redirect_to current_costumer
+    
   end
 
   def destroy
     @billing_adress.destroy
-    respond_with(@billing_adress)
+     redirect_to current_costumer
   end
 
   private
@@ -42,6 +45,6 @@ class BillingAdressesController < ApplicationController
     end
 
     def billing_adress_params
-      params.require(:billing_adress).permit(:adress, :zipcode, :city, :phone, :country)
+      params.require(:billing_adress).permit(:adress, :zipcode, :city, :phone, :country_id)
     end
 end

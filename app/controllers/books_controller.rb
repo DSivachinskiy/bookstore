@@ -10,7 +10,9 @@ class BooksController < ApplicationController
   end
 
   def show
+    cookies[:id] = @book.id
     respond_with(@book)
+
   end
 
   def new
@@ -43,6 +45,6 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit(:title, :description, :price, :books_in_stock)
+      params.require(:book).permit(:title, :description, :price, :books_in_stock, :author_id, :category_id)
     end
 end

@@ -27,6 +27,14 @@
     <%= f.label :books_in_stock %><br>
     <%= f.number_field :books_in_stock %>
   </div>
+   <div class="field">
+  
+    <%= f.select(:author_id, options_for_select(Author.all.collect { |author| [author.firstname,author.lastname, author.id] })) %>
+  </div>
+    <div class="field">
+  
+    <%= f.select(:category_id, options_for_select(Category.all.collect { |category| [category.title, category.id] })) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

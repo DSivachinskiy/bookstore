@@ -22,18 +22,19 @@ class CreditCardsController < ApplicationController
 
   def create
     @credit_card = CreditCard.new(credit_card_params)
+    @credit_card.costumer_id = current_costumer.id
     @credit_card.save
-    respond_with(@credit_card)
+    redirect_to current_costumer
   end
 
   def update
     @credit_card.update(credit_card_params)
-    respond_with(@credit_card)
+      redirect_to current_costumer
   end
 
   def destroy
     @credit_card.destroy
-    respond_with(@credit_card)
+    redirect_to current_costumer
   end
 
   private

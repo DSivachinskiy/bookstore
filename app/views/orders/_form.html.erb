@@ -12,17 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :total_price %><br>
-    <%= f.text_field :total_price %>
-  </div>
-  <div class="field">
     <%= f.label :completed_date %><br>
     <%= f.date_select :completed_date %>
   </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
+
+   <div class="field">
+    Shipping adress
+    <%= f.select(:adress_id, options_for_select(Adress.where(costumer_id: current_costumer.id).collect { |adress| [adress.adress, adress.id] })) %>
   </div>
+  <div class="field">
+    Billing adress
+    <%= f.select(:billing_adress_id, options_for_select(BillingAdress.where(costumer_id: current_costumer.id).collect { |adress| [adress.adress, adress.id] })) %>
+  </div>
+  <div class="field">
+    Credit Card
+    <%= f.select(:credit_card_id, options_for_select(CreditCard.where(costumer_id: current_costumer.id).collect { |card| [card.number, card.id] })) %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

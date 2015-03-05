@@ -22,18 +22,20 @@ class AdressesController < ApplicationController
 
   def create
     @adress = Adress.new(adress_params)
+    @adress.costumer_id = current_costumer.id
     @adress.save
-    respond_with(@adress)
+     redirect_to current_costumer
   end
 
   def update
     @adress.update(adress_params)
-    respond_with(@adress)
+
+     redirect_to current_costumer
   end
 
   def destroy
     @adress.destroy
-    respond_with(@adress)
+   redirect_to current_costumer
   end
 
   private
@@ -42,6 +44,6 @@ class AdressesController < ApplicationController
     end
 
     def adress_params
-      params.require(:adress).permit(:adress, :zipcode, :city, :phone, :country)
+      params.require(:adress).permit(:adress, :zipcode, :city, :phone, :country_id)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219145141) do
+ActiveRecord::Schema.define(version: 20150302095054) do
 
   create_table "admins", force: true do |t|
     t.string   "email"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20150219145141) do
     t.datetime "updated_at"
     t.integer  "order_id"
     t.integer  "country_id"
+    t.integer  "costumer_id"
   end
 
   create_table "authors", force: true do |t|
@@ -62,6 +63,7 @@ ActiveRecord::Schema.define(version: 20150219145141) do
     t.datetime "updated_at"
     t.integer  "order_id"
     t.integer  "country_id"
+    t.integer  "costumer_id"
   end
 
   create_table "books", force: true do |t|
@@ -74,6 +76,7 @@ ActiveRecord::Schema.define(version: 20150219145141) do
     t.float    "total_rating"
     t.integer  "category_id"
     t.integer  "author_id"
+    t.integer  "rating_id"
   end
 
   create_table "carts", force: true do |t|
@@ -105,6 +108,7 @@ ActiveRecord::Schema.define(version: 20150219145141) do
     t.string   "lastname"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "role_id"
   end
 
   add_index "costumers", ["email"], name: "index_costumers_on_email", unique: true
@@ -125,6 +129,8 @@ ActiveRecord::Schema.define(version: 20150219145141) do
     t.string   "lastname"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "costumer_id"
+    t.integer  "order_id"
   end
 
   create_table "order_items", force: true do |t|
@@ -150,6 +156,9 @@ ActiveRecord::Schema.define(version: 20150219145141) do
     t.datetime "updated_at"
     t.integer  "costumer_id"
     t.integer  "order_status_id"
+    t.integer  "credit_card_id"
+    t.integer  "adress_id"
+    t.integer  "billing_adress_id"
   end
 
   create_table "ratings", force: true do |t|
@@ -159,6 +168,12 @@ ActiveRecord::Schema.define(version: 20150219145141) do
     t.datetime "updated_at"
     t.integer  "book_id"
     t.integer  "costumer_id"
+  end
+
+  create_table "roles", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "role"
   end
 
 end

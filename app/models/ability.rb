@@ -7,9 +7,10 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
     user ||= Costumer.new # guest user (not logged in)
-     #if user.admin?
-      #  can :manage, :all
-    #   else
+     if user.role_id == 1
+        can :manage, :all
+     end
+
         can :read, :all
      # end
     #

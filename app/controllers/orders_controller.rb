@@ -5,12 +5,9 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
-    respond_with(@orders)
   end
 
-def my_orders
 
-end
 
   def show
     respond_with(@order)
@@ -26,13 +23,16 @@ end
 
   def create
     @order = Order.new(order_params)
+    @order.costumer_id = current_costumer.id
+  
     @order.save
     respond_with(@order)
   end
 
   def update
     @order.update(order_params)
-    respond_with(@order)
+    
+    redirect_to orders_path
   end
 
   def destroy
@@ -46,6 +46,6 @@ end
     end
 
     def order_params
-      params.require(:order).permit(:total_price, :completed_date, :state)
+      params.require(:order).permit(:total_price, :completed_date, :adress_id, :billing_adress_id, :credit_card_id, :order_status_id, :costumer_id)
     end
 end

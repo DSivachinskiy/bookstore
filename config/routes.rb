@@ -15,10 +15,10 @@ Rails.application.routes.draw do
 
   resources :order_items
 
-  get "my_orders_path" => "orders#my_orders"
+ 
   resources :orders
 
-  devise_for :costumers, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
+  devise_for :costumers, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }, controllers: {registrations: 'registrations'}
   resources :ratings
 
   resources :authors
@@ -27,6 +27,11 @@ Rails.application.routes.draw do
 
   resources :books
  root 'books#index'
+
+resources :costumers
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

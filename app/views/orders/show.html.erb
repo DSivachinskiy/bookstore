@@ -16,6 +16,7 @@
 <%end%>
 <tr><td>Quantity: <%=o.quantity%></td></tr>
 <tr><td>Price: <%=o.price%></td></tr>
+<tr><td><%= link_to 'Edit', edit_order_item_path(o)%></td></tr>
 <tr><td><%= link_to 'Destroy', o, method: :delete, data: { confirm: 'Are you sure?' } %></td></tr>
 <tr><td> </td></tr>
 <%end%>
@@ -24,43 +25,10 @@
   <strong>Total price:</strong>
   <%= @order.total_price %>
 </p>
+<%OrderStatus.where(id: @order.order_status_id).find do |s|%>
+<%=s.status%>
+<%end%>
 <p>
 
-<table>
-<tr>
-<td><strong>Shipping Adress:</strong></td>
-<td><strong>Billing Adress:</strong></td>
-</tr>
-<tr><td>
-<table>
-
-<%Adress.where(order_id: @order.id).find do |a|%>
-
-<%Country.where(id: a.country_id).find do |c|%>
-<tr><td>Country: <%=c.name%></td></tr>
-<%end%>
-
-<tr><td>City: <%=a.city%></td></tr>
-<tr><td>Street: <%=a.adress%></td></tr>
-<tr><td>Zipcode: <%=a.zipcode%></td></tr>
-<tr><td>Phone: <%=a.phone%></td></tr>
-<%end%>
-
-</table>
-</td>
-<td>
-<table>
-
-<%BillingAdress.where(order_id: @order.id).find do |a|%>
-<%Country.where(id: a.country_id).find do |c|%>
-<tr><td>Country: <%=c.name%></td></tr>
-<%end%>
-<tr><td>City: <%=a.city%></td></tr>
-<tr><td>Street: <%=a.adress%></td></tr>
-<tr><td>Zipcode: <%=a.zipcode%></td></tr>
-<tr><td>Phone: <%=a.phone%></td></tr>
-<%end%>
-
-</table>
-</td></tr></table>
+<%=link_to "Accept order", edit_order_path(@order)%>
 <%= link_to 'Back', orders_path %>
