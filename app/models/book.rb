@@ -11,10 +11,15 @@ validates :title, presence: true
 validates :price, presence: true
 validates :books_in_stock, presence: true
 
-def total_rating
+before_save :save_rating
+
+def rating
 	if ratings.size !=0
 ratings.sum(:rating_number)/ratings.size
 end
 end
 
+def save_rating
+  self.total_rating = rating 
+end
 end

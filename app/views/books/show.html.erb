@@ -31,9 +31,15 @@
   <strong>Books in stock:</strong>
   <%= @book.books_in_stock %>
 </p>
+Comments:<br>
+<%@book.ratings.each do |r|%>
+<table><tr><td>
+<br><%=r.texxt_review%>
+</td></tr></table>
+<%end%>
 <%if signed_in?%>
 <%if current_costumer.role_id != 1%>
-
+<%=link_to 'add rating', ratings_path%>
   <%if current_order.exists?%>
    <%=link_to 'buy', new_order_item_path%>
    <%else%>

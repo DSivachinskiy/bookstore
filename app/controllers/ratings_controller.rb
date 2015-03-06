@@ -42,6 +42,6 @@ class RatingsController < ApplicationController
     end
 
     def rating_params
-      params.require(:rating).permit(:texxt_review, :rating_number)
+      params.require(:rating).permit(:texxt_review, :rating_number, :book_id, :costumer_id)
     end
 end

@@ -12,7 +12,7 @@ validates :costumer_id, presence: true
 validates :completed_date, presence: true
 
 before_save :save_price
-
+after_save :book_count
   def calculate
     sum = 0
     order_items.each do |oi|
@@ -20,6 +20,14 @@ before_save :save_price
     end
     sum
   end
+def book_count
+  if order_status.id != 1
+  order_items.each do |oi|
+   oi.book.books_in_stock -= oi.quantity
+   oi.book.save
+ end
+  end
+end
 
   def save_price
     self.total_price = calculate

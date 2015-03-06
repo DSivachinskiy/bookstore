@@ -24,5 +24,12 @@
 </td>
 </tr>
 </table>
+<%if signed_in?%>
+<%if current_costumer.role_id == 1%>
 
+  
+<%=link_to 'edit', edit_author_path(@author)%>
+<%=link_to 'delete', @author, method: :delete%>
+<%end%>
+<%end%>
 <%= link_to 'Back', authors_path %>

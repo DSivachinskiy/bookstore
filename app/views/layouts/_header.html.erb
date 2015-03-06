@@ -15,7 +15,8 @@
 </td>
 </tr>
 </table>
-       <%=link_to "Hello", costumer_path(current_costumer)%>, <%= current_costumer.firstname %>
+<%=link_to "my info", costumer_path(current_costumer)%><br>
+      Hello, <%= current_costumer.firstname %>
 	 <%= current_costumer.lastname %>!<br>
    <%else%>
     Hello admin <%= current_costumer.firstname %>
