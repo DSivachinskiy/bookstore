@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  load_and_authorize_resource
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -30,8 +31,9 @@ class OrdersController < ApplicationController
   end
 
   def update
+    @order.ship
     @order.update(order_params)
-    
+  
     redirect_to orders_path
   end
 
@@ -46,6 +48,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:total_price, :completed_date, :adress_id, :billing_adress_id, :credit_card_id, :order_status_id, :costumer_id)
+      params.require(:order).permit(:total_price, :completed_date, :adress_id, :billing_adress_id, :credit_card_id, :aasm_state, :costumer_id)
     end
 end

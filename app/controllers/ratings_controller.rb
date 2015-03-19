@@ -1,4 +1,5 @@
 class RatingsController < ApplicationController
+load_and_authorize_resource
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -22,6 +23,8 @@ class RatingsController < ApplicationController
 
   def create
     @rating = Rating.new(rating_params)
+    @rating.book_id = cookies[:id] 
+    @rating.costumer_id = current_costumer.id
     @rating.save
     respond_with(@rating)
   end

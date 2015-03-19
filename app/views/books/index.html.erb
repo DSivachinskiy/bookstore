@@ -33,7 +33,7 @@
   </tbody>
 </table>
 <%if signed_in?%>
-<%if current_costumer.role_id == 1%>
+<%if current_costumer.admin?%>
 
   
 <%=link_to 'New book', new_book_path%>

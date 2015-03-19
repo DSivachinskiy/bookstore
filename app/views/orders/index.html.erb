@@ -6,7 +6,7 @@ My Orders<br>
 <br>Finished orders
 
 <%@orders.each do |order|%>
-<%if order.order_status_id !=1%>
+<%if order.aasm_state != "in_progress"%>
 <br><%=link_to "#{order.id}", order%>
 <%end%>
 <%end%>

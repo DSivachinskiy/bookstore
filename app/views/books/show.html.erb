@@ -38,8 +38,8 @@ Comments:<br>
 </td></tr></table>
 <%end%>
 <%if signed_in?%>
-<%if current_costumer.role_id != 1%>
-<%=link_to 'add rating', ratings_path%>
+<%unless current_costumer.admin?%>
+<%=link_to 'add rating', new_rating_path%>
   <%if current_order.exists?%>
    <%=link_to 'buy', new_order_item_path%>
    <%else%>

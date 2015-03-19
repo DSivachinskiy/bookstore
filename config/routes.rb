@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :order_statuses
-
   resources :carts, only: [:show]
 
   devise_for :admins
@@ -17,8 +15,8 @@ Rails.application.routes.draw do
 
  
   resources :orders
-
-  devise_for :costumers, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }, controllers: {registrations: 'registrations'}
+  
+devise_for :costumers, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   resources :ratings
 
   resources :authors

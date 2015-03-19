@@ -7,7 +7,7 @@
 <td align=center><h1><%=link_to "BookStore", root_path%></h1></td>
 <td align="right" width=33%>
         <%if signed_in?%>
-        <%if current_costumer.role_id !=1%>
+        <%unless current_costumer.admin?%>
 <table aling="left">
 <tr>
 <td>

@@ -4,13 +4,16 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery with: :exception
  before_filter :configure_permitted_parameters, if: :devise_controller?
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
 
  helper_method :current_order
  helper_method :last_book
-
+alias_method :current_user, :current_costumer
 
 def current_order
- @current_order = Order.where(costumer_id: current_costumer.id).where(order_status_id: 1)
+ @current_order = Order.where(costumer_id: current_costumer.id).where(aasm_state: "in_progress")
 end
 
 def last_book

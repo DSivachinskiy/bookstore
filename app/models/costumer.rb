@@ -4,7 +4,7 @@ class Costumer < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-belongs_to :role
+
 has_many :orders
 has_many :ratings
 has_many :adresses

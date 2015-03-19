@@ -25,9 +25,7 @@
   <strong>Total price:</strong>
   <%= @order.total_price %>
 </p>
-<%OrderStatus.where(id: @order.order_status_id).find do |s|%>
-<%=s.status%>
-<%end%>
+
 <p>
 
 <%=link_to "Accept order", edit_order_path(@order)%>

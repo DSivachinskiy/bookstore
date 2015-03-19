@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302095054) do
+ActiveRecord::Schema.define(version: 20150319123526) do
 
   create_table "admins", force: true do |t|
     t.string   "email"
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 20150302095054) do
     t.string   "lastname"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "role_id"
+    t.boolean  "admin"
   end
 
   add_index "costumers", ["email"], name: "index_costumers_on_email", unique: true
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(version: 20150302095054) do
     t.integer  "credit_card_id"
     t.integer  "adress_id"
     t.integer  "billing_adress_id"
+    t.string   "aasm_state"
   end
 
   create_table "ratings", force: true do |t|

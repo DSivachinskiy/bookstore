@@ -15,7 +15,7 @@
 </tr>
 </table>
 <%if signed_in?%>
-<%if current_costumer.role_id == 1%>
+<%if current_costumer.admin?%>
 
   
 <%=link_to 'edit', edit_category_path(@category)%>

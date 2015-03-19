@@ -30,9 +30,10 @@ gem 'devise'
 
 
 gem 'rails_admin'
-gem 'cancancan'
-
-
+gem 'cancan'
+gem 'aasm'
+gem 'rails-i18n'
+gem 'omniauth-facebook'
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'

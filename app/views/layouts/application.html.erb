@@ -10,15 +10,39 @@
 .style1 {
 text-align: left;
 }
+a:link { 
+  color: #AA0000;
+}
+a:visited { 
+  color: #00BB00;
+}
+a:hover { 
+  color: #CC43CC;
+}
+a:active { 
+  color: #333993;
+}
+.gradient1 {
+    background: linear-gradient(to top, #eeeeee, #0000aa);
+    border: 1px solid #333;
+   }
+   html {
+    background: linear-gradient(to bottom, #eeeeee, #FFD700);
+    height: 100%;
 
+   }
+    .transparent {
+    background-color: rgba(0, 0, 0, 0); /* Цвет фона и значение прозрачности */
+    
+   }
 </style>
-<body>
-
+<body class = 'gradient2'>
+<div class = 'gradient1'>
 <%= render "layouts/header" %>
 
-
- 
+</div>
+ <div class = 'transparent'>
 <%= yield %>
-
+</div>
 </body>
 </html>

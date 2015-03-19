@@ -8,7 +8,7 @@ describe Costumer do
   it { expect(costumer).to validate_presence_of(:password) }
   it { expect(costumer).to validate_presence_of(:firstname) }
   it { expect(costumer).to validate_presence_of(:lastname) }
-
+  it { should belong_to :role }
   it { should have_many :orders }
   it { should have_many :ratings }
   it { should have_many :adresses }

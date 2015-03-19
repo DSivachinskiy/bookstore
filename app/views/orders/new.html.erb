@@ -32,10 +32,7 @@
     Credit Card
     <%= f.select(:credit_card_id, options_for_select(CreditCard.where(costumer_id: current_costumer.id).collect { |card| [card.number, card.id] })) %>
   </div>
-<div class="field">
-    
-    <%= f.select(:order_status_id, options_for_select(OrderStatus.where(id: 1).collect { |status| [status.status, status.id] })) %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
