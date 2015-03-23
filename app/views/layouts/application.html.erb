@@ -7,41 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <style>
-.style1 {
-text-align: left;
+th {
+	 text-align: left;
 }
-a:link { 
-  color: #AA0000;
-}
-a:visited { 
-  color: #00BB00;
-}
-a:hover { 
-  color: #CC43CC;
-}
-a:active { 
-  color: #333993;
-}
-.gradient1 {
-    background: linear-gradient(to top, #eeeeee, #0000aa);
-    border: 1px solid #333;
-   }
-   html {
-    background: linear-gradient(to bottom, #eeeeee, #FFD700);
-    height: 100%;
-
-   }
-    .transparent {
-    background-color: rgba(0, 0, 0, 0); /* Цвет фона и значение прозрачности */
-    
-   }
 </style>
-<body class = 'gradient2'>
-<div class = 'gradient1'>
+<body>
+<div>
 <%= render "layouts/header" %>
 
 </div>
- <div class = 'transparent'>
+ <div>
 <%= yield %>
 </div>
 </body>

@@ -4,29 +4,29 @@
 
 <h2>Order# <%=@order.id%></h2>
 <br>
-<strong>Order Items:</strong>
+<strong><%= t :order_items%></strong>
 <table>
 <%OrderItem.where(order_id: @order.id).find_each do |o|%>
 
 
 
 <%Book.where(id: o.book_id).find do |b|%>
-<tr><td>Book: <%=link_to b.title, b%></td></tr>
-<tr><td>Book price: <%= b.price%></td></tr>
+<tr><td><%= t :book_title%> <%=link_to b.title, b%></td></tr>
+<tr><td><%= t :book_price%>: <%= b.price%></td></tr>
 <%end%>
-<tr><td>Quantity: <%=o.quantity%></td></tr>
-<tr><td>Price: <%=o.price%></td></tr>
-<tr><td><%= link_to 'Edit', edit_order_item_path(o)%></td></tr>
-<tr><td><%= link_to 'Destroy', o, method: :delete, data: { confirm: 'Are you sure?' } %></td></tr>
+<tr><td><%= t :quantity%>: <%=o.quantity%></td></tr>
+<tr><td><%= t :price%>: <%=o.price%></td></tr>
+<tr><td><%= link_to "#{t :edit}", edit_order_item_path(o)%></td></tr>
+<tr><td><%= link_to "#{t :destroy}", o, method: :delete, data: { confirm: 'Are you sure?' } %></td></tr>
 <tr><td> </td></tr>
 <%end%>
 </table><br>
 <p>
-  <strong>Total price:</strong>
+  <strong><%= t :total_price%>: </strong>
   <%= @order.total_price %>
 </p>
 
 <p>
 
-<%=link_to "Accept order", edit_order_path(@order)%>
-<%= link_to 'Back', orders_path %>
+<%=link_to "#{t :accept_order}", edit_order_path(@order)%><br>
+<%= link_to "#{t :back}", orders_path %>

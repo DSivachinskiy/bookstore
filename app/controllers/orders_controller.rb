@@ -1,26 +1,7 @@
 class OrdersController < ApplicationController
-  load_and_authorize_resource
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :except => [:create]
 
   respond_to :html
-
-  def index
-    @orders = Order.all
-  end
-
-
-
-  def show
-    respond_with(@order)
-  end
-
-  def new
-    @order = Order.new
-    respond_with(@order)
-  end
-
-  def edit
-  end
 
   def create
     @order = Order.new(order_params)
@@ -43,9 +24,6 @@ class OrdersController < ApplicationController
   end
 
   private
-    def set_order
-      @order = Order.find(params[:id])
-    end
 
     def order_params
       params.require(:order).permit(:total_price, :completed_date, :adress_id, :billing_adress_id, :credit_card_id, :aasm_state, :costumer_id)

@@ -1,31 +1,15 @@
 class BooksController < ApplicationController
-load_and_authorize_resource
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
-
+load_and_authorize_resource :except => [:create]
   respond_to :html
 
-  def index
-    @books = Book.all
-    
-   
-  end
+ 
 
   def show
     cookies[:id] = @book.id
-    respond_with(@book)
-
-  end
-
-  def new
-    @book = Book.new
-    respond_with(@book)
-  end
-
-  def edit
   end
 
   def create
-    @book = Book.new(book_params)
+  	@book = Book.new(book_params)
     @book.save
     respond_with(@book)
   end
@@ -41,10 +25,6 @@ load_and_authorize_resource
   end
 
   private
-    def set_book
-      @book = Book.find(params[:id])
-    end
-
     def book_params
       params.require(:book).permit(:title, :description, :price, :books_in_stock, :author_id, :category_id)
     end

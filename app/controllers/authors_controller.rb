@@ -1,25 +1,7 @@
 class AuthorsController < ApplicationController
-load_and_authorize_resource
-  before_action :set_author, only: [:show, :edit, :update, :destroy]
+load_and_authorize_resource :except => [:create]
 
   respond_to :html
-
-  def index
-    @authors = Author.all
-    respond_with(@authors)
-  end
-
-  def show
-    respond_with(@author)
-  end
-
-  def new
-    @author = Author.new
-    respond_with(@author)
-  end
-
-  def edit
-  end
 
   def create
     @author = Author.new(author_params)
@@ -38,9 +20,6 @@ load_and_authorize_resource
   end
 
   private
-    def set_author
-      @author = Author.find(params[:id])
-    end
 
     def author_params
       params.require(:author).permit(:firstname, :lastname, :biography)

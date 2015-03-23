@@ -4,29 +4,29 @@
 
 <tr>
 <td width=33%><%=image_tag("books.png", height: 150)%></td>
-<td align=center><h1><%=link_to "BookStore", root_path%></h1></td>
+<td align=center><h1><%=link_to "#{I18n.t "bookstore"}" , root_path%></h1></td>
 <td align="right" width=33%>
         <%if signed_in?%>
         <%unless current_costumer.admin?%>
 <table aling="left">
 <tr>
 <td>
-<%= link_to "orders", orders_path %>
+<%= link_to "#{I18n.t "orders"}", orders_path %>
 </td>
 </tr>
 </table>
 <%=link_to "my info", costumer_path(current_costumer)%><br>
-      Hello, <%= current_costumer.firstname %>
-	 <%= current_costumer.lastname %>!<br>
+      <%= t "hello", firstname: current_costumer.firstname, lastname: current_costumer.lastname %>
+	 <br>
    <%else%>
     Hello admin <%= current_costumer.firstname %>
    <%= current_costumer.lastname %>!<br>
    <%end%>
-          <%=link_to "Edit my password", edit_costumer_registration_path%><br>
-          <%=link_to "Logout", destroy_costumer_session_path, method: :delete%>
+          <%=link_to "#{I18n.t "edit_costumer"}", edit_costumer_registration_path%><br>
+          <%=link_to "#{I18n.t "logout"}", destroy_costumer_session_path, method: :delete%>
         <%else%>
-          <%=link_to "Register", new_costumer_registration_path%><br>
-          <%=link_to "Login", new_costumer_session_path%><br>
+          <%=link_to "#{I18n.t "register"}", new_costumer_registration_path%><br>
+          <%=link_to "#{I18n.t "login"}", new_costumer_session_path%><br>
           
         <%end%>
    </td>

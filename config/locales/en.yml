@@ -1,23 +1,57 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  helpers:
+    submit:
+      create: Create
+      submit: Save
+      update: Update
+
+  list_books: Listing books
+  bookstore: BookStore
+  orders: My Orders
+  total_price: Total Price
+  current_order: Current order
+  book_title: Book title
+  book_price: Book price
+  quantity: Quantity
+  rating: Rating
+  edit_costumer: Edit my account
+  email: Email
+  password: Password
+  password_message: "(leave blank if you don't want to change it)"
+  password_confirmation: Password confirmation 
+  current_password: Current password
+  current_password_message: (we need your current password to confirm your changes)
+  logout: Logout
+  login: Log in
+  register: Register
+  firstname: Firstname
+  lastname: Lastname
+  min_characters: characters minimum
+  remember_me: Remember me
+  hello: "Hello, %{firstname} %{lastname}"
+  finished_orders: Finished orders
+  order_items: Order items
+  price: Price
+  edit: Edit
+  destroy: Destroy
+  accept_order: Accept order
+  back: Back
+  categories: Categories
+  authors: Authors
+  list_categories: Listing categories
+  list_authors: Listing authors
+  category_title: Category title
+  biography: Biography
+  new: New
+  description: Desctiption
+  new_book: New book
+  books_in_stock: Books in stock
+  author: Author
+  comments: Comments
+  show: Show
+  edit_book: Editing book
+  new_category: New category
+  new_author: New author
+  edit_author: Editing author
+  edit_category: Editing category

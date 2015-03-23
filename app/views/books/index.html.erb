@@ -1,23 +1,23 @@
 <center>
-<h1>Listing books</h1>
+<h1><h1><%=t :list_books %></h1></h1>
 
-<table width=90% class="style1">
+<table width=90%>
  
 
     <tr>
 <td>
 <table>
 <tr>
-<td><%= link_to "Categories", categories_path%></td>
+<td><%= link_to "#{t :categories}", categories_path%></td>
 </tr>
 <tr>
-<td><%= link_to "Authors", authors_path%></td>
+<td><%= link_to "#{t :authors}", authors_path%></td>
 </tr>
 </table>
 </td>
-      <th>Title</th>
-      <th>Price</th>
-      <th>Rating</th>
+      <th><%=t :book_title%></th>
+      <th><%=t :book_price%></th>
+      <th><%=t :rating%></th>
          </tr>
 
   <tbody>
@@ -36,7 +36,7 @@
 <%if current_costumer.admin?%>
 
   
-<%=link_to 'New book', new_book_path%>
+<%=link_to "#{t :new}", new_book_path%>
 <%end%>
 <%end%>
 <br>

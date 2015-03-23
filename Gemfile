@@ -28,7 +28,7 @@ gem 'spring',        group: :development
 gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
 gem 'devise'
 
-
+gem 'wicked'
 gem 'rails_admin'
 gem 'cancan'
 gem 'aasm'

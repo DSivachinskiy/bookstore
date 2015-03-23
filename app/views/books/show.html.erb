@@ -1,37 +1,37 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= t :book_title %>: </strong>
   <%= @book.title %>
 </p>
 
 <p>
-  <strong>Author:</strong>
+  <strong><%= t :author%>: </strong>
   <% Author.where(id: @book.author_id).find do |author| %>
 <%=link_to "#{author.firstname + ' '+ author.lastname}", author%>
 <%end%>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= t :description%>: </strong>
   <%= @book.description %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong><%= t :book_price%>: </strong>
   <%= @book.price %>
 </p>
 
 <p>
-  <strong>Rating:</strong>
+  <strong><%= t :rating%>: </strong>
   <%= @book.total_rating %>
 </p>
 
 <p>
-  <strong>Books in stock:</strong>
+  <strong><%= t :books_in_stock%>: </strong>
   <%= @book.books_in_stock %>
 </p>
-Comments:<br>
+<%= t :comments%>:<br>
 <%@book.ratings.each do |r|%>
 <table><tr><td>
 <br><%=r.texxt_review%>
@@ -47,8 +47,9 @@ Comments:<br>
    <%end%>
 
    <%else%>
-<%=link_to 'Edit', edit_book_path(@book)%>
+<%=link_to "#{t :edit}", edit_book_path(@book)%>
+<%=link_to "#{t :destroy}", @book, method: :delete%>
 <%end%>
 <%end%>
-<%= link_to 'Back', books_path %><br>
+<%= link_to "#{t :back}", books_path %><br>
 

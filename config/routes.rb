@@ -28,7 +28,7 @@ devise_for :costumers, path_names: { sign_in: 'login', sign_out: 'logout', sign_
 
 resources :costumers
 
-
+resources :check_out
 
 
   # The priority is based upon order of creation: first created -> highest priority.

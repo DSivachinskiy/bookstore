@@ -1,25 +1,7 @@
 class AdressesController < ApplicationController
-load_and_authorize_resource
-  before_action :set_adress, only: [:show, :edit, :update, :destroy]
-
+load_and_authorize_resource :except => [:create]
+  
   respond_to :html
-
-  def index
-    @adresses = Adress.all
-    respond_with(@adresses)
-  end
-
-  def show
-    respond_with(@adress)
-  end
-
-  def new
-    @adress = Adress.new
-    respond_with(@adress)
-  end
-
-  def edit
-  end
 
   def create
     @adress = Adress.new(adress_params)
@@ -40,9 +22,6 @@ load_and_authorize_resource
   end
 
   private
-    def set_adress
-      @adress = Adress.find(params[:id])
-    end
 
     def adress_params
       params.require(:adress).permit(:adress, :zipcode, :city, :phone, :country_id)

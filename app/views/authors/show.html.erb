@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Firstname:</strong>
+  <strong><%= t :firstname%>: </strong>
   <%= @author.firstname %>
 </p>
 
 <p>
-  <strong>Lastname:</strong>
+  <strong><%= t :lastname%>: </strong>
   <%= @author.lastname %>
 </p>
 
 <p>
-  <strong>Biography:</strong>
+  <strong><%=t :biography%>:</strong>
   <%= @author.biography %>
 </p>
-<strong>Books:</strong>
+<strong><%= t :book_title%>:</strong>
 <table>
 <%Book.where(author_id: @author.id).find_each do |book| %>
 <tr><td>
@@ -28,8 +28,8 @@
 <%if current_costumer.admin?%>
 
   
-<%=link_to 'edit', edit_author_path(@author)%>
-<%=link_to 'delete', @author, method: :delete%>
+<%=link_to "#{t :edit}", edit_author_path(@author)%>
+<%=link_to "#{t :destroy}", @author, method: :delete%>
 <%end%>
 <%end%>
-<%= link_to 'Back', authors_path %>
+<%= link_to "#{t :back}", authors_path %>

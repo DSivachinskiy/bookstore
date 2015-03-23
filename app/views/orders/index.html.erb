@@ -1,9 +1,9 @@
-My Orders<br>
+<%= t :orders%><br>
 <%current_order.find do |o|%>
-<%=link_to "Current order", o%>
+<%=link_to "#{t :current_order}", o%>
 <%end%>
 
-<br>Finished orders
+<br><%= t :finished_orders%>
 
 <%@orders.each do |order|%>
 <%if order.aasm_state != "in_progress"%>

@@ -2,11 +2,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= t :category_title%>: </strong>
   <%= @category.title %>
 </p>
 <table>
-<strong>Books:</strong>
+<strong><%= t :book_title%>:</strong>
 <%Book.where(category_id: @category.id).find_each do |book| %>
 <tr><td>
 <%=link_to book.title, book%>
@@ -18,8 +18,8 @@
 <%if current_costumer.admin?%>
 
   
-<%=link_to 'edit', edit_category_path(@category)%>
-<%=link_to 'delete', @category, method: :delete%>
+<%=link_to "#{t :edit}", edit_category_path(@category)%>
+<%=link_to "#{t :destroy}", @category, method: :delete%>
 <%end%>
 <%end%>
-<%= link_to 'Back', categories_path %>
+<%= link_to "#{t :back}", categories_path %>
