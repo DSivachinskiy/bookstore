@@ -5,6 +5,7 @@ en:
       create: Create
       submit: Save
       update: Update
+      login: Log in
 
   list_books: Listing books
   bookstore: BookStore
@@ -25,8 +26,8 @@ en:
   logout: Logout
   login: Log in
   register: Register
-  firstname: Firstname
-  lastname: Lastname
+  firstname: First name
+  lastname: Last name
   min_characters: characters minimum
   remember_me: Remember me
   hello: "Hello, %{firstname} %{lastname}"
@@ -55,3 +56,27 @@ en:
   new_author: New author
   edit_author: Editing author
   edit_category: Editing category
+  edit_order_item: Editing order item
+  edit_order: Editing order
+  shipping_adress: Shipping adress
+  billing_adress: Billing adress
+  credit_card: Credit card
+  new_order_item: New order item
+  adress: Adress
+  country: country
+  city: City
+  street: Street
+  zipcode: Zipcode
+  phone: Phone
+  edit_shipping_adress: Editing shipping adress
+  edit_billing_adress: Editing billing adress
+  number: number
+  cvv: cvv
+  expiration_month: Expiration month
+  expiration_year: Expiration expiration_year
+  edit_credit_card: Editing credit card
+  new_shipping_adress: New shipping adress 
+  new_billing_adress: New billing adress
+  new_credit_card: New credit card
+  another_language: Another language
+

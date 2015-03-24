@@ -1,0 +1,2 @@
+module Costumers::OmniauthCallbacksHelper
+end

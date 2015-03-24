@@ -1,8 +1,6 @@
 
 uk:
   helpers:
-    select:
-      prompt: 'Оберіть: '
     submit:
       create: Створити
       submit: Зберегти
@@ -53,10 +51,32 @@ uk:
   author: Aвтор
   comments: Коментарі
   show: Показати
-  edit_book: Редагувати книгу
+  edit_book: Редагування книги
   new_category: Нова категорія
   new_author: Новий автор
-  edit_author: Редагувати автора
-  edit_category: Редагувати категорію
-
+  edit_author: Редагування автора
+  edit_category: Редагування категорії
+  edit_order_item: Редагування елементу замовлення
+  edit_order: Редагування замовлення
+  shipping_adress: Адреса доставки
+  billing_adress: Адреса платника
+  credit_card: Кредитна картка
+  new_order_item: Новий елемент замовлення
+  adress: Адреса
+  country: Країна
+  city: Місто
+  street: Вулиця
+  zipcode: Поштовий індекс
+  phone: Телефон
+  edit_shipping_adress: Редагування адресу доставки
+  edit_billing_adress: Редагування адресу платника
+  number: Номер
+  cvv: cvv
+  expiration_month: Місяць закінчення
+  expiration_year: Рік закінчення
+  edit_credit_card: Редагування кредитної картки
+  new_shipping_adress: Нова адреса доставки 
+  new_billing_adress: Нова адреса платника
+  new_credit_card: Нова кредитна картка
+  another_language: Інша мова
 

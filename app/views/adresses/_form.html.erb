@@ -12,23 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :adress %><br>
+    <%= t :adress %><br>
     <%= f.text_field :adress %>
   </div>
   <div class="field">
-    <%= f.label :zipcode %><br>
+    <%= t :zipcode %><br>
     <%= f.number_field :zipcode %>
   </div>
   <div class="field">
-    <%= f.label :city %><br>
+    <%= t :city %><br>
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br>
+    <%= t :phone %><br>
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-  
+  <%= t :country%><br>
     <%= f.select(:country_id, options_for_select(Country.all.collect { |country| [country.name, country.id] })) %>
   </div>
  

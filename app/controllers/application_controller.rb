@@ -26,7 +26,9 @@ end
  def set_locale
     I18n.locale = params[:locale] || I18n.default_locale = :uk
   end
-
+def default_url_options(options={})
+    { :locale => I18n.locale }
+  end
 protected
 
   def configure_permitted_parameters

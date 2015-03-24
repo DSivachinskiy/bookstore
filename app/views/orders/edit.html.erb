@@ -1,4 +1,4 @@
-<h1>Editing order</h1>
+<h1><%= t :edit_order%></h1>
 
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
@@ -19,15 +19,15 @@
   </div>
 
    <div class="field">
-    Shipping adress
+    <%=t :shipping_adress%>: 
     <%= f.select(:adress_id, options_for_select(Adress.where(costumer_id: current_costumer.id).collect { |adress| [adress.adress, adress.id] })) %>
   </div>
   <div class="field">
-    Billing adress
+    <%= t :billing_adress%>
     <%= f.select(:billing_adress_id, options_for_select(BillingAdress.where(costumer_id: current_costumer.id).collect { |adress| [adress.adress, adress.id] })) %>
   </div>
   <div class="field">
-    Credit Card
+    <%= t :credit_card%>
     <%= f.select(:credit_card_id, options_for_select(CreditCard.where(costumer_id: current_costumer.id).collect { |card| [card.number, card.id] })) %>
   </div>
    

@@ -27,12 +27,14 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
 gem 'devise'
-
+gem 'twitter-bootstrap-rails'
 gem 'wicked'
 gem 'rails_admin'
+gem 'rails_admin-i18n'
 gem 'cancan'
 gem 'aasm'
 gem 'rails-i18n'
+gem 'omniauth'
 gem 'omniauth-facebook'
 group :development, :test do
   gem 'rspec-rails'

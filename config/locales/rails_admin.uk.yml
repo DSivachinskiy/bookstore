@@ -1,0 +1,145 @@
+uk:
+  admin:
+    js:
+      true: 'True'
+      false: 'False'
+      is_present: 'Не порожнє'
+      is_blank: 'Порожнє'
+      date: 'Дата ...'
+      between_and_: 'Між ... та ...'
+      today: 'Сьогодні'
+      yesterday: 'Вчора'
+      this_week: 'Цей тиждень'
+      last_week: 'Минулий тиждень'
+      number: 'Число ...'
+      contains: 'Містить'
+      is_exactly: 'Точно співпадає'
+      starts_with: 'Починається з'
+      ends_with: 'Закінчується на'
+    loading: "Загрузка..."
+    home:
+      name: "Головна"
+    pagination:
+      previous: "&laquo; Минула"
+      next: "Наступна &raquo;"
+      truncate: "…"
+    misc:
+      search: "Пошук"
+      filter: "Фільтрація"
+      refresh: "Обновити"
+      show_all: "Показати все"
+      add_filter: "Добавити фільтр..."
+      bulk_menu_title: "Обрані елементи..."
+      remove: "Прибрати"
+      add_new: "Додати новий"
+      chosen: "Обрати %{name}"
+      chose_all: "Обрати все"
+      clear_all: "Прибрати виділене"
+      up: "Вверх"
+      down: "Вниз"
+      navigation: "Навігація"
+      log_out: "Вийти"
+      ago: "назад"
+    flash:
+      successful: "Вдалося успішно %{action} %{name}"
+      error: "Не вдалося %{action} %{name}"
+      noaction: "Ніяких змін не виконано"
+      model_not_found: "Модель '%{model}' не знайдена"
+      object_not_found: "Об'ект %{model} з id '%{id}' не знайдено"
+    table_headers:
+      model_name: "Назва моделі"
+      last_used: "Останній раз використовувалося"
+      records: "Записи"
+      username: "Користувач"
+      changes: "Зміни"
+      created_at: "Дата/Час"
+      item: "Елемент"
+      message: "Повідомлення"
+    actions:
+      dashboard:
+        title: "Управління сайтом"
+        menu: "Контрольна панель"
+        breadcrumb: "Контрольна панель"
+      index:
+        title: "%{model_label_plural}"
+        menu: "Список"
+        breadcrumb: "%{model_label_plural}"
+      show:
+        title: "Деталі %{model_label} '%{object_label}'"
+        menu: "Перегляд"
+        breadcrumb: "%{object_label}"
+      show_in_app:
+        menu: "Показати у прикладній програмі"
+      new:
+        title: "Новий %{model_label}"
+        menu: "Створення"
+        breadcrumb: "Новий запис"
+        link: "Добавити новий %{model_label}"
+        done: "створити"
+      edit:
+        title: "Редагування %{model_label} '%{object_label}'"
+        menu: "Редагування"
+        breadcrumb: "Редагуванняе запису"
+        link: "Редагувати %{model_label}"
+        done: "зберегти"
+      delete:
+        title: "Видалення %{model_label} '%{object_label}'"
+        menu: "Видалення"
+        breadcrumb: "Видалення"
+        link: "Видалити '%{object_label}'"
+        done: "видалити"
+      bulk_delete:
+        title: "Видалити багато %{model_label_plural}"
+        menu: "Мульті-видалення"
+        breadcrumb: "мульті-видалення"
+        bulk_link: "Видалити обрані %{model_label_plural}"
+      export:
+        title: "Експорт %{model_label}"
+        menu: "Експорт"
+        breadcrumb: "Експорт"
+        link: "Експорт всіх знайдених"
+        bulk_link: "Експорт всіх обраних"
+        done: "експортувати"
+      history_index:
+        title: "Історія для %{model_label_plural}"
+        menu: "Історія"
+        breadcrumb: "історія"
+      history_show:
+        title: "Історія для %{model_label} '%{object_label}'"
+        menu: "Історія"
+        breadcrumb: "історія"
+    form:
+      cancel: "Відміна"
+      basic_info: "Основне"
+      required: "Необхідне"
+      optional: "Необов'язкове"
+      one_char: "символ"
+      char_length_up_to: "довжина не більше"
+      char_length_of: "довжина"
+      save: "Зберегти"
+      save_and_add_another: "Зберегти и додати новий"
+      save_and_edit: "Зберегти і продовжити редагування"
+      all_of_the_following_related_items_will_be_deleted: "Наступні об'єкти будуть видалені:"
+      are_you_sure_you_want_to_delete_the_object: "Ви впевнені, що хочете видалити %{model_name}"
+      confirmation: "Так, впевнений"
+      delete_confirmation: "Підтвердити видалення"
+      bulk_delete: "Наступні об'єкти будуть видалені, що може зламати зв'язку з іншими об'єктами:"
+    export:
+      confirmation: "Експортувати як %{name}"
+      select: "Оберіть поля для експорта"
+      fields_from: "Поля з %{name}"
+      fields_from_associated: "Поля з асоційованої %{name}"
+      display: "Показати %{name}: %{type}"
+      options_for: "Налаштування для %{name}"
+      empty_value_for_associated_objects: "<порожньо>"
+      click_to_reverse_selection: 'Звернути виділення'
+      csv:
+        header_for_root_methods: "%{name}" # 'model' is available
+        header_for_association_methods: "%{name} [%{association}]"
+        encoding_to: "Декодувати як"
+        encoding_to_help: "Оберіть результуюче кодування. Залиште порожнім, щоб залишити вихідне кодування недоторканим: (%{name})"
+        skip_header: "Без заголовка"
+        skip_header_help: "Не виводити заголовок (без описів полів)"
+        default_col_sep: ","
+        col_sep: "Роздільник стовпчиків"
+        col_sep_help: "Залиште порожнім, щоб було за замовчуванням ('%{value}')" # value is default_col_sep

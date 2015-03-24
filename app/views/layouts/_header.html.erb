@@ -11,13 +11,17 @@
 <table aling="left">
 <tr>
 <td>
+<%current_order.find do |o|%>
+<%=link_to "#{t :current_order}", o%>
+<%end%></td></tr><tr><td>
 <%= link_to "#{I18n.t "orders"}", orders_path %>
 </td>
 </tr>
 </table>
+
 <%=link_to "my info", costumer_path(current_costumer)%><br>
-      <%= t "hello", firstname: current_costumer.firstname, lastname: current_costumer.lastname %>
-	 <br>
+     
+	 
    <%else%>
     Hello admin <%= current_costumer.firstname %>
    <%= current_costumer.lastname %>!<br>

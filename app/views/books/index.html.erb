@@ -1,7 +1,7 @@
 <center>
 <h1><h1><%=t :list_books %></h1></h1>
-
-<table width=90%>
+</center>
+<table width=85%>
  
 
     <tr>
@@ -13,14 +13,26 @@
 <tr>
 <td><%= link_to "#{t :authors}", authors_path%></td>
 </tr>
+<tr><td >
+<strong><%=t :another_language%></strong>
+<br>
+<% if I18n.locale == I18n.default_locale %>
+  <%= link_to "English", :locale=>'en'%>
+
+<% else %>
+  <%= link_to "Українська", :locale=>'uk'%>
+
+<%end%>
+</td></tr>
 </table>
 </td>
-      <th><%=t :book_title%></th>
-      <th><%=t :book_price%></th>
-      <th><%=t :rating%></th>
+      <th width=25%><%=t :book_title%></th>
+      <th width=25%><%=t :book_price%></th>
+      <th width=25%><%=t :rating%></th>
          </tr>
+         
 
-  <tbody>
+
 
     <% @books.each do |book| %>
       <tr><td></td>
@@ -30,12 +42,10 @@
        
       </tr>
     <% end %>
-  </tbody>
+ 
 </table>
 <%if signed_in?%>
-<%if current_costumer.admin?%>
-
-  
+<%if current_costumer.admin?%> 
 <%=link_to "#{t :new}", new_book_path%>
 <%end%>
 <%end%>
