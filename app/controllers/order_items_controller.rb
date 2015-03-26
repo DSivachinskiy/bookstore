@@ -7,16 +7,16 @@ load_and_authorize_resource :except => [:create]
        
     current_order.find do |o|
       @order_item.order_id = o.id
-    end
-    
+        
     respond_to do |format|
       if @order_item.save
-        format.html { redirect_to @order_item, notice: 'Order item was successfully created.' }
-        format.json { render :show, status: :created, location: @order_item }
+        format.html { redirect_to o, notice: 'Order item was successfully created.' }
+        format.json { render :show, status: :created, location: o }
       else
         format.html { render :new }
         format.json { render json: @order_item.errors, status: :unprocessable_entity }
       end
+    end
     end
   end
 

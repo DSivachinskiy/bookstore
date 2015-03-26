@@ -6,13 +6,16 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.costumer_id = current_costumer.id
-  
+    
     @order.save
-    respond_with(@order)
+    redirect_to new_order_item_path
   end
 
   def update
     @order.ship
+    @order.adress_id = cookies[:shipping_adress_id]
+    @order.billing_adress_id = cookies[:billing_adress_id]
+    @order.credit_card_id = cookies[:credit_card_id]
     @order.update(order_params)
   
     redirect_to orders_path

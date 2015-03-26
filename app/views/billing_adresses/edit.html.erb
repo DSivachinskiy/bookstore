@@ -1,5 +1,49 @@
 <h1><%= t :edit_billing_adress%></h1>
+<table>
+<tr>
+<td>Billing adress</td>
+<td><%=link_to "Shipping adress", edit_adress_path(current_costumer.adress)%></td>
+<td><%=link_to "Credit Card", edit_credit_card_path(current_costumer.credit_card)%></td><br>
+</tr></table><br>
+<%= form_for(@billing_adress) do |f| %>
+  <% if @billing_adress.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@billing_adress.errors.count, "error") %> prohibited this billing_adress from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @billing_adress.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to "#{t :back}", current_costumer %>
+  <div class="field">
+    <%= t :adress %><br>
+    <%= f.text_field :adress %>
+  </div>
+  <div class="field">
+    <%= t :zipcode %><br>
+    <%= f.number_field :zipcode %>
+  </div>
+  <div class="field">
+    <%= t :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= t :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+   <div class="field">
+  <%= t :country%>
+    <%= f.select(:country_id, options_for_select(Country.all.collect { |country| [country.name, country.id] })) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%=link_to "next", edit_adress_path(current_costumer.adress)%><br>
+<%current_order.find do |o|%>
+<%= link_to 'Back to order', o %>
+<%end%>

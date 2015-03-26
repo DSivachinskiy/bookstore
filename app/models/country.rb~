@@ -1,6 +1,0 @@
-class Country < ActiveRecord::Base
-
-belongs_to :adress
-belongs_to :billing_adress
-validates :name, presence: true, uniqueness: true
-end

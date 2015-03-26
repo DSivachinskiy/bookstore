@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  namespace :costumers do
-  get 'omniauth_callbacks/facebook'
-  end
+ 
 
-  resources :carts, only: [:show]
+ 
 
   devise_for :admins
   mount RailsAdmin::Engine => '/Admin', as: 'rails_admin'
@@ -18,7 +16,9 @@ Rails.application.routes.draw do
   resources :order_items
 
  
-  resources :orders
+  resources :orders do
+    resources :build, controller: 'orders/build'
+  end
   
 devise_for :costumers, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }, :controllers => { :omniauth_callbacks => "costumers/omniauth_callbacks" }
   resources :ratings

@@ -1,0 +1,8 @@
+<p>Please Fill in shipping adress!</p>
+<%= form_for(@order, :url => wizard_path, :method => :put) do |f| %>
+  <%=t :shipping_adress%>: 
+    <%= f.select(:adress_id, options_for_select(Adress.where(costumer_id: current_costumer.id).collect { |adress| [adress.adress, adress.id] })) %>
+  <%= f.submit 'Next', :class => 'btn btn-primary' %>
+<% end %>
+
+<%= link_to 'skip', next_wizard_path %>

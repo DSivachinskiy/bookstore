@@ -7,9 +7,9 @@ class Costumer < ActiveRecord::Base
 
 has_many :orders
 has_many :ratings
-has_many :adresses
-has_many :billing_adresses
-has_many :credit_cards
+has_one :adress
+has_one :billing_adress
+has_one :credit_card
 
 validates :email, presence: true, uniqueness: true
 validates :password, presence: true

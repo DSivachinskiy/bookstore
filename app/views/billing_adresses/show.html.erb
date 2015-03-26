@@ -25,5 +25,5 @@
   <%= @billing_adress.country %>
 </p>
 
-<%= link_to 'Edit', edit_billing_adress_path(@billing_adress) %> |
+<%=link_to "shipping adress", adress_path(current_costumer.adress)%><br>
 <%= link_to 'Back', billing_adresses_path %>

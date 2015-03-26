@@ -18,18 +18,7 @@
     <%= f.date_select :completed_date %>
   </div>
 
-   <div class="field">
-    <%=t :shipping_adress%>: 
-    <%= f.select(:adress_id, options_for_select(Adress.where(costumer_id: current_costumer.id).collect { |adress| [adress.adress, adress.id] })) %>
-  </div>
-  <div class="field">
-    <%= t :billing_adress%>
-    <%= f.select(:billing_adress_id, options_for_select(BillingAdress.where(costumer_id: current_costumer.id).collect { |adress| [adress.adress, adress.id] })) %>
-  </div>
-  <div class="field">
-    <%= t :credit_card%>
-    <%= f.select(:credit_card_id, options_for_select(CreditCard.where(costumer_id: current_costumer.id).collect { |card| [card.number, card.id] })) %>
-  </div>
+   
    
   <div class="actions">
     <%= f.submit %>

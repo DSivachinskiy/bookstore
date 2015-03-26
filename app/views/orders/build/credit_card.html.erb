@@ -1,0 +1,8 @@
+<p>Please Fill in credit_card!</p>
+<%= form_for(@order, :url => wizard_path, :method => :put) do |f| %>
+  <%= t :credit_card%>
+    <%= f.select(:credit_card_id, options_for_select(CreditCard.where(costumer_id: current_costumer.id).collect { |card| [card.number, card.id] })) %>
+  <%= f.submit 'Next', :class => 'btn btn-primary' %>
+<% end %>
+
+<%= link_to 'skip', next_wizard_path %>

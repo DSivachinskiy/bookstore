@@ -2,7 +2,9 @@ class BillingAdressesController < ApplicationController
 load_and_authorize_resource :except => [:create]
  
   respond_to :html
-
+  def show
+    cookies[:billing_adress_id] = @billing_adress.id
+  end
   def create
     @billing_adress = BillingAdress.new(billing_adress_params)
     @billing_adress.costumer_id = current_costumer.id
@@ -12,7 +14,8 @@ load_and_authorize_resource :except => [:create]
 
   def update
     @billing_adress.update(billing_adress_params)
-     redirect_to current_costumer
+     
+    redirect_to :back
     
   end
 

@@ -29,6 +29,7 @@
   <strong>Lastname:</strong>
   <%= @credit_card.lastname %>
 </p>
-
-<%= link_to 'Edit', edit_credit_card_path(@credit_card) %> |
+<%current_order.find do |o|%>
+<%=link_to "#{t :current_order}", edit_order_path(o)%>
+<%end%>
 <%= link_to 'Back', credit_cards_path %>

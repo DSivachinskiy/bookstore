@@ -9,7 +9,7 @@
 <tr><td>
 <table>
 
-<%Adress.where(costumer_id: @costumer.id).find_each do |a|%>
+<%Adress.where(costumer_id: @costumer.id).find do |a|%>
 
 <%Country.where(id: a.country_id).find do |c|%>
 <tr><td><%= t :country%>: <%=c.name%></td></tr>
@@ -19,8 +19,9 @@
 <tr><td><%= t :street%>: <%=a.adress%></td></tr>
 <tr><td><%= t :zipcode%>: <%=a.zipcode%></td></tr>
 <tr><td><%= t :phone%>: <%=a.phone%></td></tr>
+ 
  <tr><td><%=link_to "#{t :edit}", edit_adress_path(a)%></td></tr> 
- <tr><td><%=link_to "#{t :destroy}", a, method: :delete, data: { confirm: 'Are you sure?' }%></td></tr> 
+  
  <tr><td><hr></td></tr> 
 
 <%end%>
@@ -30,7 +31,7 @@
 <td>
 <table>
 
-<%BillingAdress.where(costumer_id: @costumer.id).find_each do |a|%>
+<%BillingAdress.where(costumer_id: @costumer.id).find do |a|%>
 <%Country.where(id: a.country_id).find do |c|%>
 <tr><td><%= t :country%>: <%=c.name%></td></tr>
 <%end%>
@@ -38,8 +39,9 @@
 <tr><td><%= t :street%>: <%=a.adress%></td></tr>
 <tr><td><%= t :zipcode%>: <%=a.zipcode%></td></tr>
 <tr><td><%= t :phone%>: <%=a.phone%></td></tr>
+
 <tr><td><%=link_to "#{t :edit}", edit_billing_adress_path(a)%></td></tr> 
- <tr><td><%=link_to "#{t :destroy}", a, method: :delete, data: { confirm: 'Are you sure?' }%></td></tr> 
+
  <tr><td><hr></td></tr>
 <%end%>
 
@@ -47,22 +49,19 @@
 </td>
 <td>
 <table>
-<%CreditCard.where(costumer_id: @costumer.id).find_each do |c|%>
+<%CreditCard.where(costumer_id: @costumer.id).find do |c|%>
   <tr><td><%= t :number%>: <%=c.number%></td></tr>
   <tr><td><%= t :cvv%>: <%=c.cvv%></td></tr>
    <tr><td><%= t :expiration_month%>: <%=c.expiration_month%></td></tr>
    <tr><td><%= t :expiration_year%>: <%=c.expiration_year%></td></tr>
    <tr><td><%= t :firstname%>: <%=c.firstname%></td></tr>
    <tr><td><%= t :lastname%>: <%=c.lastname%></td></tr>
+
    <tr><td><%=link_to "#{t :edit}", edit_credit_card_path(c)%></td></tr> 
-    <tr><td><%=link_to "#{t :destroy}", c, method: :delete, data: { confirm: 'Are you sure?' }%></td></tr> 
+   
    <tr><td><hr></td></tr>
 <%end%>
 
 </table>
 </td>
 </tr></table>
-
-<%= link_to "#{t :new_shipping_adress}", new_adress_path %>
-<%= link_to "#{t :new_billing_adress}", new_billing_adress_path %>
-<%= link_to "#{t :new_credit_card}", new_credit_card_path %>

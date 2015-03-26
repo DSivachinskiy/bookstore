@@ -22,7 +22,15 @@ end
 def last_book
  cookies[:id] = @book.id
 end
-
+def last_billing_adress
+ cookies[:billing_adress_id] = @billing_adress.id
+end
+def last_shipping_adress
+ cookies[:shipping_adress_id] = @adress.id
+end
+def last_credit_card
+ cookies[:credit_card_id] = @credit_card.id
+end
  def set_locale
     I18n.locale = params[:locale] || I18n.default_locale = :uk
   end

@@ -27,6 +27,6 @@
 </p>
 
 <p>
+<%=link_to "#{t :accept_order}", edit_billing_adress_path(current_costumer.billing_adress)%><br>
+<%= link_to "#{t :destroy}", @order, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-<%=link_to "#{t :accept_order}", edit_order_path(@order)%><br>
-<%= link_to "#{t :back}", orders_path %>
