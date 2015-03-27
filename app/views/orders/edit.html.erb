@@ -1,4 +1,20 @@
-<h1><%= t :edit_order%></h1>
+<center><br>
+<table class="title2">
+<tr><td><h2>
+<%=t :edit_order %></h2></td></tr></table>
+
+<table align="center">
+
+<tr>
+
+<td class="tab_st_1"><%=link_to "#{t :billing_adress}", edit_billing_adress_path(current_costumer.billing_adress)%></td>
+<td class="tab_st_1"><%=link_to "#{t :shipping_adress}", edit_adress_path(current_costumer.adress)%></td>
+<td class="tab_st_1"><%=link_to "#{t :credit_card}", edit_credit_card_path(current_costumer.credit_card)%></td><br>
+
+<td class="tab_st_4"><%=t :accept_order%></td>
+
+</tr>
+</table>
 
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>

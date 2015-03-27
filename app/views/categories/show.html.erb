@@ -1,10 +1,9 @@
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong><%= t :category_title%>: </strong>
-  <%= @category.title %>
-</p>
+<br>
+<table class="title2">
+<tr><td><h2>
+<%= t :category_title%>:
+  <%= @category.title %></h2></td></tr></table>
+<br>
 <table>
 <strong><%= t :book_title%>:</strong>
 <%Book.where(category_id: @category.id).find_each do |book| %>

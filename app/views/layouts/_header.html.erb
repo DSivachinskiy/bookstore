@@ -3,12 +3,16 @@
 <table  width=100%>
 
 <tr>
-<td width=33%><%=image_tag("books.png", height: 150)%></td>
-<td align=center><h1><%=link_to "#{I18n.t "bookstore"}" , root_path%></h1></td>
+<td width=33%><%=image_tag("books.png", height: 120)%></td>
+<td>
+<table align="center"><tr><td class="title3">
+<h2><%=link_to "#{I18n.t "bookstore"}" , root_path%></h2>
+</td></tr></table>
+</td>
 <td align="right" width=33%>
         <%if signed_in?%>
         <%unless current_costumer.admin?%>
-<table aling="left">
+<table>
 <tr>
 <td>
 <%current_order.find do |o|%>

@@ -1,21 +1,19 @@
-<p id="notice"><%= notice %></p>
+<br>
 
-<p>
-  <strong><%= t :firstname%>: </strong>
-  <%= @author.firstname %>
-</p>
+<table class="title">
+<tr><td><h2>
+  <%= @author.firstname %>  <%= @author.lastname %></h2></td></tr></table>
 
-<p>
-  <strong><%= t :lastname%>: </strong>
-  <%= @author.lastname %>
-</p>
-
-<p>
+<table>
+<tr><td>
+<tr><td>
   <strong><%=t :biography%>:</strong>
   <%= @author.biography %>
-</p>
+</td></tr>
+<tr><td>
 <strong><%= t :book_title%>:</strong>
-<table>
+</td></tr>
+
 <%Book.where(author_id: @author.id).find_each do |book| %>
 <tr><td>
 <%=link_to book.title, book%>

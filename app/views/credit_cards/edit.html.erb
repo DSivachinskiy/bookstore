@@ -1,10 +1,20 @@
-<h1><%= t :edit_credit_card%></h1>
-<table>
+<center><br>
+<table class="title2">
+<tr><td><h2>
+<%=t :edit_credit_card %></h2></td></tr></table>
+
+<table align="center">
+
 <tr>
-<td><%=link_to "Billing adress", edit_billing_adress_path(current_costumer.billing_adress)%></td>
-<td><%=link_to "Shipping adress", edit_adress_path(current_costumer.adress)%></td>
-<td>Credit Card</td><br>
-</tr></table><br>
+
+<td class="tab_st_1"><%=link_to "#{t :billing_adress}", edit_billing_adress_path(current_costumer.billing_adress)%></td>
+<td class="tab_st_1"><%=link_to "#{t :shipping_adress}", edit_adress_path(current_costumer.adress)%></td>
+<td class="tab_st_2"><%=t :credit_card%></td><br>
+<%current_order.find do |o|%>
+<td class="tab_st_3"><%=link_to "#{t :accept_order}", edit_order_path(o)%></td>
+<%end%>
+</tr>
+</table>
 
 <%= form_for(@credit_card) do |f| %>
   <% if @credit_card.errors.any? %>
@@ -18,38 +28,58 @@
       </ul>
     </div>
   <% end %>
-
+<table>
+<tr>
+<td>
   <div class="field">
     <%= t :number %><br>
     <%= f.number_field :number %>
   </div>
+  </td></tr>
+  <tr>
+<td>
   <div class="field">
     <%= t :cvv %><br>
     <%= f.number_field :cvv %>
   </div>
+  </td></tr>
+  <tr>
+<td>
   <div class="field">
     <%= t :expiration_month %><br>
     <%= f.number_field :expiration_month %>
   </div>
+  </td></tr>
+  <tr>
+<td>
   <div class="field">
     <%= t :expiration_year %><br>
     <%= f.number_field :expiration_year %>
   </div>
+  </td></tr>
+  <tr>
+<td>
   <div class="field">
     <%= t :firstname%><br>
     <%= f.text_field :firstname %>
   </div>
+  </td></tr>
+  <tr>
+<td>
   <div class="field">
     <%= t :lastname%><br>
     <%= f.text_field :lastname %>
   </div>
+  </td></tr>
+</table>
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
 
 
 <%current_order.find do |o|%>
-<%=link_to "#{t :current_order}", edit_order_path(o)%>
-<%end%><br>
-<%= link_to 'Back', edit_adress_path(current_costumer.adress) %>
+<%= link_to "#{t :back}", edit_adress_path(current_costumer.adress) %><br>
+<%= link_to "#{t :back_to_order}", o %>
+<%end%>

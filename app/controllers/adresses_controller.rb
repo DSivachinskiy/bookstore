@@ -2,9 +2,7 @@ class AdressesController < ApplicationController
 load_and_authorize_resource :except => [:create]
   
   respond_to :html
-def show
-    cookies[:shipping_adress_id] = @adress.id
-  end
+
   def create
     @adress = Adress.new(adress_params)
     @adress.costumer_id = current_costumer.id
@@ -13,6 +11,7 @@ def show
   end
 
   def update
+    cookies[:shipping_adress_id] = @adress.id
     @adress.update(adress_params)
     redirect_to :back
      

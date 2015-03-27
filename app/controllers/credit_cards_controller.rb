@@ -2,9 +2,7 @@ class CreditCardsController < ApplicationController
 load_and_authorize_resource :except => [:create]
  
   respond_to :html
-  def show
-    cookies[:credit_card_id] = @credit_card.id
-  end
+ 
   def create
     @credit_card = CreditCard.new(credit_card_params)
     @credit_card.costumer_id = current_costumer.id
@@ -13,8 +11,9 @@ load_and_authorize_resource :except => [:create]
   end
 
   def update
+    cookies[:credit_card_id] = @credit_card.id
     @credit_card.update(credit_card_params)
-          redirect_to :back
+    redirect_to :back
   end
 
   def destroy

@@ -7,19 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <style>
-th {
-	 text-align: left;
-	 vertical-align: bottom;
+html, body {
+	display: block;
+	float: left;
+	width: 100%;
+	height: 100%;
+	position: relative;
 }
-
 </style>
 <body>
-<div>
+<div class="header">
 <%= render "layouts/header" %>
-
 </div>
- <div>
+<table width="88%" height="100%"><tr>
+<td width="12%" class="tds1"><%= render "layouts/table" %></td>
+<td align="center" class="tab_st_6">
 <%= yield %>
-</div>
+</td></tr></table>
 </body>
 </html>

@@ -1,16 +1,171 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 
+th {
+	text-align: left;
+	vertical-align: bottom;
+}
+.tab_st_1 {
+	border: 1px solid grey;
+	border-radius: 0 20px 20px 0;
+	background-image: linear-gradient(#dddddd, #11A5bb);
+	width:220px;
+	height: 40px;
+	font-size: 22px;
+
+}
+a {
+	color: black;
+	text-decoration: none;
+}
+.tab_st_1 a {
+ 	color: white;
+  }
+.tab_st_3 a {
+ 	color: white;
+  }
+.tab_st_5 a {
+ 	color: #228B22;
+ 	font-size: 15px;
+  }
+.tab_st_2 {
+	border: 1px solid grey;
+	border-radius: 0 20px 20px 0;
+	background-image: linear-gradient(#dddddd, #55ff11);
+	width:220px;
+	height: 40px;
+	font-size: 22px;
+	color: white;
+}
+.tab_st_3 {
+	border: 1px solid grey;
+	border-radius: 0 20px 20px 0;
+	background-image: linear-gradient(#dddddd, #ff2222);
+	width:220px;
+	height: 40px;
+	font-size: 22px;
+	
+}
+.tab_st_4 {
+	border: 1px solid grey;
+	border-radius: 0 20px 20px 0;
+	background-image: linear-gradient(#dddddd, #ffbb22);
+	width:220px;
+	height: 40px;
+	font-size: 22px;
+	color: white;
+}
+.tab_st_5 {
+	text-align: center;
+	border: 1px solid grey;
+	border-radius: 20px 20px 20px 20px;
+	background-image: linear-gradient(#dddddd, #ffbb22);
+	width:150px;
+}
+
+.tab_st_5 strong {
+	font-size: 15px;
+}
+.tab_st_6 {
+	border: 1px solid grey;
+	background-image: linear-gradient(#ffffff, #6666cc);
+	
+}
+
+.header{
+	border: 1px solid grey;
+	border-radius: 20px 20px 20px 20px;
+	background-image: linear-gradient(#ffffff, #cc88CC);
+}
+.title {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	border: 1px solid grey;
+	width: 220px;
+	vertical-align: baseline;
+	height: 50px;
+	border-radius: 20px 20px 20px 20px;
+	background-image: linear-gradient(#ffffff, #cc8888);
+}
+.title2 {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	border: 1px solid grey;
+	width: 350px;
+	vertical-align: baseline;
+	height: 50px;
+	border-radius: 20px 20px 20px 20px;
+	background-image: linear-gradient(#ffffff, #cc8888);
+}
+.title3 {
+	text-align: center;
+	border: 1px solid grey;
+	width: 200px;
+	vertical-align: baseline;
+	height: 50px;
+	border-radius: 20px 20px 20px 20px;
+	background-image: linear-gradient(#ffffff, #ccff66);
+}
+.tds1 {
+	vertical-align: top;
+}
+  body {
+  background-color: #B0E2FF;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}

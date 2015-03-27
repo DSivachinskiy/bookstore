@@ -68,8 +68,8 @@ uk:
   street: Вулиця
   zipcode: Поштовий індекс
   phone: Телефон
-  edit_shipping_adress: Редагування адресу доставки
-  edit_billing_adress: Редагування адресу платника
+  edit_shipping_adress: Редагування адреси доставки
+  edit_billing_adress: Редагування адреси платника
   number: Номер
   cvv: cvv
   expiration_month: Місяць закінчення
@@ -79,4 +79,8 @@ uk:
   new_billing_adress: Нова адреса платника
   new_credit_card: Нова кредитна картка
   another_language: Інша мова
+  next: Наступна
+  back_to_order: Повернутися до замовлення
+  new_order: Нове замовлення
+  add_rating: Оцінити
 

@@ -1,9 +1,15 @@
-<h1><%= t :edit_shipping_adress%></h1>
-<table>
+<center><br>
+<table class="title2">
+<tr><td><h2>
+<%=t :edit_shipping_adress %></h2></td></tr></table>
+<table align="center">
 <tr>
-<td><%=link_to "Billing adress", edit_billing_adress_path(current_costumer.billing_adress)%></td>
-<td>Shipping adress</td>
-<td><%=link_to "Credit Card", edit_credit_card_path(current_costumer.credit_card)%></td><br>
+<td class="tab_st_1"><%=link_to "#{t :billing_adress}", edit_billing_adress_path(current_costumer.billing_adress)%></td>
+<td class="tab_st_2"><%= t :shipping_adress%></td>
+<td class="tab_st_1"><%=link_to "#{t :credit_card}", edit_credit_card_path(current_costumer.credit_card)%></td><br>
+<%current_order.find do |o|%>
+<td class="tab_st_3"><%=link_to "#{t :accept_order}", edit_order_path(o)%></td>
+<%end%>
 </tr></table><br>
 <%= form_for(@adress) do |f| %>
   <% if @adress.errors.any? %>
@@ -17,31 +23,50 @@
       </ul>
     </div>
   <% end %>
-
+<table>
+<tr>
+<td>
   <div class="field">
     <%= t :adress %><br>
     <%= f.text_field :adress %>
   </div>
+  </td></tr>
+  <tr>
+<td>
   <div class="field">
     <%= t :zipcode %><br>
     <%= f.number_field :zipcode %>
   </div>
+  </td></tr>
+  <tr>
+<td>
   <div class="field">
     <%= t :city %><br>
     <%= f.text_field :city %>
   </div>
+  </td></tr>
+  <tr>
+<td>
   <div class="field">
     <%= t :phone %><br>
     <%= f.text_field :phone %>
   </div>
+  </td></tr>
+  <tr>
+<td>
   <div class="field">
   <%= t :country%><br>
     <%= f.select(:country_id, options_for_select(Country.all.collect { |country| [country.name, country.id] })) %>
   </div>
- 
+ </td></tr>
+</table>
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
-<%=link_to "next", edit_credit_card_path(current_costumer.credit_card)%><br>
-<%= link_to 'Back', edit_billing_adress_path(current_costumer.billing_adress) %>
+<%=link_to "#{t :next}", edit_credit_card_path(current_costumer.credit_card)%><br>
+<%= link_to "#{t :back}", edit_billing_adress_path(current_costumer.billing_adress) %><br>
+<%current_order.find do |o|%>
+<%= link_to "#{t :back_to_order}", o %>
+<%end%>

@@ -1,32 +1,35 @@
-
-<p id="notice"><%= notice %></p>
-
-
-<h2>Order# <%=@order.id%></h2>
+<center>
 <br>
-<strong><%= t :order_items%></strong>
+<table class="title">
+<tr><td><h2>
+<%=t :current_order %></h2></td></tr></table>
+</center><br>
 <table>
+<tr>
+
+      <th width=11%><%=t :book_title%></th>
+      <th width=11%><%=t :book_price%></th>
+      <th width=11%><%=t :quantity%></th>
+      <th width=11%><%=t :price%></th>
+      <th width=11%><%=t :edit%></th>
+      <th width=11%><%=t :destroy%></th>
+         </tr>
 <%OrderItem.where(order_id: @order.id).find_each do |o|%>
-
-
-
 <%Book.where(id: o.book_id).find do |b|%>
-<tr><td><%= t :book_title%> <%=link_to b.title, b%></td></tr>
-<tr><td><%= t :book_price%>: <%= b.price%></td></tr>
+<tr>
+<td> <%=link_to b.title, b%></td>
+<td> <%= b.price%></td>
 <%end%>
-<tr><td><%= t :quantity%>: <%=o.quantity%></td></tr>
-<tr><td><%= t :price%>: <%=o.price%></td></tr>
-<tr><td><%= link_to "#{t :edit}", edit_order_item_path(o)%></td></tr>
-<tr><td><%= link_to "#{t :destroy}", o, method: :delete, data: { confirm: 'Are you sure?' } %></td></tr>
-<tr><td> </td></tr>
-<%end%>
-</table><br>
-<p>
-  <strong><%= t :total_price%>: </strong>
-  <%= @order.total_price %>
-</p>
+<td><%=o.quantity%></td>
+<td> <%=o.price%></td>
 
-<p>
+<td><%= link_to "#{t :edit}", edit_order_item_path(o)%></td>
+<td><%= link_to "#{t :destroy}", o, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<%end%></tr></table>
+<br>
+<table align="center">
+<tr><td><strong><%=t :total_price%>: <%=@order.total_price%></strong></td></tr>
+
+</table><center>
 <%=link_to "#{t :accept_order}", edit_billing_adress_path(current_costumer.billing_adress)%><br>
-<%= link_to "#{t :destroy}", @order, method: :delete, data: { confirm: 'Are you sure?' } %>
-
+<%= link_to "#{t :destroy}", @order, method: :delete, data: { confirm: 'Are you sure?' } %></center>
