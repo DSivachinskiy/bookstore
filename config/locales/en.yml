@@ -83,4 +83,6 @@ en:
   back_to_order: Back to order
   new_order: New order
   add_rating: Add rating
-
+  shop: SHOP
+  home: HOME
+  settings: Settings

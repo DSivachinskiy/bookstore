@@ -28,7 +28,7 @@ devise_for :costumers, path_names: { sign_in: 'login', sign_out: 'logout', sign_
   resources :categories
 
   resources :books
- root 'books#index'
+ root 'start#index'
 
 resources :costumers
 

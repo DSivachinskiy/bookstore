@@ -1,0 +1,90 @@
+%table{:border =>"1px", :align => "left", :width => "20%"}
+  %tr{:align => "center"}
+    %td
+      %h2= t :settings
+  }
+%table.tab1{:width => "70%"}
+  %tr
+    %td
+      %h3= t :billing_adress
+      = form_for(@billing_adress) do |f|
+        .field
+          = t :adress
+          %br
+            = f.text_field :adress
+        .field
+          = t :zipcode
+          %br
+            = f.number_field :zipcode
+        .field
+          = t :city
+          %br
+            = f.text_field :city
+        .field
+          = t :phone
+          %br
+            = f.text_field :phone
+        .field
+          = t :country
+          %br
+            = f.select(:country_id, options_for_select(Country.all.collect { |country| [country.name, country.id] }))
+        %br
+          .actions
+            = f.submit
+    %td
+      %h3= t :shipping_adress
+      = form_for(@adress) do |f|
+        .field
+          = t :adress
+          %br
+            = f.text_field :adress
+        .field
+          = t :zipcode
+          %br
+            = f.number_field :zipcode
+        .field
+          = t :city
+          %br
+            = f.text_field :city
+        .field
+          = t :phone
+          %br
+            = f.text_field :phone
+        .field
+          = t :country
+          %br
+            = f.select(:country_id, options_for_select(Country.all.collect { |country| [country.name, country.id] }))
+        %br
+          .actions
+            = f.submit
+  %tr
+    %td
+      %h3= t :credit_card
+      = form_for(@credit_card) do |f|
+        .field
+          = t :number
+          %br
+            = f.number_field :number
+        .field
+          = t :cvv
+          %br
+            = f.number_field :cvv
+        .field
+          = t :expiration_month
+          %br
+            = f.number_field :expiration_month
+        .field
+          = t :expiration_year
+          %br
+            = f.number_field :expiration_year
+        .field
+          = t :firstname
+          %br
+            = f.text_field :firstname
+        .field
+          = t :lastname
+          %br
+            = f.text_field :lastname
+        %br
+          .actions
+            = f.submit

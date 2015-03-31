@@ -1,6 +1,11 @@
 class CostumersController < ApplicationController
 load_and_authorize_resource
 
+def show
+  @billing_adress = current_costumer.billing_adress
+  @adress = current_costumer.adress
+  @credit_card = current_costumer.credit_card
+end
   def update
 
     respond_to do |format|

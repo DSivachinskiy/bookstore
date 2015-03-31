@@ -1,14 +1,14 @@
 <center><br>
-<table class="title2">
+<table>
 <tr><td><h2>
 <%=t :edit_shipping_adress %></h2></td></tr></table>
 <table align="center">
 <tr>
-<td class="tab_st_1"><%=link_to "#{t :billing_adress}", edit_billing_adress_path(current_costumer.billing_adress)%></td>
-<td class="tab_st_2"><%= t :shipping_adress%></td>
-<td class="tab_st_1"><%=link_to "#{t :credit_card}", edit_credit_card_path(current_costumer.credit_card)%></td><br>
+<td><%=link_to "#{t :billing_adress}", edit_billing_adress_path(current_costumer.billing_adress)%></td>
+<td><%= t :shipping_adress%></td>
+<td><%=link_to "#{t :credit_card}", edit_credit_card_path(current_costumer.credit_card)%></td><br>
 <%current_order.find do |o|%>
-<td class="tab_st_3"><%=link_to "#{t :accept_order}", edit_order_path(o)%></td>
+<td><%=link_to "#{t :accept_order}", edit_order_path(o)%></td>
 <%end%>
 </tr></table><br>
 <%= form_for(@adress) do |f| %>

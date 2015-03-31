@@ -37,6 +37,10 @@ gem 'rails-i18n'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'execjs'
+gem "therubyracer"
+gem "less-rails" 
+gem "twitter-bootstrap-rails"
+gem "haml"
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'

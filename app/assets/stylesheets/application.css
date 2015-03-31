@@ -1,126 +1,28 @@
-
-th {
-	text-align: left;
-	vertical-align: bottom;
+/*
+ *= require bootstrap_and_overrides
+ */
+.tab1{
+  text-align: center;
 }
-.tab_st_1 {
-	border: 1px solid grey;
-	border-radius: 0 20px 20px 0;
-	background-image: linear-gradient(#dddddd, #11A5bb);
-	width:220px;
-	height: 40px;
-	font-size: 22px;
-
-}
-a {
-	color: black;
-	text-decoration: none;
-}
-.tab_st_1 a {
- 	color: white;
-  }
-.tab_st_3 a {
- 	color: white;
-  }
-.tab_st_5 a {
- 	color: #228B22;
- 	font-size: 15px;
-  }
-.tab_st_2 {
-	border: 1px solid grey;
-	border-radius: 0 20px 20px 0;
-	background-image: linear-gradient(#dddddd, #55ff11);
-	width:220px;
-	height: 40px;
-	font-size: 22px;
-	color: white;
-}
-.tab_st_3 {
-	border: 1px solid grey;
-	border-radius: 0 20px 20px 0;
-	background-image: linear-gradient(#dddddd, #ff2222);
-	width:220px;
-	height: 40px;
-	font-size: 22px;
-	
-}
-.tab_st_4 {
-	border: 1px solid grey;
-	border-radius: 0 20px 20px 0;
-	background-image: linear-gradient(#dddddd, #ffbb22);
-	width:220px;
-	height: 40px;
-	font-size: 22px;
-	color: white;
-}
-.tab_st_5 {
-	text-align: center;
-	border: 1px solid grey;
-	border-radius: 20px 20px 20px 20px;
-	background-image: linear-gradient(#dddddd, #ffbb22);
-	width:150px;
-}
-
-.tab_st_5 strong {
-	font-size: 15px;
-}
-.tab_st_6 {
-	border: 1px solid grey;
-	background-image: linear-gradient(#ffffff, #6666cc);
-	
-}
-
-.header{
-	border: 1px solid grey;
-	border-radius: 20px 20px 20px 20px;
-	background-image: linear-gradient(#ffffff, #cc88CC);
-}
-.title {
-	margin: 0;
-	padding: 0;
-	text-align: center;
-	border: 1px solid grey;
-	width: 220px;
-	vertical-align: baseline;
-	height: 50px;
-	border-radius: 20px 20px 20px 20px;
-	background-image: linear-gradient(#ffffff, #cc8888);
-}
-.title2 {
-	margin: 0;
-	padding: 0;
-	text-align: center;
-	border: 1px solid grey;
-	width: 350px;
-	vertical-align: baseline;
-	height: 50px;
-	border-radius: 20px 20px 20px 20px;
-	background-image: linear-gradient(#ffffff, #cc8888);
-}
-.title3 {
-	text-align: center;
-	border: 1px solid grey;
-	width: 200px;
-	vertical-align: baseline;
-	height: 50px;
-	border-radius: 20px 20px 20px 20px;
-	background-image: linear-gradient(#ffffff, #ccff66);
-}
-.tds1 {
-	vertical-align: top;
+.td_header td {
+  width: 25%;
+  text-align: center;
 }
   body {
-  background-color: #B0E2FF;
+  background-color: white;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
-
+h3 {
+  text-decoration: underline;
+}
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+
 }
 
 pre {

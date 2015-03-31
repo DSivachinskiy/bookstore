@@ -21,9 +21,9 @@ def self.find_for_facebook_oauth access_token
       costumer
     else 
       Costumer.create!(:provider => access_token.provider, 
-      	:url => access_token.info.urls.Facebook, :username => access_token.extra.raw_info.name, 
-      	:nickname => access_token.extra.raw_info.username, :email => access_token.extra.raw_info.email,
-      	 :password => Devise.friendly_token[0,20], :firstname => access_token.extra.raw_info.name, :lastname => access_token.extra.raw_info.name) 
+      	:url => access_token.info.urls.Facebook, :email => access_token.extra.raw_info.email,
+      	 :password => Devise.friendly_token[0,20], :firstname => access_token.extra.raw_info.first_name, 
+         :lastname => access_token.extra.raw_info.last_name) 
     end
   end
 

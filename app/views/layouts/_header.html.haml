@@ -1,0 +1,39 @@
+%table.td_header{:width => "100%"}
+  %tr{:height => "100px"}
+    %td
+      %h2= t :bookstore
+    %td
+      = link_to "#{t :home}", root_path
+      |
+      = link_to "#{t :shop}", books_path
+    %td
+      - if signed_in?
+        - unless current_costumer.admin?
+          - current_order.find do |o|
+            = link_to "#{t :current_order}", o
+        %td
+          = link_to "#{t :settings}", costumer_path(current_costumer)
+          |
+          = link_to "#{I18n.t "orders"}", orders_path
+          |
+          = link_to "#{I18n.t "logout"}", destroy_costumer_session_path, method: :delete
+      - else
+        = link_to "#{I18n.t "register"}", new_costumer_registration_path
+        |
+        = link_to "#{I18n.t "login"}", new_costumer_session_path
+          
+
+     
+	 
+
+   
+                      
+      
+
+      
+       
+
+  
+
+
+
