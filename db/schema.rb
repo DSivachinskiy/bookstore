@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330101116) do
+ActiveRecord::Schema.define(version: 20150401113545) do
 
   create_table "admins", force: true do |t|
     t.string   "email"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20150330101116) do
     t.float    "total_rating"
     t.integer  "category_id"
     t.integer  "author_id"
+    t.string   "image"
   end
 
   create_table "carts", force: true do |t|

@@ -2,10 +2,24 @@ class CostumersController < ApplicationController
 load_and_authorize_resource
 
 def show
-  @billing_adress = current_costumer.billing_adress
-  @adress = current_costumer.adress
-  @credit_card = current_costumer.credit_card
+  unless current_costumer.billing_adress.nil?
+    @billing_adress = current_costumer.billing_adress
+  else
+    @billing_adress = BillingAdress.new
+  end
+  unless current_costumer.adress.nil?
+    @adress = current_costumer.adress
+  else
+    @adress = Adress.new
+  end
+  unless current_costumer.credit_card.nil?
+    @credit_card = current_costumer.credit_card
+  else
+    @credit_card = CreditCard.new
+  end
+  
 end
+
   def update
 
     respond_to do |format|

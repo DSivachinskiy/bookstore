@@ -21,15 +21,8 @@ load_and_authorize_resource :except => [:create]
   end
 
   def update
-    respond_to do |format|
-      if @order_item.update(order_item_params)
-        format.html { redirect_to @order_item, notice: 'Order item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @order_item }
-      else
-        format.html { render :edit }
-        format.json { render json: @order_item.errors, status: :unprocessable_entity }
-      end
-    end
+   @order_item.update(order_item_params)
+    redirect_to :back
   end
 
   def destroy

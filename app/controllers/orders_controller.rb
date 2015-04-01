@@ -2,7 +2,9 @@ class OrdersController < ApplicationController
   load_and_authorize_resource :except => [:create]
 
   respond_to :html
-
+  def show
+    @order_items = @order.order_items
+  end
   def create
     @order = Order.new(order_params)
     @order.costumer_id = current_costumer.id

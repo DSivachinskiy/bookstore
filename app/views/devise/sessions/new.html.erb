@@ -1,5 +1,5 @@
 <h2><%= t :login%></h2>
-
+<%= render "devise/shared/fb" %><br><br>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= t :email %><br />

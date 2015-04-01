@@ -2,12 +2,36 @@
  *= require bootstrap_and_overrides
  */
 .tab1{
+  text-align: left;
+}
+.tab2 td{
+  border-bottom-style: dotted;
+
+}
+.tab3 td {
   text-align: center;
+ 
+}
+.button{
+  height: 33px;
+  border: 2px solid;
+  border-radius: 5px;
+}
+.button2 input{
+
+  border: 2px solid;
+  border-radius: 5px;
+}
+.button3 input{
+  width: 75px;
+  border: 2px solid;
+  border-radius: 5px;
 }
 .td_header td {
   width: 25%;
   text-align: center;
 }
+
   body {
   background-color: white;
   color: #333;
