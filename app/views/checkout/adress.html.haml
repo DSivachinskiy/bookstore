@@ -1,0 +1,91 @@
+%table{:align =>"left", :width =>"80%"}
+  %tr
+    %td{:align => "center", :width => "40%"}
+      %h2
+        Checkout
+    %td
+      %u= t :checkout_adress
+    %td= link_to "#{t :delivery}", '/checkout/delivery'
+    %td= link_to "#{t :payment}", '/checkout/payment'
+    %td= link_to "#{t :confirm}", '/checkout/confirm'
+    %td= link_to "#{t :complete}", '/checkout/complete'
+%br
+  %table{:align => "left", :width => "60%"}
+    %tr{:align => "center"}
+      %td
+        %h4
+          = t :shipping_adress
+      %td
+        %h4
+          = t :billing_adress
+    %tr{:align => "center"}
+      %td
+        = form_for(@adress) do |f|
+          %table
+            %tr
+              %td
+                .field
+                  = t :adress
+                  %br
+                    = f.text_field :adress
+            %tr
+              %td
+                .field
+                  = t :zipcode
+                  %br
+                    = f.number_field :zipcode
+            %tr
+              %td
+                .field
+                  = t :city
+                  %br
+                    = f.text_field :city
+            %tr
+              %td
+                .field
+                  = t :phone
+                  %br
+                    = f.text_field :phone
+            %tr
+              %td
+                .field
+                  = t :country
+                  %br
+                    = f.select(:country_id, options_for_select(Country.all.collect { |country| [country.name, country.id] }))
+          .actions
+            = f.submit
+      %td
+        = form_for(@billing_adress) do |f|
+          %table
+            %tr
+              %td
+                .field
+                  = t :adress
+                  %br
+                    = f.text_field :adress
+            %tr
+              %td
+                .field
+                  = t :zipcode
+                  %br
+                    = f.number_field :zipcode
+            %tr
+              %td
+                .field
+                  = t :city
+                  %br
+                    = f.text_field :city
+            %tr
+              %td
+                .field
+                  = t :phone
+                  %br
+                    = f.text_field :phone
+            %tr
+              %td
+                .field
+                  = t :country
+                  %br
+                    = f.select(:country_id, options_for_select(Country.all.collect { |country| [country.name, country.id] }))
+          .actions
+            = f.submit

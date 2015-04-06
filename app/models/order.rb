@@ -18,15 +18,20 @@ after_save :book_count
 
   aasm do
     state :in_progress, :initial => true
-    state :shipped
-    state :completed
+    state :waiting_for_processing
+    state :in_delivery
+    state :delivered
 
-    event :ship do
-      transitions :from => :in_progress, :to => :shipped
+    event :accept do
+      transitions :from => :in_progress, :to => :waiting_for_processing
+    end
+
+    event :delivery do
+      transitions :from => :waiting_for_processing, :to => :in_delivery
     end
 
     event :complete do
-      transitions :from => :shipped, :to => :completed
+      transitions :from => :in_delivery, :to => :delivered
     end
 
   

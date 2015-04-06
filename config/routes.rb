@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
- 
-
- 
 
   devise_for :admins
   mount RailsAdmin::Engine => '/Admin', as: 'rails_admin'
@@ -15,7 +12,6 @@ Rails.application.routes.draw do
 
   resources :order_items
 
- 
   resources :orders do
     resources :build, controller: 'orders/build'
   end
@@ -32,7 +28,12 @@ devise_for :costumers, path_names: { sign_in: 'login', sign_out: 'logout', sign_
 
 resources :costumers
 
-resources :check_out
+
+get '/checkout/adress', :to  => "checkout#adress"
+get '/checkout/delivery', :to  => "checkout#delivery"
+get '/checkout/payment', :to  => "checkout#payment"
+get '/checkout/confirm', :to  => "checkout#confirm"
+get '/checkout/complete', :to  => "checkout#complete"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

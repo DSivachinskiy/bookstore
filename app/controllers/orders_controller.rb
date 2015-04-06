@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   end
 
   def update
-    @order.ship
+    @order.accept
     @order.adress_id = cookies[:shipping_adress_id]
     @order.billing_adress_id = cookies[:billing_adress_id]
     @order.credit_card_id = cookies[:credit_card_id]

@@ -89,3 +89,12 @@ uk:
   or: або
   book: Книга
   continue_shopping: Продовжити покупки
+  in_progress: В процесі
+  completed_at: Дата завершення
+  waiting_for_processing: В очікуванні обробки
+  delivery: ДОСТАВКА
+  payment: ОПЛАТА
+  confirm: ПІДТВЕРДЖЕННЯ
+  complete: ЗАВЕРШЕННЯ
+  checkout_adress: АДРЕСА
+  checkout_credit_card: КРЕДИТНА КАРТКА

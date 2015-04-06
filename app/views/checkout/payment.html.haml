@@ -1,0 +1,56 @@
+%table{ :align=>"left", :width=>"80%"}
+  %tr
+    %td{:align => "center", :width => "40%"}
+      %h2
+        Checkout
+    %td= link_to "#{t :checkout_adress}", '/checkout/adress'
+    %td= link_to "#{t :delivery}", '/checkout/delivery'
+    %td
+      %u= t :payment
+    %td= link_to "#{t :confirm}", '/checkout/confirm'
+    %td= link_to "#{t :complete}", '/checkout/complete'
+%br
+  = form_for(@credit_card) do |f|
+    %table{:align => "center", :width => "30%"}
+      %tr
+        %td
+          %h4
+            = t :checkout_credit_card
+      %tr
+        %td
+          .field
+            = t :number
+            %br
+              = f.number_field :number
+      %tr
+        %td
+          .field
+            = t :cvv
+            %br
+              = f.number_field :cvv
+      %tr
+        %td
+          .field
+            = t :expiration_month
+            %br
+              = f.number_field :expiration_month
+      %tr
+        %td
+          .field
+            = t :expiration_year
+            %br
+              = f.number_field :expiration_year
+      %tr
+        %td
+          .field
+            = t :firstname
+            %br
+              = f.text_field :firstname
+      %tr
+        %td
+          .field
+            = t :lastname
+            %br
+              = f.text_field :lastname
+    .actions
+      = f.submit

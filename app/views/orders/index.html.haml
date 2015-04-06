@@ -1,0 +1,109 @@
+- @orders.each do |order| 
+  %table{:width => "100%"}
+    %tr
+      %td
+        - if order.aasm_state == "in_progress"
+          %table.tab2   
+            %tr
+              %td{:align => "center"}
+                %h4= t :in_progress
+            %tr
+              %th
+              %th
+                %h4{:align => "center"}= t :book
+              %th{:width => "11%"}
+                %h4= t :book_price
+              %th{:width => "11%"}
+                %h4= t :quantity
+              %th{:width => "11%"}
+                %h4{:align => "center"}= t :price
+            - order.order_items.each do |o|
+              %tr
+                %td{:width => "200px", :height => "130px"}= image_tag("#{o.book.image}.png", height: 100)
+                %td
+                  %h4
+                    %strong
+                      = o.book.title
+                    %br
+                      = o.book.description
+                %td= o.book.price
+                %td= o.quantity
+                %td{:align => "center"}= o.price
+          
+            %tr
+              %td
+                %h4= button_to "#{t :accept_order}", edit_billing_adress_path(current_costumer.billing_adress), method: "get", :class => 'button'
+              %td
+              %td
+
+              %td{:align => "right", :colspan => "2"}
+                %h4
+                  = t :total_price
+                  \:
+                  %strong= order.total_price
+
+%table{:width => "60%", :align => "left"}
+  %tr
+    %td{:width => "33%", :align => "center"}
+      %h4= t :waiting_for_processing 
+   
+  - @orders.each do |order|
+    %tr
+         
+      %td
+        -if order.aasm_state == "waiting_for_processing" 
+          %tr
+            %th
+              %h4= t :number
+            %th
+              %h4= t :completed_at
+            %th
+              %h4= t :total_price
+          %tr
+            %td= link_to order.id, order
+            %td= order.completed_date 
+            %td= order.total_price
+
+%table{:width => "60%", :align => "left"}
+  %tr
+    %td{:width => "33%", :align => "center"}
+      %h4= t :in_delivery 
+   
+  - @orders.each do |order|
+    %tr
+         
+      %td
+        -if order.aasm_state == "in_delivery" 
+          %tr
+            %th
+              %h4= t :number
+            %th
+              %h4= t :completed_at
+            %th
+              %h4= t :total_price
+          %tr
+            %td= link_to order.id, order
+            %td= order.completed_date 
+            %td= order.total_price
+%table{:width => "60%", :align => "left"}
+  %tr
+    %td{:width => "33%", :align => "center"}
+      %h4= t :delivered
+   
+  - @orders.each do |order|
+    %tr
+         
+      %td
+        -if order.aasm_state == "delivered" 
+          %tr
+            %th
+              %h4= t :number
+            %th
+              %h4= t :completed_at
+            %th
+              %h4= t :total_price
+          %tr
+            %td= link_to order.id, order
+            %td= order.completed_date 
+            %td= order.total_price
+          

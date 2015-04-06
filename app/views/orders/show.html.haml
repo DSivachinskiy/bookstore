@@ -48,4 +48,4 @@
       %td{:width => "55%"}
       %td{:align => "right"}
         %h4
-          = button_to "#{t :accept_order}", edit_billing_adress_path(current_costumer.billing_adress), method: "get", :class => 'button'
+          = button_to "#{t :accept_order}", '/checkout/adress', method: "get", :class => 'button'

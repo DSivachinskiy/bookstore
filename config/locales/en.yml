@@ -89,3 +89,12 @@ en:
   or: or
   book: Book
   continue_shopping: Continue shopping
+  in_progress: In progress
+  completed_at: Completed at
+  waiting_for_processing: Waiting for processing
+  delivery: DELIVERY
+  payment: PAYMENT
+  confirm: CONFIRM
+  complete: COMPLETE
+  checkout_adress: ADRESS
+  checkout_credit_card: CREDIT CARD
