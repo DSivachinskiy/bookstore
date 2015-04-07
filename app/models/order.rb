@@ -42,6 +42,9 @@ after_save :book_count
     order_items.each do |oi|
       sum+=oi.price
     end
+    unless ups.nil?
+      sum+=ups
+    end  
     sum
   end
 def book_count

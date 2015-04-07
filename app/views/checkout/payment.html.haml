@@ -1,21 +1,23 @@
-%table{ :align=>"left", :width=>"80%"}
+%table.tab6{ :align=>"left"}
   %tr
-    %td{:align => "center", :width => "40%"}
-      %h2
-        Checkout
+    %td{:align => "center", :width => "35%"}
+      %h3= t :accept_order
     %td= link_to "#{t :checkout_adress}", '/checkout/adress'
     %td= link_to "#{t :delivery}", '/checkout/delivery'
     %td
       %u= t :payment
     %td= link_to "#{t :confirm}", '/checkout/confirm'
     %td= link_to "#{t :complete}", '/checkout/complete'
-%br
+%table{:width => "100%"}
+  %tr{:width => "100%"}
+    %td{:width => "30%", :align=> "center"}
+      %h4= t :checkout_credit_card
+    %td{:width => "40%"}
+    %td{:width => "30%"}
+      %h4= t :order_summary
+
   = form_for(@credit_card) do |f|
-    %table{:align => "center", :width => "30%"}
-      %tr
-        %td
-          %h4
-            = t :checkout_credit_card
+    %table.tab3{:align => "left", :width => "30%"}    
       %tr
         %td
           .field
@@ -52,5 +54,32 @@
             = t :lastname
             %br
               = f.text_field :lastname
-    .actions
-      = f.submit
+      %tr
+        %td
+          .actions
+          = f.submit
+%table.tab5{:align => "right"}
+  %tr
+    %td{:align => "right", :width => "50%"}
+      %strong
+        = t :price
+        \:
+    %td{:width => "3%"}
+    %td
+      %strong= @order.total_price - @order.ups
+  %tr
+    %td{:align => "right"}
+      %strong
+        = t :shipping 
+        \:
+    %td{:width => "3%"}
+    %td
+      %strong= @order.ups
+  %tr
+    %td{:align => "right"}
+      %strong
+        = t :total_price 
+        \:
+    %td{:width => "3%"}
+    %td
+      %strong= @order.total_price

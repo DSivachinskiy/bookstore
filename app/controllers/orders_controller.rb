@@ -14,13 +14,13 @@ class OrdersController < ApplicationController
   end
 
   def update
-    @order.accept
-    @order.adress_id = cookies[:shipping_adress_id]
-    @order.billing_adress_id = cookies[:billing_adress_id]
-    @order.credit_card_id = cookies[:credit_card_id]
+    
+    @order.adress_id = current_costumer.adress.id
+    @order.billing_adress_id = current_costumer.billing_adress.id
+    @order.credit_card_id = current_costumer.credit_card.id
     @order.update(order_params)
   
-    redirect_to orders_path
+    redirect_to :back
   end
 
   def destroy
@@ -31,6 +31,6 @@ class OrdersController < ApplicationController
   private
 
     def order_params
-      params.require(:order).permit(:total_price, :completed_date, :adress_id, :billing_adress_id, :credit_card_id, :aasm_state, :costumer_id)
+      params.require(:order).permit(:total_price, :completed_date, :adress_id, :billing_adress_id, :credit_card_id, :aasm_state, :costumer_id, :ups)
     end
 end

@@ -17,5 +17,26 @@ class CheckoutController < ApplicationController
     else
       @credit_card = CreditCard.new
     end
+    current_order.find do |o|
+       @order = o
+     end 
   end	
+  def delivery
+     current_order.find do |o|
+       @order = o
+     end 
+     
+  end  
+  def confirm
+    current_order.find do |o|
+      @order = o
+    end 
+    @order_items = @order.order_items
+  end
+  def complete
+    current_order.find do |o|
+      @order = o
+    end 
+    @order.accept
+  end
 end

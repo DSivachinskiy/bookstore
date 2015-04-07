@@ -98,3 +98,11 @@ en:
   complete: COMPLETE
   checkout_adress: ADRESS
   checkout_credit_card: CREDIT CARD
+  ups_ground: UPS Ground
+  ups_two_day: UPS Two Day
+  ups_one_day: UPS One Day
+  shipping: Shipping
+  order_summary: Order Summary
+  shipping_type: Shipping type
+  order: Order
+  order_price: SUBTOTAL

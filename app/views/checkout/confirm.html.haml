@@ -1,0 +1,227 @@
+%table.tab6{ :align=>"left"}
+  %tr
+    %td{:align => "center", :width => "35%"}
+      %h3= t :accept_order
+    %td= link_to "#{t :checkout_adress}", '/checkout/adress'
+    %td= link_to "#{t :delivery}", '/checkout/delivery'
+    %td= link_to "#{t :payment}", '/checkout/payment'
+    %td
+      %u= t :confirm
+    %td= link_to "#{t :complete}", '/checkout/complete'
+%br
+%br
+%br
+%br
+  %table{:width => "100%"}
+    %tr
+      %td{:width => "16%", :align => "center"}
+        %h4= t :confirm
+      %td{:width => "84%"}   
+%table{:width => "25%", :align => "left"}
+  %tr
+    %td{:align => "center",:colspan => "2",}
+      %h4= t :shipping_adress
+
+    %td= link_to "#{t :edit}", '/checkout/adress'
+  %tr
+    %td{:align => "right", :width=>"48%"}
+      %strong
+        = t :country
+        \:
+    %td{:width=> "4%"}
+    %td{:colspan => "2"}= current_costumer.adress.country.name
+  %tr
+    %td{:align => "right"}
+      %strong
+        = t :city
+        \:
+    %td{:width=> "4%"}
+    %td{:colspan => "2"}= current_costumer.adress.city
+  %tr
+    %td{:align => "right"}
+      %strong
+        = t :adress
+        \:
+    %td{:width=> "4%"}
+    %td{:colspan => "2"}= current_costumer.adress.adress
+  %tr
+    %td{:align => "right"}
+      %strong
+        = t :zipcode
+        \:
+    %td{:width=> "4%"}
+    %td{:colspan => "2"}= current_costumer.adress.zipcode
+  %tr
+    %td{:align => "right"}
+      %strong
+        = t :phone
+        \:
+    %td{:width=> "4%"}
+    %td{:colspan => "2"}= current_costumer.adress.phone
+
+%table{:width => "25%", :align => "left"}
+  %tr
+    %td{:align => "center",:colspan => "2",}
+      %h4= t :billing_adress
+
+    %td= link_to "#{t :edit}", '/checkout/adress'
+  %tr
+    %td{:align => "right", :width=>"48%"}
+      %strong
+        = t :country
+        \:
+    %td{:width=> "4%"}
+    %td{:colspan => "2"}= current_costumer.billing_adress.country.name
+  %tr
+    %td{:align => "right"}
+      %strong
+        = t :city
+        \:
+    %td{:width=> "4%"}
+    %td{:colspan => "2"}= current_costumer.billing_adress.city
+  %tr
+    %td{:align => "right"}
+      %strong
+        = t :adress
+        \:
+    %td{:width=> "4%"}
+    %td{:colspan => "2"}= current_costumer.billing_adress.adress
+  %tr
+    %td{:align => "right"}
+      %strong
+        = t :zipcode
+        \:
+    %td{:width=> "4%"}
+    %td{:colspan => "2"}= current_costumer.billing_adress.zipcode
+  %tr
+    %td{:align => "right"}
+      %strong
+        = t :phone
+        \:
+    %td{:width=> "4%"}
+    %td{:colspan => "2"}= current_costumer.billing_adress.phone
+
+%table{:width => "25%", :align => "left"}
+  %tr
+    %td{:align => "right"}
+      %h4= t :shipping
+    %td
+    %td= link_to "#{t :edit}", '/checkout/delivery'
+  %tr
+    %td{:width => "48%", :align => "right"}
+      %strong
+        = t :shipping_type
+        \:
+    %td{:width => "4%"}
+    %td
+      -if @order.ups == 5
+        = t :ups_ground
+      -if @order.ups == 10
+        = t :ups_two_day
+      -if @order.ups == 15
+        = t :ups_one_day
+
+%table{:width => "25%", :align => "left"}
+  %tr
+    %td{:align => "right"}
+      %h4= t :payment
+    %td
+    %td= link_to "#{t :edit}", '/checkout/payment'
+  %tr
+    %td{:align => "right", :width=>"48%"}
+      %strong
+        = t :number
+        \:
+    %td{:width=> "4%"}
+    %td{:colspan => "2"}= current_costumer.credit_card.number
+  %tr
+    %td{:align => "right"}
+      %strong
+        = t :cvv
+        \:
+    %td{:width=> "4%"}
+    %td{:colspan => "2"}= current_costumer.credit_card.cvv
+  %tr
+    %td{:align => "right"}
+      %strong
+        = t :expiration_month
+        \:
+    %td{:width=> "4%"}
+    %td{:colspan => "2"}= current_costumer.credit_card.expiration_month
+  %tr
+    %td{:align => "right"}
+      %strong
+        = t :expiration_year
+        \:
+    %td{:width=> "4%"}
+    %td{:colspan => "2"}= current_costumer.credit_card.expiration_year
+  %tr
+    %td{:align => "right"}
+      %strong
+        = t :firstnme
+        \:
+    %td{:width=> "4%"}
+    %td{:colspan => "2"}= current_costumer.credit_card.firstname
+  %tr
+    %td{:align => "right"}
+      %strong
+        = t :lastnme
+        \:
+    %td{:width=> "4%"}
+    %td{:colspan => "2"}= current_costumer.credit_card.lastname
+%br
+  %table
+    %tr
+      %td
+        %h4= t :order
+
+  %table.tab2
+    %tr
+      %th
+      %th
+        %h4{:align => "center"}= t :book
+      %th{:width => "11%"}
+        %h4= t :book_price
+      %th{:width => "11%"}
+        %h4= t :quantity
+      %th{:width => "11%"}
+        %h4{:align => "center"}= t :price
+      %th
+    - @order_items.each do |o|
+      %tr
+        %td{:width => "200px", :height => "130px"}= image_tag("#{o.book.image}.png", height: 100)
+        %td
+          %h4
+            %strong
+              = o.book.title
+          %br
+          = o.book.description
+        %td= o.book.price
+        %td= o.quantity
+        %td{:align => "center"}= o.price
+        
+  %table.tab2{:align => "center"}
+    %tr{:align => "right"}
+      %td
+        %h4
+          = t :order_price
+          \:
+          %strong= @order.total_price - @order.ups
+    %tr{:align => "right"}
+      %td
+        %h4
+          = t :ups
+          \:
+          %strong= @order.ups
+%table{:align => "right", :width => "18%"}
+  %tr
+    %td{:align => "center"}
+      %h4
+        = t :total_price
+        \:
+        %strong= @order.total_price
+%table{:align => "left", :width => "25%"}
+  %tr
+    %td{:align => "center"}
+      = button_to "#{t :accept_order}", '/checkout/complete', method: "get", :class => 'button'
+

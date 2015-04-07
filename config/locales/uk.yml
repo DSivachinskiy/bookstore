@@ -36,7 +36,7 @@ uk:
   price: Ціна 
   edit: Редагувати
   destroy: Видалити
-  accept_order: Підтвердити замовлення
+  accept_order: Підтвердження замовлення
   back: Назад
   categories: Категорії
   authors: Автори
@@ -98,3 +98,11 @@ uk:
   complete: ЗАВЕРШЕННЯ
   checkout_adress: АДРЕСА
   checkout_credit_card: КРЕДИТНА КАРТКА
+  ups_ground: Наземна доставка
+  ups_two_day: Дводенна доставка
+  ups_one_day: Одноденна доставка
+  shipping: Доставка
+  order_summary: Ціна замовлення
+  shipping_type: Тип доставки
+  order: Замовлення
+  order_price: Ціна замовлення

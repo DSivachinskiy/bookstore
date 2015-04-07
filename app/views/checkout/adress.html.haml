@@ -1,8 +1,7 @@
-%table{:align =>"left", :width =>"80%"}
+%table.tab6{:align =>"left"}
   %tr
-    %td{:align => "center", :width => "40%"}
-      %h2
-        Checkout
+    %td{:align => "center", :width => "35%"}
+      %h3= t :accept_order
     %td
       %u= t :checkout_adress
     %td= link_to "#{t :delivery}", '/checkout/delivery'
