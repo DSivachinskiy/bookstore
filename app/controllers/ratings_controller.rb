@@ -18,12 +18,12 @@ load_and_authorize_resource :except => [:create]
 
   def destroy
     @rating.destroy
-    respond_with(@rating)
+    redirect_to :back
   end
 
   private
 
     def rating_params
-      params.require(:rating).permit(:texxt_review, :rating_number, :book_id, :costumer_id)
+      params.require(:rating).permit(:texxt_review, :rating_number, :book_id, :costumer_id, :title)
     end
 end

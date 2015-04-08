@@ -9,7 +9,7 @@ belongs_to :billing_adress
 has_many :order_items
 
 validates :costumer_id, presence: true
-validates :completed_date, presence: true
+
 
 before_save :save_price
 after_save :book_count
@@ -55,7 +55,15 @@ def book_count
  end
   end
 end
-
+def order_quantity
+  if aasm_state == "in_progress"
+    sum = 0
+    order_items.each do |oi|
+      sum+=oi.quantity
+    end
+  end
+  sum
+end
   def save_price
     self.total_price = calculate
   end

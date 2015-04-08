@@ -1,0 +1,51 @@
+%br
+  %table.tab2
+    %tr
+      %th
+      %th
+        %h4{:align => "center"}= t :book
+      %th{:width => "11%"}
+        %h4= t :book_price
+      %th{:width => "11%"}
+        %h4= t :quantity
+      %th{:width => "11%"}
+        %h4{:align => "center"}= t :price
+      %th
+    - @order_items.each do |o|
+      %tr
+        %td{:width => "200px", :height => "130px"}= image_tag("#{o.book.image}.png", height: 100)
+        %td
+          %h4
+            %strong
+              = o.book.title
+          %br
+          = o.book.description
+        %td= o.book.price
+        = form_for(o) do |oi|
+          %td
+            .field
+              = oi.text_field :quantity
+              %br
+              %br
+            .actions.button2
+              = oi.submit
+        %td{:align => "center"}= o.price
+        %td{:width => "25px"}= link_to image_tag("cross.png", :height => "20"), o, method: :delete, data: { confirm: 'Are you sure?' }
+  %table{:align => "right", :width => "27%"}
+    %tr{:align => "center"}
+      %td
+        %h4
+          = t :total_price
+          \:
+          %strong= @order.total_price
+  %table.tab3{:width => "100%"}
+    %tr
+      %td
+        %h4
+          = button_to "#{t :destroy}", @order, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'button'
+      %td
+        %h4= button_to "#{t :continue_shopping}", books_path, method: "get", :class => 'button'
+      %td{:width => "55%"}
+      %td{:align => "right"}
+        %h4
+          = button_to "#{t :accept_order}", '/checkout/adress', method: "get", :class => 'button'

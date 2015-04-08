@@ -7,7 +7,8 @@
     %td= link_to "#{t :delivery}", '/checkout/delivery'
     %td= link_to "#{t :payment}", '/checkout/payment'
     %td= link_to "#{t :confirm}", '/checkout/confirm'
-    %td= link_to "#{t :complete}", '/checkout/complete'
+    %td
+      %u= t :complete
 %br
   %table{:align => "left", :width => "60%"}
     %tr{:align => "center"}

@@ -10,7 +10,7 @@ load_and_authorize_resource :except => [:create]
         
     respond_to do |format|
       if @order_item.save
-        format.html { redirect_to o, notice: 'Order item was successfully created.' }
+        format.html { redirect_to edit_order_path(o), notice: 'Order item was successfully created.' }
         format.json { render :show, status: :created, location: o }
       else
         format.html { render :new }

@@ -37,6 +37,8 @@ class CheckoutController < ApplicationController
     current_order.find do |o|
       @order = o
     end 
+    @order_items = @order.order_items
     @order.accept
+    @order.save
   end
 end

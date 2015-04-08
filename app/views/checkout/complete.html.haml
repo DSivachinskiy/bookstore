@@ -1,29 +1,17 @@
-%table.tab6{ :align=>"left"}
-  %tr
-    %td{:align => "center", :width => "35%"}
-      %h3= t :accept_order
-    %td= link_to "#{t :checkout_adress}", '/checkout/adress'
-    %td= link_to "#{t :delivery}", '/checkout/delivery'
-    %td= link_to "#{t :payment}", '/checkout/payment'
-    %td
-      %u= t :confirm
-    %td
-      %u= t :complete
-%br
-%br
-%br
 %br
   %table{:width => "100%"}
     %tr
       %td{:width => "16%", :align => "center"}
-        %h4= t :confirm
+        %h4
+          = t :order
+          = @order.id
       %td{:width => "84%"}   
 %table{:width => "25%", :align => "left"}
   %tr
     %td{:align => "center",:colspan => "2",}
       %h4= t :shipping_adress
 
-    %td= link_to "#{t :edit}", '/checkout/adress'
+    
   %tr
     %td{:align => "right", :width=>"48%"}
       %strong
@@ -65,7 +53,7 @@
     %td{:align => "center",:colspan => "2",}
       %h4= t :billing_adress
 
-    %td= link_to "#{t :edit}", '/checkout/adress'
+    
   %tr
     %td{:align => "right", :width=>"48%"}
       %strong
@@ -107,7 +95,7 @@
     %td{:align => "right"}
       %h4= t :shipping
     %td
-    %td= link_to "#{t :edit}", '/checkout/delivery'
+    
   %tr
     %td{:width => "48%", :align => "right"}
       %strong
@@ -127,7 +115,7 @@
     %td{:align => "right"}
       %h4= t :payment
     %td
-    %td= link_to "#{t :edit}", '/checkout/payment'
+    
   %tr
     %td{:align => "right", :width=>"48%"}
       %strong
@@ -224,8 +212,8 @@
         = t :total_price
         \:
         %strong= @order.total_price
+        
 %table{:align => "left", :width => "25%"}
   %tr
     %td{:align => "center"}
-      = button_to "#{t :accept_order}", '/checkout/complete', method: "get", :class => 'button'
-
+      = button_to "#{t :continue_shopping}", books_path, method: "get", :class => 'button'

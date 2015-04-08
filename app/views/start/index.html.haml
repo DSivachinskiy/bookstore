@@ -2,16 +2,24 @@
   / Wrapper for slides
   .carousel-inner{:role => "listbox"}
     .item.active
-      %img{:src => "http://images.boomsbeat.com/data/images/full/24381/cat_1-jpg.jpg", :style => "height:200px"}
-        .carousel-caption
-          ololo
+      %table
+        %tr
+          %td{:align => "center"}
+            %h4= Book.first.title
+          %td
+            by
+            = link_to "#{Book.first.author.firstname} #{Book.first.author.lastname}", author_path(Book.first.author)
+        %tr
+          %td{:width => "200px", :height => "130px"}= image_tag("#{Book.first.image}.png", height: 100)
+          %td= Book.first.description
+
     .item
       %img{:src => "http://images.boomsbeat.com/data/images/full/24382/cat_2-png.png", :style => "height:200px"}
         .carousel-caption
     .item
       %img{:src => "http://core4.staticworld.net/images/idge/imported/imageapi/2014/09/11/15/slide_image_00-39ss-github-100416858-carousel.idge.jpg", :style => "height:200px"}
         .carousel-caption
-    Welcome
+    %h4= t :welcome
   / Controls
   %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic", :role => "button"}
     %span.glyphicon.glyphicon-chevron-left

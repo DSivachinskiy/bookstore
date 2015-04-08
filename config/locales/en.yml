@@ -106,3 +106,9 @@ en:
   shipping_type: Shipping type
   order: Order
   order_price: SUBTOTAL
+  ups: UPS
+  back_to_orders: << Back to orders
+  in_delivery: In delivery
+  delivered: Delivered
+  welcome: "Welcome to our amazing Bookstore! Choose anything you wish, we'll ship it anywhere!"
+  reviews: Reviews

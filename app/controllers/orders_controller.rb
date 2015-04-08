@@ -12,7 +12,9 @@ class OrdersController < ApplicationController
     @order.save
     redirect_to new_order_item_path
   end
-
+  def edit
+    @order_items = @order.order_items
+  end  
   def update
     
     @order.adress_id = current_costumer.adress.id

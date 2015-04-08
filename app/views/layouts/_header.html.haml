@@ -1,16 +1,26 @@
-%table.td_header{:width => "100%"}
+%table.td_header
   %tr{:height => "100px"}
     %td
-      %h2= t :bookstore
+      %h3= t :bookstore
     %td
       = link_to "#{t :home}", root_path
       |
       = link_to "#{t :shop}", books_path
     %td
+      %strong= t :another_language
+      %br
+        - if I18n.locale == I18n.default_locale
+          = link_to "English", :locale=>'en'
+        - else
+          = link_to "Українська", :locale=>'uk'
+    %td
       - if signed_in?
         - unless current_costumer.admin?
-          - current_order.find do |o|
-            = link_to "#{t :current_order}", o
+          -unless current_order.nil?
+            - current_order.find do |o|
+              = link_to "#{t :current_order} (#{o.order_quantity})", edit_order_path(o)
+          -unless current_order.present?
+            = t :current_order
         %td
           = link_to "#{t :settings}", costumer_path(current_costumer)
           |

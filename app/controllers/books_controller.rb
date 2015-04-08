@@ -5,7 +5,10 @@ load_and_authorize_resource :except => [:create]
  
 
   def show
+    @books=Book.all
     cookies[:id] = @book.id
+    @order_item = OrderItem.new
+    @order = Order.new
   end
 
   def create

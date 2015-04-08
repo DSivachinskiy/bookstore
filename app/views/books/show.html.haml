@@ -1,0 +1,47 @@
+%table.tab7{:align => "left"}
+  %tr{:align => "center"}
+    %td
+      %h3= @book.title
+  %tr{:height => "30px"}
+    %td{:width => "200px", :height => "130px", :rowspan => "2"}= image_tag("#{@book.image}.png", height: 200)
+    %td{:align => "left"}
+      %h4
+        = t :book_price
+        \:
+        = @book.price
+    -unless current_order.present?
+      %td
+        =link_to "#{t :new_order}", new_order_path
+    -else      
+      = form_for(@order_item) do |oi|
+        %td{:align => "right"}
+          .field
+            = oi.text_field :quantity        
+        %td
+          .actions.button2
+          = oi.submit
+  %tr
+    %td{:colspan => "3"}= @book.description
+%table{:width => "50%", :align => "left"}
+  %tr
+    %td{:width => "20%"}= t :reviews
+    %td{:width => "30%"}= link_to "#{t :add_rating}", new_rating_path
+  - @book.ratings.each do |rating|
+    %tr
+      %td= rating.rating_number
+      %td= rating.title
+      %td
+        -if rating.costumer_id == current_costumer.id
+          = link_to image_tag("cross.png", :height => "20"), rating, method: :delete, data: { confirm: 'Are you sure?' }
+    %tr
+      %td
+        by
+        = rating.costumer.firstname
+        = rating.costumer.lastname
+    %tr
+      %td{:colspan => "3"}= rating.texxt_review
+    %tr
+      %td
+        %br
+   
+

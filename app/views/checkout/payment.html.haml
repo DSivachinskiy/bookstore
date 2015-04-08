@@ -7,7 +7,8 @@
     %td
       %u= t :payment
     %td= link_to "#{t :confirm}", '/checkout/confirm'
-    %td= link_to "#{t :complete}", '/checkout/complete'
+    %td
+      %u= t :complete
 %table{:width => "100%"}
   %tr{:width => "100%"}
     %td{:width => "30%", :align=> "center"}
@@ -66,7 +67,10 @@
         \:
     %td{:width => "3%"}
     %td
-      %strong= @order.total_price - @order.ups
+      - if @order.ups.nil?
+        %strong= @order.total_price
+      - else
+        %strong= @order.total_price - @order.ups
   %tr
     %td{:align => "right"}
       %strong
