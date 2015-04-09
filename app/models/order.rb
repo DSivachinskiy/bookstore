@@ -36,6 +36,9 @@ after_save :book_count
 
   
   end
+  def true_coupon
+    Coupon.where(number: coupon_number)
+  end  
 
   def calculate
     sum = 0
@@ -44,6 +47,13 @@ after_save :book_count
     end
     unless ups.nil?
       sum+=ups
+    end  
+    unless coupon_number.nil?
+      true_coupon.find do |c|
+        if c.present?
+          sum-=c.price
+        end  
+      end
     end  
     sum
   end

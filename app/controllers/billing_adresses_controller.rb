@@ -7,7 +7,7 @@ load_and_authorize_resource :except => [:create]
     @billing_adress = BillingAdress.new(billing_adress_params)
     @billing_adress.costumer_id = current_costumer.id
     @billing_adress.save
-     redirect_to current_costumer
+     redirect_to :back
   end
 
   def update

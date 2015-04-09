@@ -1,4 +1,17 @@
 .row
+  .col-xs-3
+    = link_to "#{t :home}", root_path
+    \>>
+    = link_to "#{t :shop}", books_path
+    \>>
+    = @category.title  
+.row
+  .col-xs-3
+    %h3
+      = t :category
+      \-
+      = @category.title
+.row
   .col-xs-2
     %h3
       = t :shop
@@ -18,10 +31,3 @@
         \:
         = book.price
     .col-xs-1
-  
-
-
-
-
-
- 

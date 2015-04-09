@@ -7,7 +7,7 @@ load_and_authorize_resource :except => [:create]
     @credit_card = CreditCard.new(credit_card_params)
     @credit_card.costumer_id = current_costumer.id
     @credit_card.save
-    redirect_to current_costumer
+    redirect_to :back
   end
 
   def update

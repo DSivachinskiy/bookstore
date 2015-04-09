@@ -19,7 +19,11 @@ load_and_authorize_resource :except => [:create]
     end
     end
   end
-
+  def edit
+    current_order.find do |o|
+      @order=o
+    end  
+  end  
   def update
    @order_item.update(order_item_params)
     redirect_to :back

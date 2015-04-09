@@ -7,7 +7,7 @@ load_and_authorize_resource :except => [:create]
     @adress = Adress.new(adress_params)
     @adress.costumer_id = current_costumer.id
     @adress.save
-     redirect_to current_costumer
+     redirect_to :back
   end
 
   def update

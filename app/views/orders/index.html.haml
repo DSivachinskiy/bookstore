@@ -32,7 +32,7 @@
           
             %tr
               %td
-                %h4= button_to "#{t :accept_order}", edit_billing_adress_path(current_costumer.billing_adress), method: "get", :class => 'button'
+                %h4= button_to "#{t :accept_order}", '/checkout/adress', method: "get", :class => 'button'
               %td
               %td
 

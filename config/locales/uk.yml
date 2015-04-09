@@ -15,7 +15,7 @@ uk:
   book_title: Назва книги
   book_price: Ціна книги
   quantity: Кількість
-  rating: Рейтинг
+  rating: Оцінка
   edit_costumer: Редагувати мій аккаунт
   email: Пошта
   password: Пароль
@@ -112,3 +112,9 @@ uk:
   delivered: Доставлено
   welcome: "Вибирайте все, що хочете, ми доставимо це куди завгодно."
   reviews: Коментарі
+  new_review: Новий відгук для
+  title: Заголовок
+  text_review: Відгук
+  coupon: Купон
+  coupon_price: Знижка з купону
+  category: Категорія

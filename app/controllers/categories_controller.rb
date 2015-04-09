@@ -3,6 +3,9 @@ load_and_authorize_resource :except => [:create]
  
   respond_to :html
 
+  def show
+    @books = Book.where(category_id: @category.id).find_all
+  end
   def create
     @category = Category.new(category_params)
     @category.save

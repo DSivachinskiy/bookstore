@@ -11,7 +11,12 @@
         = @book.price
     -unless current_order.present?
       %td
-        =link_to "#{t :new_order}", new_order_path
+        =form_for(@order) do |f|
+          .field
+            = f.label :completed_date
+            = f.date_select :completed_date
+          .actions
+            = f.submit 
     -else      
       = form_for(@order_item) do |oi|
         %td{:align => "right"}
@@ -24,17 +29,21 @@
     %td{:colspan => "3"}= @book.description
 %table{:width => "50%", :align => "left"}
   %tr
-    %td{:width => "20%"}= t :reviews
+    %td{:width => "20%", :align=>"center"}
+      %h4= t :reviews
     %td{:width => "30%"}= link_to "#{t :add_rating}", new_rating_path
   - @book.ratings.each do |rating|
     %tr
-      %td= rating.rating_number
-      %td= rating.title
+      %td{:align => "center"}
+        = t :rating
+        = rating.rating_number
+      %td
+        %strong= rating.title
       %td
         -if rating.costumer_id == current_costumer.id
           = link_to image_tag("cross.png", :height => "20"), rating, method: :delete, data: { confirm: 'Are you sure?' }
     %tr
-      %td
+      %td{:align => "center"}
         by
         = rating.costumer.firstname
         = rating.costumer.lastname

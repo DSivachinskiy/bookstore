@@ -9,7 +9,7 @@
   border-bottom-style: dotted;
 }
 
-.tab3 td {
+.tab3 tr {
   text-align: center;
  
 }
@@ -54,12 +54,26 @@
   border: 2px solid;
   border-radius: 5px;
 }
+.button4 input{
+  height: 33px;
+  border: 2px solid;
+  border-radius: 5px;
+}
+.button5 input{
+  height: 33px;
+  width: 70px;
+  border: 2px solid;
+  border-radius: 5px;
+}
 .td_header {
   width: 100%;
 }
 .td_header td {
   width: 20%;
   text-align: center;
+}
+.book {
+  width: 200px;
 }
 h4 {
   vertical-align: bottom;

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408142109) do
+ActiveRecord::Schema.define(version: 20150409115131) do
 
   create_table "admins", force: true do |t|
     t.string   "email"
@@ -122,6 +122,13 @@ ActiveRecord::Schema.define(version: 20150408142109) do
     t.datetime "updated_at"
   end
 
+  create_table "coupons", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "number"
+    t.integer  "price"
+  end
+
   create_table "credit_cards", force: true do |t|
     t.integer  "number"
     t.integer  "cvv"
@@ -168,6 +175,7 @@ ActiveRecord::Schema.define(version: 20150408142109) do
     t.integer  "billing_adress_id"
     t.string   "aasm_state"
     t.integer  "ups"
+    t.integer  "coupon_number"
   end
 
   create_table "ratings", force: true do |t|

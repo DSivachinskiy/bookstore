@@ -23,15 +23,24 @@
         %td= o.book.price
         = form_for(o) do |oi|
           %td
-            .field
+            .field.button5
               = oi.text_field :quantity
               %br
               %br
-            .actions.button2
+            .actions.button4
               = oi.submit
         %td{:align => "center"}= o.price
         %td{:width => "25px"}= link_to image_tag("cross.png", :height => "20"), o, method: :delete, data: { confirm: 'Are you sure?' }
   %table{:align => "right", :width => "27%"}
+    %tr{:align => "center"}
+      %td
+        %h4
+          = t :coupon_price
+          \:
+          - @order.true_coupon.find do |c|
+            %strong
+              \-
+              =c.price
     %tr{:align => "center"}
       %td
         %h4
@@ -45,7 +54,15 @@
           = button_to "#{t :destroy}", @order, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'button'
       %td
         %h4= button_to "#{t :continue_shopping}", books_path, method: "get", :class => 'button'
-      %td{:width => "55%"}
-      %td{:align => "right"}
+      
+      =form_for(@order) do |order|
+        %td{:width => "45%", :align => "right"}
+          .field.button4
+            =order.text_field :coupon_number
+          %td{:width => "10%"}
+            .actions.button4
+             
+              %h4=order.submit t :coupon
+      %td{:align => "center"}
         %h4
           = button_to "#{t :accept_order}", '/checkout/adress', method: "get", :class => 'button'

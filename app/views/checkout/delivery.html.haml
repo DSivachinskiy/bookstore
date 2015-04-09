@@ -51,7 +51,19 @@
       - if @order.ups.nil?
         %strong= @order.total_price
       - else
-        %strong= @order.total_price - @order.ups
+        - @order.true_coupon.find do |c|
+          %strong= @order.total_price - @order.ups + c.price
+  %tr
+    %td{:align => "right"}
+      %strong
+        = t :coupon_price
+        \:
+    %td
+    %td
+      - @order.true_coupon.find do |c|
+        %strong
+          \-
+          =c.price
   %tr
     %td{:align => "right"}
       %strong
@@ -59,7 +71,9 @@
         \:
     %td{:width => "3%"}
     %td
-      %strong= @order.ups
+      %strong
+        \+
+        = @order.ups
   %tr
     %td{:align => "right"}
       %strong
