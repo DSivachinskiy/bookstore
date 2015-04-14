@@ -8,7 +8,7 @@ describe Order do
   
   it { should belong_to :credit_card }
   it { should belong_to :costumer }
-  it { should belong_to :order_status }
+
   it { should belong_to :adress }
   it { should belong_to :billing_adress }
   it { should have_many :order_items }

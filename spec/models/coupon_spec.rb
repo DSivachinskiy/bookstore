@@ -1,5 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Coupon, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Coupon do
+  let(:coupon) { Coupon.new }
+    it { expect(coupon).to validate_presence_of(:number) }
+    it { expect(coupon).to validate_uniqueness_of(:number) }
 end

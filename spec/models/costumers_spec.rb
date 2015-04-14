@@ -11,8 +11,8 @@ describe Costumer do
 
   it { should have_many :orders }
   it { should have_many :ratings }
-  it { should have_many :adresses }
-  it { should have_many :billing_adresses }
-  it { should have_many :credit_cards }
+  it { should have_one :adress }
+  it { should have_one :billing_adress }
+  it { should have_one :credit_card }
 
 end

@@ -4,7 +4,7 @@ describe Order do
   let(:order) { Order.new }
  
   it { expect(order).to validate_presence_of(:costumer_id) }
-  it { expect(order).to validate_presence_of(:completed_date) }
+ 
   
   it { should belong_to :credit_card }
   it { should belong_to :costumer }

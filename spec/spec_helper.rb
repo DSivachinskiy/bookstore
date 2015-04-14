@@ -10,6 +10,8 @@ require 'factory_girl_rails'
 require 'database_cleaner'
 require 'rspec/collection_matchers'
 require 'rspec/expectations'
+require 'ability_spec_helper'
+require 'support/factories'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 # Add additional requires below this line. Rails is not loaded until this point!
