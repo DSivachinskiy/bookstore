@@ -2,6 +2,7 @@ class OrderItemsController < ApplicationController
 load_and_authorize_resource :except => [:create]
  
   def create
+       
     @order_item = OrderItem.new(order_item_params)
      @order_item.book_id = cookies[:id]
        

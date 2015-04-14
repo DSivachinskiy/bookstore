@@ -16,11 +16,11 @@
     %td
       - if signed_in?
         - unless current_costumer.admin?
-          -unless current_order.nil?
+          - unless current_order.nil?
             - current_order.find do |o|
+              = link_to image_tag("cart.png", :height => "50"), edit_order_path(o)
               = link_to "#{t :current_order} (#{o.order_quantity})", edit_order_path(o)
-          -unless current_order.present?
-            = t :current_order
+
         %td
           = link_to "#{t :settings}", costumer_path(current_costumer)
           |
@@ -31,6 +31,7 @@
         = link_to "#{I18n.t "register"}", new_costumer_registration_path
         |
         = link_to "#{I18n.t "login"}", new_costumer_session_path
+
           
 
      

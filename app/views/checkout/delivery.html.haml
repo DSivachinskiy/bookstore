@@ -40,25 +40,13 @@
       %td
         .actions
           = f.submit
-%table.tab5{:align => "right"}
+%table.tab5{:align => "right"}  
   %tr
     %td{:align => "right", :width => "50%"}
       %strong
-        = t :price
-        \:
-    %td{:width => "3%"}
-    %td
-      - if @order.ups.nil?
-        %strong= @order.total_price
-      - else
-        - @order.true_coupon.find do |c|
-          %strong= @order.total_price - @order.ups + c.price
-  %tr
-    %td{:align => "right"}
-      %strong
         = t :coupon_price
         \:
-    %td
+    %td{:width => "3%"}
     %td
       - @order.true_coupon.find do |c|
         %strong

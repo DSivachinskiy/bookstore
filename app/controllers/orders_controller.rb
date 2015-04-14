@@ -8,7 +8,6 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.costumer_id = current_costumer.id
-    @order.completed_date = Date.today
     @order.save
     redirect_to :back
   end

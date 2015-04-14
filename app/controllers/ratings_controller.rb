@@ -8,7 +8,9 @@ load_and_authorize_resource :except => [:create]
     @rating.book_id = cookies[:id] 
     @rating.costumer_id = current_costumer.id
     @rating.save
-    respond_with(@rating)
+    Book.where(id: cookies[:id]).find do |book|
+      redirect_to book_path(book)
+    end  
   end
 
   def update

@@ -17,6 +17,11 @@ class ApplicationController < ActionController::Base
  
 def current_order
  @current_order = Order.where(costumer_id: current_costumer.id).where(aasm_state: "in_progress")
+ unless @current_order.present?
+   current_costumer.orders.create
+ else
+   @current_order
+ end  
 end
 
 def last_book

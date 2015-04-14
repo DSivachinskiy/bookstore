@@ -9,21 +9,14 @@
         = t :book_price
         \:
         = @book.price
-    -unless current_order.present?
+    
+        
+    = form_for(@order_item) do |oi|
+      %td{:align => "right"}
+        .field
+          = oi.text_field :quantity        
       %td
-        =form_for(@order) do |f|
-          .field
-            = f.label :completed_date
-            = f.date_select :completed_date
-          .actions
-            = f.submit 
-    -else      
-      = form_for(@order_item) do |oi|
-        %td{:align => "right"}
-          .field
-            = oi.text_field :quantity        
-        %td
-          .actions.button2
+        .actions.button2
           = oi.submit
   %tr
     %td{:colspan => "3"}= @book.description
