@@ -14,49 +14,14 @@
     %tr{:align => "center"}
       %td
         %h4
-          = t :shipping_adress
+          = t :billing_adress
       %td
         %h4
-          = t :billing_adress
+          = t :shipping_adress
     %tr{:align => "center"}
-      %td
-        = form_for(@adress) do |f|
-          %table
-            %tr
-              %td
-                .field
-                  = t :adress
-                  %br
-                    = f.text_field :adress
-            %tr
-              %td
-                .field
-                  = t :zipcode
-                  %br
-                    = f.number_field :zipcode
-            %tr
-              %td
-                .field
-                  = t :city
-                  %br
-                    = f.text_field :city
-            %tr
-              %td
-                .field
-                  = t :phone
-                  %br
-                    = f.text_field :phone
-            %tr
-              %td
-                .field
-                  = t :country
-                  %br
-                    = f.select(:country_id, options_for_select(Country.all.collect { |country| [country.name, country.id] }))
-          .actions
-            = f.submit
-      %td
+      %td{:width => "50%"}
         = form_for(@billing_adress) do |f|
-          %table
+          %table.tab9
             %tr
               %td
                 .field
@@ -87,5 +52,91 @@
                   = t :country
                   %br
                     = f.select(:country_id, options_for_select(Country.all.collect { |country| [country.name, country.id] }))
-          .actions
-            = f.submit
+            %tr
+              %td.tab10
+                .field
+                  = f.check_box(:shipping)
+                  = f.label t :use_billing_adress
+            %tr
+              %td
+                .actions.button4
+                  = f.submit
+      -unless @billing_adress.shipping?
+        %td.tab8
+          = form_for(@adress) do |f|
+            %table.tab9
+              %tr
+                %td
+                  .field
+                    = t :adress
+                    %br
+                      = f.text_field :adress
+              %tr
+                %td
+                  .field
+                    = t :zipcode
+                    %br
+                      = f.number_field :zipcode
+              %tr
+                %td
+                  .field
+                    = t :city
+                    %br
+                      = f.text_field :city
+              %tr
+                %td
+                  .field
+                    = t :phone
+                    %br
+                      = f.text_field :phone
+              %tr
+                %td
+                  .field
+                    = t :country
+                    %br
+                      = f.select(:country_id, options_for_select(Country.all.collect { |country| [country.name, country.id] }))
+              %tr
+                %td
+                  .actions.button4
+                    = f.submit
+      - else
+        %td.tab8
+          %table.tab9
+            %tr
+              %td
+                .field
+                  = t :adress
+                  %br
+                    %strong
+                      = @adress.adress
+            %tr
+              %td
+                .field
+                  = t :zipcode
+                  %br
+                    %strong
+                      = @adress.zipcode
+            %tr
+              %td
+                .field
+                  = t :city
+                  %br
+                    %strong
+                      = @adress.city
+            %tr
+              %td
+                .field
+                  = t :phone
+                  %br
+                    %strong
+                      = @adress.phone
+            %tr
+              %td
+                .field
+                  = t :country
+                  %br
+                    %strong
+                      = @adress.country.name
+            
+            
+      

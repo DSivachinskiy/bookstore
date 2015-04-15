@@ -26,6 +26,6 @@ load_and_authorize_resource :except => [:create]
   private
 
     def billing_adress_params
-      params.require(:billing_adress).permit(:adress, :zipcode, :city, :phone, :country_id)
+      params.require(:billing_adress).permit(:adress, :zipcode, :city, :phone, :country_id, :shipping)
     end
 end

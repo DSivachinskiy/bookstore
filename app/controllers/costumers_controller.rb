@@ -17,7 +17,14 @@ def show
   else
     @credit_card = CreditCard.new
   end
-  
+   if @billing_adress.shipping?
+      @adress.adress = @billing_adress.adress
+      @adress.zipcode = @billing_adress.zipcode
+      @adress.city = @billing_adress.city
+      @adress.phone = @billing_adress.phone
+      @adress.country_id = @billing_adress.country_id
+      @adress.save
+    end
 end
 
   def update

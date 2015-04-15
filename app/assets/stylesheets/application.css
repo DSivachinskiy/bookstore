@@ -1,6 +1,9 @@
 /*
  *= require bootstrap_and_overrides
  */
+.header{
+  background: linear-gradient(to top, #ffffff, #cccccc);
+}
 .tab1{
   text-align: left;
 }
@@ -38,6 +41,29 @@
 }
 .tab7 td {
   vertical-align: top;
+}
+.tab8 {
+  vertical-align: top;
+
+}
+.tab9 {
+  text-align: center;
+}
+.tab9 tr{
+  height: 50px;
+}
+.tab9 input, select {
+  width: 200px;
+  text-align: center;
+  font-weight: 700;
+  border-style: solid;
+}
+.start {
+  width: 60%;
+}
+
+.tab10 input{
+  width: 20px
 }
 .button{
   height: 33px;

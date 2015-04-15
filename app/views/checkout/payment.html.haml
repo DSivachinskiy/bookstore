@@ -18,7 +18,7 @@
       %h4= t :order_summary
 
   = form_for(@credit_card) do |f|
-    %table.tab3{:align => "left", :width => "30%"}    
+    %table.tab9{:align => "left", :width => "30%"}    
       %tr
         %td
           .field
@@ -57,8 +57,8 @@
               = f.text_field :lastname
       %tr
         %td
-          .actions
-          = f.submit
+          .actions.button4
+            = f.submit
 %table.tab5{:align => "right"}
   
   %tr
