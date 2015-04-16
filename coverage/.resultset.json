@@ -1,0 +1,111 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/dmytro/ruby/bookstore/app/models/admin.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/models/costumer.rb": [
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/helpers/adresses_helper.rb": [
+        1,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/helpers/authors_helper.rb": [
+        1,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/helpers/billing_adresses_helper.rb": [
+        1,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/helpers/books_helper.rb": [
+        1,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/helpers/categories_helper.rb": [
+        1,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/helpers/checkout_helper.rb": [
+        1,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/helpers/costumers_helper.rb": [
+        1,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/helpers/costumers/omniauth_callbacks_helper.rb": [
+        1,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/helpers/countries_helper.rb": [
+        1,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/helpers/credit_cards_helper.rb": [
+        1,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/helpers/order_items_helper.rb": [
+        1,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/helpers/orders_helper.rb": [
+        1,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/helpers/orders/build_helper.rb": [
+        1,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/helpers/ratings_helper.rb": [
+        1,
+        null
+      ],
+      "/home/dmytro/ruby/bookstore/app/helpers/start_helper.rb": [
+        1,
+        null
+      ]
+    },
+    "timestamp": 1429196744
+  }
+}

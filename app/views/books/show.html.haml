@@ -10,21 +10,25 @@
         \:
         = @book.price
     
-        
-    = form_for(@order_item) do |oi|
-      %td{:align => "right"}
-        .field
-          = oi.text_field :quantity        
-      %td
-        .actions.button2
-          = oi.submit
+    - if signed_in?
+      - unless current_costumer.admin?
+        = form_for(@order_item) do |oi|
+          %td{:align => "right"}
+            .field
+              = oi.label :quantity
+              = oi.text_field :quantity        
+          %td
+            .actions.button2
+              = oi.submit
   %tr
     %td{:colspan => "3"}= @book.description
 %table{:width => "50%", :align => "left"}
   %tr
     %td{:width => "20%", :align=>"center"}
       %h4= t :reviews
-    %td{:width => "30%"}= link_to "#{t :add_rating}", new_rating_path
+    - if signed_in?
+      - unless current_costumer.admin?
+        %td{:width => "30%"}= link_to "#{t :add_rating}", new_rating_path
   - @book.ratings.each do |rating|
     %tr
       %td{:align => "center"}

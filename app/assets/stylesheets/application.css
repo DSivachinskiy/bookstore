@@ -58,12 +58,16 @@
   font-weight: 700;
   border-style: solid;
 }
+
 .start {
   width: 60%;
 }
 
 .tab10 input{
   width: 20px
+}
+.bot {
+  vertical-align: bottom;
 }
 .button{
   height: 33px;

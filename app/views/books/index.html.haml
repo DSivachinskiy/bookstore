@@ -2,7 +2,19 @@
   .col-xs-2
     %h3
       = t :shop
-  .col-xs-8
+  -if signed_in?
+    - if current_costumer.admin?
+      .col-xs-2
+        %h3
+          = link_to "#{t :new_book}", new_book_path
+      .col-xs-2
+        %h3
+          = link_to "#{t :new_category}", new_category_path
+      .col-xs-4
+    - else
+      .col-xs-8
+  - else
+    .col-xs-8
   .col-xs-2
     = render 'layouts/table'      
 .row
@@ -18,6 +30,8 @@
         \:
         = book.price
     .col-xs-1
+%br
+
   
 
 

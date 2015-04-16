@@ -41,6 +41,8 @@ gem "therubyracer"
 gem "less-rails" 
 gem "twitter-bootstrap-rails"
 gem "haml"
+gem 'simplecov', :require => false, :group => :test
+gem 'simplecov-rcov'
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'

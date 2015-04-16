@@ -12,13 +12,13 @@ FactoryGirl.define do
   end
 
   factory :author do
-    firstname  Faker::Name.first_name
-    lastname   Faker::Name.last_name
-    biography Faker::Lorem.paragraph(4)
+    firstname  'author_firstname'
+    lastname   'author_lastname'
+    biography 'author_bio'
   end
 
   factory :category do
-    sequence(:name) { |n| "name#{n}" }
+    title 'test_category'
   end
 
   factory :country do
@@ -26,11 +26,11 @@ FactoryGirl.define do
   end
 
   factory :book do
-    title             Faker::Lorem.word
-    description  Faker::Lorem.paragraph(2)
+    title        'booktest'
+    description  'test_description'
     author
     category
-    price             Faker::Number.number(1)
+    price          1111
     books_in_stock 22
   
   end
@@ -69,7 +69,7 @@ FactoryGirl.define do
   end
 
   factory :order_item do
-    quantity 1
+    quantity
     order
     book
   end

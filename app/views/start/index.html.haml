@@ -1,30 +1,31 @@
 #myCarousel.carousel.slide.start{"data-ride" => "carousel"}
   / Wrapper for slides
   .carousel-inner{:role => "listbox"}
-    .item.active
-      %table
-        %tr
-          %td{:align => "center"}
-            %h4= Book.first.title
-          %td
-            by
-            = link_to "#{Book.first.author.firstname} #{Book.first.author.lastname}", author_path(Book.first.author)
-        %tr
-          %td{:height => "130px"}= image_tag("#{Book.first.image}.png", height: 100)
-          %td= Book.first.description
-    - Book.all.each do |book|
-      -unless book == Book.first
-        .item
-          %table
-            %tr
-              %td{:align => "center"}
-                %h4= book.title
-              %td
-                by
-                = link_to "#{book.author.firstname} #{book.author.lastname}", author_path(book.author)
-            %tr
-              %td{:height => "130px"}= image_tag("#{book.image}.png", height: 100)
-              %td= book.description
+    -if @firstbook.present?
+      .item.active
+        %table
+          %tr
+            %td{:align => "center"}
+              %h4= link_to @firstbook.title, @firstbook
+            %td
+              by
+              = link_to "#{@firstbook.author.firstname} #{@firstbook.author.lastname}", author_path(@firstbook.author)
+          %tr
+            %td{:height => "130px"}= image_tag("#{@firstbook.image}.png", height: 100)
+            %td= @firstbook.description
+      - @books.each do |book|
+        -unless book == @firstbook
+          .item
+            %table
+              %tr
+                %td{:align => "center"}
+                  %h4= link_to book.title, book
+                %td
+                  by
+                  = link_to "#{book.author.firstname} #{book.author.lastname}", author_path(book.author)
+              %tr
+                %td{:height => "130px"}= image_tag("#{book.image}.png", height: 100)
+                %td= book.description
 
     %h4= t :welcome
   / Controls

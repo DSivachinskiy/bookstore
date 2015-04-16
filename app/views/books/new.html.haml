@@ -1,0 +1,32 @@
+%h1= t :new_book
+= form_for(@book) do |f|
+  .tab9
+    .field
+      = t :book_title
+      %br
+        = f.text_field :title
+    .field
+      = t :description
+      %br
+        = f.text_area :description
+    .field
+      = t :book_price
+      %br
+        = f.text_field :price
+    .field
+      = t :books_in_stock
+      %br
+        = f.number_field :books_in_stock
+    .field
+      = t :author
+      %br
+        = f.select(:author_id, options_for_select(Author.all.collect { |author| [author.firstname,author.lastname, author.id] }))
+    .field
+      = t :category
+      %br
+        = f.select(:category_id, options_for_select(Category.all.collect { |category| [category.title, category.id] }))
+    .actions.button4
+      %br
+      = f.submit
+  %br
+  = link_to "#{t :back}", books_path

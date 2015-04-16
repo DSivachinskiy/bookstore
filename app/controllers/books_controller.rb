@@ -14,6 +14,7 @@ load_and_authorize_resource :except => [:create]
   def create
   	@book = Book.new(book_params)
     @book.save
+    @book.img
     respond_with(@book)
   end
 

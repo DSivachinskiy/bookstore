@@ -1,0 +1,13 @@
+%h1= t :new_category
+= form_for(@category) do |f|
+  .tab9
+    .field
+      = t :category_title
+      %br
+        = f.text_field :title
+    .actions.button4
+      %br
+        = f.submit
+
+%br
+=link_to "#{t :back}", categories_path
