@@ -6,15 +6,27 @@ load_and_authorize_resource :except => [:create]
   def create
     @billing_adress = BillingAdress.new(billing_adress_params)
     @billing_adress.costumer_id = current_costumer.id
-    @billing_adress.save
-     redirect_to :back
+     
+    respond_to do |format|
+      if @billing_adress.save
+        format.html { redirect_to :back, notice: 'Billing adress succesfully created!' }     
+      else
+        format.html { redirect_to :back, notice: 'Wrong filled fields!' } 
+      end
+    end
   end
 
   def update
     cookies[:billing_adress_id] = @billing_adress.id
     @billing_adress.update(billing_adress_params)
      
-    redirect_to :back
+    respond_to do |format|
+      if @billing_adress.save
+        format.html { redirect_to :back, notice: 'Billing adress succesfully updated!' }
+      else
+        format.html { redirect_to :back, notice: 'Wrong filled fields!' }        
+      end
+    end
     
   end
 

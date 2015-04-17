@@ -5,6 +5,7 @@ FactoryGirl.define do
     password   Faker::Internet.password(8)
     firstname Faker::Name.first_name
     lastname  Faker::Name.last_name
+    admin false
 
     factory :admin do
       admin true
@@ -22,7 +23,7 @@ FactoryGirl.define do
   end
 
   factory :country do
-    name Faker::Address.country
+    name 'test_country'
   end
 
   factory :book do
@@ -49,18 +50,19 @@ FactoryGirl.define do
 
 
 
-  factory :billing_address do
-    address Faker::Address.street_address
-    zipcode Faker::Address.zip
-    city    Faker::Address.city
-    phone   Faker::PhoneNumber.cell_phone
-    country
+  factory :billing_adress do
+    adress 111
+    zipcode 222
+    city    333
+    phone   444
+    shipping false
+    country 
     costumer
 
   end
 
-  factory :address do
-    address Faker::Address.street_address
+  factory :adress do
+    adress Faker::Address.street_address
     zipcode Faker::Address.zip
     city    Faker::Address.city
     phone   Faker::PhoneNumber.cell_phone
@@ -69,13 +71,13 @@ FactoryGirl.define do
   end
 
   factory :order_item do
-    quantity
+    quantity 3
     order
     book
   end
 
   factory :coupon do
-    number '111111'
-    price 1
+    number '123123'
+    price 15
   end
 end

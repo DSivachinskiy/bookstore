@@ -15,8 +15,8 @@
         = form_for(@order_item) do |oi|
           %td{:align => "right"}
             .field
-              = oi.label :quantity
-              = oi.text_field :quantity        
+              = oi.label t :quantity
+              = oi.text_field :quantity, id: 'new_oi'        
           %td
             .actions.button2
               = oi.submit

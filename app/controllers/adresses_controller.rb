@@ -6,14 +6,27 @@ load_and_authorize_resource :except => [:create]
   def create
     @adress = Adress.new(adress_params)
     @adress.costumer_id = current_costumer.id
-    @adress.save
-     redirect_to :back
+   
+     respond_to do |format|
+      if @adress.save
+        format.html { redirect_to :back, notice: 'Shipping adress succesfully created!' }     
+      else
+        format.html { redirect_to :back, notice: 'Wrong filled fields!' } 
+      
+      end
+    end
   end
 
   def update
     cookies[:shipping_adress_id] = @adress.id
     @adress.update(adress_params)
-    redirect_to :back
+    respond_to do |format|
+      if @adress.save
+        format.html { redirect_to :back, notice: 'Shipping adress succesfully updated!' }     
+       else
+        format.html { redirect_to :back, notice: 'Wrong filled fields!' } 
+      end
+    end
      
   end
 

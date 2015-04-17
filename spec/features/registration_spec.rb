@@ -1,6 +1,6 @@
 require 'features/features_spec_helper'
 require 'rails_helper'
-
+ 
 feature "Registration", :devise do
   scenario "Visitor registers successfully via register form" do
     visit new_costumer_registration_path
