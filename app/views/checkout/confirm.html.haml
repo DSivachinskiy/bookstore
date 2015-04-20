@@ -2,9 +2,9 @@
   %tr
     %td{:align => "center", :width => "35%"}
       %h3= t :accept_order
-    %td= link_to "#{t :checkout_adress}", '/checkout/adress'
-    %td= link_to "#{t :delivery}", '/checkout/delivery'
-    %td= link_to "#{t :payment}", '/checkout/payment'
+    %td= link_to "#{t :checkout_adress}", checkout_adress_path
+    %td= link_to "#{t :delivery}", checkout_delivery_path
+    %td= link_to "#{t :payment}", checkout_payment_path
     %td
       %u= t :confirm
     %td
@@ -23,7 +23,7 @@
     %td{:align => "center",:colspan => "2",}
       %h4= t :shipping_adress
 
-    %td= link_to "#{t :edit}", '/checkout/adress'
+    %td= link_to "#{t :edit}", checkout_adress_path, id: 'adress_link'
   %tr
     %td{:align => "right", :width=>"48%"}
       %strong
@@ -65,7 +65,7 @@
     %td{:align => "center",:colspan => "2",}
       %h4= t :billing_adress
 
-    %td= link_to "#{t :edit}", '/checkout/adress'
+    %td= link_to "#{t :edit}", checkout_adress_path, id: 'adress_link2'
   %tr
     %td{:align => "right", :width=>"48%"}
       %strong
@@ -107,7 +107,7 @@
     %td{:align => "right"}
       %h4= t :shipping
     %td
-    %td= link_to "#{t :edit}", '/checkout/delivery'
+    %td= link_to "#{t :edit}", checkout_delivery_path, id: 'delivery_link'
   %tr
     %td{:width => "48%", :align => "right"}
       %strong
@@ -127,7 +127,7 @@
     %td{:align => "right"}
       %h4= t :payment
     %td
-    %td= link_to "#{t :edit}", '/checkout/payment'
+    %td= link_to "#{t :edit}", checkout_payment_path, id: 'payment_link'
   %tr
     %td{:align => "right", :width=>"48%"}
       %strong
@@ -202,16 +202,8 @@
         %td{:align => "center"}= o.price
         
   %table.tab2{:align => "center"}
-    %tr{:align => "right"}
-      %td
-        %h4
-          = t :order_price
-          \:
-          - if @order.ups.nil?
-            %strong= @order.total_price
-          - else
-            - @order.true_coupon.find do |c|
-              %strong= @order.total_price - @order.ups + c.price
+    
+      
     %tr
       %td{:align => "right"}
         %h4
@@ -236,8 +228,9 @@
         = t :total_price
         \:
         %strong= @order.total_price
-%table{:align => "left", :width => "25%"}
-  %tr
-    %td{:align => "center"}
-      = button_to "#{t :accept_order}", '/checkout/complete', method: "get", :class => 'button'
+-unless current_costumer.adress.nil? || current_costumer.billing_adress.nil? || current_costumer.credit_card.nil? || @order.ups.nil?
+  %table{:align => "left", :width => "25%"}
+    %tr
+      %td{:align => "center"}
+        = button_to "#{t :accept_order}", '/checkout/complete', method: "get", :class => 'button'
 

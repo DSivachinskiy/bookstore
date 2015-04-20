@@ -16,30 +16,31 @@
       %h4= t :order_summary
     
 %table.tab4{:align => "left"}
-  = form_for(@order) do |f|
-    %tr
-      %td{:width => "30%"}
-      %td
-        .field
-          = f.radio_button(:ups, 5)
-          = f.label "#{t :ups_ground} + 5"
-    %tr
-      %td{:width => "30%"}
-      %td
-        .field
-          = f.radio_button(:ups, 10)
-          = f.label "#{t :ups_two_day} + 10"
-    %tr
-      %td{:width => "30%"}
-      %td
-        .field
-          = f.radio_button(:ups, 15)
-          = f.label "#{t :ups_one_day} + 15"
-    %tr  
-      %td{:width => "30%"}
-      %td
-        .actions
-          = f.submit
+  .order
+    = form_for(@order) do |f|
+      %tr
+        %td{:width => "30%"}
+        %td
+          .field
+            = f.radio_button :ups, 5, id: 'radio_5'
+            = f.label "#{t :ups_ground} (5)"
+      %tr
+        %td{:width => "30%"}
+        %td
+          .field
+            = f.radio_button :ups, 10, id: 'radio_10'
+            = f.label "#{t :ups_two_day} (10)"
+      %tr
+        %td{:width => "30%"}
+        %td
+          .field
+            = f.radio_button :ups, 15, id: 'radio_15'
+            = f.label "#{t :ups_one_day} (15)"
+      %tr  
+        %td{:width => "30%"}
+        %td
+          .actions
+            = f.submit
 %table.tab5{:align => "right"}  
   %tr
     %td{:align => "right", :width => "50%"}

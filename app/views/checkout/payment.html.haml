@@ -16,49 +16,49 @@
     %td{:width => "40%"}
     %td{:width => "30%"}
       %h4= t :order_summary
-
-  = form_for(@credit_card) do |f|
-    %table.tab9{:align => "left", :width => "30%"}    
-      %tr
-        %td
-          .field
-            = t :number
-            %br
-              = f.number_field :number
-      %tr
-        %td
-          .field
-            = t :cvv
-            %br
-              = f.number_field :cvv
-      %tr
-        %td
-          .field
-            = t :expiration_month
-            %br
-              = f.number_field :expiration_month
-      %tr
-        %td
-          .field
-            = t :expiration_year
-            %br
-              = f.number_field :expiration_year
-      %tr
-        %td
-          .field
-            = t :firstname
-            %br
-              = f.text_field :firstname
-      %tr
-        %td
-          .field
-            = t :lastname
-            %br
-              = f.text_field :lastname
-      %tr
-        %td
-          .actions.button4
-            = f.submit
+  .credit_card
+    = form_for(@credit_card) do |f|
+      %table.tab9{:align => "left", :width => "30%"}    
+        %tr
+          %td
+            .field
+              = t :number
+              %br
+                = f.number_field :number, id: 'credit_card_number'
+        %tr
+          %td
+            .field
+              = t :cvv
+              %br
+                = f.number_field :cvv, id: 'credit_card_cvv'
+        %tr
+          %td
+            .field
+              = t :expiration_month
+              %br
+                = f.number_field :expiration_month, id: 'credit_card_month'
+        %tr
+          %td
+            .field
+              = t :expiration_year
+              %br
+                = f.number_field :expiration_year, id: 'credit_card_year'
+        %tr
+          %td
+            .field
+              = t :firstname
+              %br
+                = f.text_field :firstname, id: 'credit_card_firstname'
+        %tr
+          %td
+            .field
+              = t :lastname
+              %br
+                = f.text_field :lastname, id: 'credit_card_lastname'
+        %tr
+          %td
+            .actions.button4
+              = f.submit
 %table.tab5{:align => "right"}
   
   %tr

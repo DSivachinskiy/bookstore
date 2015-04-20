@@ -28,7 +28,7 @@
       %h4= t :reviews
     - if signed_in?
       - unless current_costumer.admin?
-        %td{:width => "30%"}= link_to "#{t :add_rating}", new_rating_path
+        %td{:width => "30%"}= link_to "#{t :add_rating}", new_rating_path, id: 'rating_link'
   - @book.ratings.each do |rating|
     %tr
       %td{:align => "center"}
@@ -38,7 +38,7 @@
         %strong= rating.title
       %td
         -if rating.costumer_id == current_costumer.id
-          = link_to image_tag("cross.png", :height => "20"), rating, method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to image_tag("cross.png", :height => "20"), rating, method: :delete, data: { confirm: 'Are you sure?' }, id: 'destroy_link'
     %tr
       %td{:align => "center"}
         by

@@ -41,19 +41,23 @@ FactoryGirl.define do
     cvv 111
     expiration_month 12
     expiration_year 2111
+    firstname 'test_firstname'
+    lastname 'test_lastname'
     costumer
 
   end
 
   factory :order do
+    ups 5
+    costumer
   end
 
 
 
   factory :billing_adress do
-    adress 111
+    adress 'test_adress'
     zipcode 222
-    city    333
+    city    'test_city'
     phone   444
     shipping false
     country 
@@ -62,10 +66,10 @@ FactoryGirl.define do
   end
 
   factory :adress do
-    adress Faker::Address.street_address
-    zipcode Faker::Address.zip
-    city    Faker::Address.city
-    phone   Faker::PhoneNumber.cell_phone
+    adress 'test_adress'
+    zipcode 222
+    city    'test_city'
+    phone   444
     country
     costumer
   end
@@ -79,5 +83,13 @@ FactoryGirl.define do
   factory :coupon do
     number '123123'
     price 15
+  end
+
+  factory :rating do
+    texxt_review 'review'
+    rating_number 4
+    title 'title'
+    costumer
+    book
   end
 end

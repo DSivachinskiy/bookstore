@@ -50,20 +50,21 @@
   %table.tab3{:width => "100%"}
     %tr
       %td
-        %h4
-          = button_to "#{t :destroy}", @order, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'button'
+        -unless @order.order_items.count == 0
+          %h4
+            = button_to "#{t :destroy}", @order, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'button'
       %td
         %h4= button_to "#{t :continue_shopping}", books_path, method: "get", :class => 'button'
-      
-      =form_for(@order) do |order|
-        .coupon
-          %td{:width => "45%", :align => "right"}
-            .field.button4
-              =order.text_field :coupon_number, id: 'coupon_number'
-            %td{:width => "10%"}
-              .actions.button4
-               
-                %h4=order.submit t :coupon
-      %td{:align => "center"}
-        %h4
-          = button_to "#{t :accept_order}", '/checkout/adress', method: "get", :class => 'button'
+      -unless @order.order_items.count == 0
+        =form_for(@order) do |order|
+          .coupon
+            %td{:width => "45%", :align => "right"}
+              .field.button4
+                =order.text_field :coupon_number, id: 'coupon_number'
+              %td{:width => "10%"}
+                .actions.button4
+                 
+                  %h4=order.submit t :coupon
+        %td{:align => "center"}
+          %h4
+            = button_to "#{t :accept_order}", '/checkout/adress', method: "get", :class => 'button'

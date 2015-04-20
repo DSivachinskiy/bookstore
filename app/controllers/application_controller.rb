@@ -28,14 +28,20 @@ def last_book
  cookies[:id] = @book.id
 end
 
-
-
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale = :uk
   end
   def default_url_options(options={})
     { :locale => I18n.locale }
   end
+
+  def not_found(exception = nil)
+    if exception
+        logger.info "Rendering 404: #{exception.message}"
+    end
+
+  render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
+end
 protected
 
   def configure_permitted_parameters

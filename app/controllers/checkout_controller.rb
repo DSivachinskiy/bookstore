@@ -46,7 +46,11 @@ class CheckoutController < ApplicationController
       @order = o
     end 
     @order_items = @order.order_items
+
     @order.accept
+    @order.adress_id = current_costumer.adress.id
+    @order.billing_adress_id = current_costumer.billing_adress.id
+    @order.credit_card_id = current_costumer.credit_card.id
     @order.save
   end
 end
