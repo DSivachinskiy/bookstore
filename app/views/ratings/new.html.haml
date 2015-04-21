@@ -1,0 +1,14 @@
+%table{:align => "left", :width => "70%"}
+  %tr
+    %td{:align => "center", :width => "25%"}
+      %h3= t :new_review
+    %td
+      %h3
+        - Book.where(id: cookies[:id]).find do |book|
+          = link_to "#{book.title}", book
+  %tr
+    %td{:colspan => "2"}
+      = render 'form'
+
+- Book.where(id: cookies[:id]).find do |book|
+  = link_to 'Back', book_path(book)

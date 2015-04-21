@@ -14,18 +14,15 @@ load_and_authorize_resource :except => [:create]
   def create
   	@book = Book.new(book_params)
     @book.save
-    @book.img
-    respond_with(@book)
-  end
-
-  def update
-    @book.update(book_params)
-    respond_with(@book)
-  end
-
-  def destroy
-    @book.destroy
-    respond_with(@book)
+    
+    respond_to do |format|
+      if @book.save
+        format.html { redirect_to books_path, notice: 'Book succesfully created!' }     
+      else
+        format.html { redirect_to :back, notice: 'Wrong filled fields!' } 
+      
+      end
+    end
   end
 
   private

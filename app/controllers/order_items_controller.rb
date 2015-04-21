@@ -9,15 +9,13 @@ load_and_authorize_resource :except => [:create]
     current_order.find do |o|
       @order_item.order_id = o.id
         
-    respond_to do |format|
-      if @order_item.save
-        format.html { redirect_to edit_order_path(o), notice: 'Order item was successfully created.' }
-        format.json { render :show, status: :created, location: o }
-      else
-        format.html { render :new }
-        format.json { render json: @order_item.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @order_item.save
+          format.html { redirect_to edit_order_path(o), notice: 'Order item was successfully created.' }
+        else
+          format.html { redirect_to :back, notice: 'Something wrong' }
+        end
       end
-    end
     end
   end
   def edit
@@ -26,8 +24,11 @@ load_and_authorize_resource :except => [:create]
     end  
   end  
   def update
-   @order_item.update(order_item_params)
-    redirect_to :back
+    if @order_item.update(order_item_params)
+      redirect_to :back, notice: 'Order item was successfully updated.' 
+    else
+      redirect_to :back, notice: 'Something wrong' 
+    end
   end
 
   def destroy

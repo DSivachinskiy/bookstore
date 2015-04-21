@@ -80,13 +80,6 @@ ActiveRecord::Schema.define(version: 20150415120458) do
     t.string   "image"
   end
 
-  create_table "carts", force: true do |t|
-    t.integer  "costumer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "order_id"
-  end
-
   create_table "categories", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
@@ -143,12 +136,6 @@ ActiveRecord::Schema.define(version: 20150415120458) do
     t.integer  "order_id"
   end
 
-  create_table "deliveries", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "number"
-  end
-
   create_table "order_items", force: true do |t|
     t.float    "price"
     t.integer  "quantity"
@@ -156,12 +143,6 @@ ActiveRecord::Schema.define(version: 20150415120458) do
     t.datetime "updated_at"
     t.integer  "order_id"
     t.integer  "book_id"
-  end
-
-  create_table "order_statuses", force: true do |t|
-    t.string   "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "orders", force: true do |t|
@@ -175,6 +156,7 @@ ActiveRecord::Schema.define(version: 20150415120458) do
     t.integer  "adress_id"
     t.integer  "billing_adress_id"
     t.string   "aasm_state"
+    t.integer  "delivery_id"
     t.integer  "ups"
     t.integer  "coupon_number"
   end
@@ -187,12 +169,6 @@ ActiveRecord::Schema.define(version: 20150415120458) do
     t.integer  "book_id"
     t.integer  "costumer_id"
     t.string   "title"
-  end
-
-  create_table "roles", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "role"
   end
 
 end

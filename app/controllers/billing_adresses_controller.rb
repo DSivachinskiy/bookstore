@@ -18,22 +18,13 @@ load_and_authorize_resource :except => [:create]
 
   def update
     cookies[:billing_adress_id] = @billing_adress.id
-    @billing_adress.update(billing_adress_params)
-     
-    respond_to do |format|
-      if @billing_adress.save
-        format.html { redirect_to :back, notice: 'Billing adress succesfully updated!' }
-      else
-        format.html { redirect_to :back, notice: 'Wrong filled fields!' }        
-      end
+    if @billing_adress.update(billing_adress_params)
+      redirect_to :back, notice: 'Billing adress succesfully updated!' 
+    else
+      redirect_to :back, notice: 'Wrong filled fields!'      
     end
-    
   end
 
-  def destroy
-    @billing_adress.destroy
-     redirect_to current_costumer
-  end
 
   private
 

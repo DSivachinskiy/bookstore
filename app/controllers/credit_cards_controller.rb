@@ -18,20 +18,13 @@ load_and_authorize_resource :except => [:create]
 
   def update
     cookies[:credit_card_id] = @credit_card.id
-    @credit_card.update(credit_card_params)
-    respond_to do |format|
-      if @credit_card.save
-        format.html { redirect_to :back, notice: 'Credit card succesfully updated!' }     
-       else
-        format.html { redirect_to :back, notice: 'Wrong filled fields!' } 
-      end
+    if @credit_card.update(credit_card_params)
+      redirect_to :back, notice: 'Credit card succesfully updated!'     
+    else
+      redirect_to :back, notice: 'Wrong filled fields!' 
     end
   end
 
-  def destroy
-    @credit_card.destroy
-    redirect_to current_costumer
-  end
 
   private
    

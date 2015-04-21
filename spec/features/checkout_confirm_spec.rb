@@ -41,7 +41,7 @@ feature 'Checkout confirm page' do
       expect(page).to have_content('+ 5') #ups
     end
       
-    scenario 'right order_iem content' do
+    scenario 'right order_item content' do
       expect(page).to have_content(1111) #book_price
       expect(page).to have_content(3333) #order_item_price
     end
@@ -78,6 +78,22 @@ feature 'Checkout confirm page' do
     scenario 'edit payment click' do
       click_link 'payment_link'
       expect(page).to have_content('КРЕДИТНА КАРТКА')
+    end
+  end
+  context 'accept order' do
+    scenario 'complete page content' do
+      click_button 'accept'
+      expect(page).to have_content('test_country')
+        expect(page).to have_content('test_city')
+        expect(page).to have_content('test_adress')
+        expect(page).to have_content(222) #zipcode
+        expect(page).to have_content(444) #phone
+        expect(page).to have_content(12345678901234) #card_number
+        expect(page).to have_content(12) #expiration_month
+        expect(page).to have_content(2111) #expiration_year
+        expect(page).to have_content('test_firstname')
+        expect(page).to have_content('test_lastname')
+        expect(page).to have_content(111) #cvv
     end
   end
 end

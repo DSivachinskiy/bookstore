@@ -1,3 +1,5 @@
+.notice
+  = notice
 %table.tab7{:align => "left"}
   %tr{:align => "center"}
     %td
@@ -36,9 +38,13 @@
         = rating.rating_number
       %td
         %strong= rating.title
-      %td
-        -if rating.costumer_id == current_costumer.id
+      
+      -if rating.costumer_id == current_costumer.id
+        %td
+          =link_to "#{t :edit}", edit_rating_path(rating), id: 'update_link'
+        %td  
           = link_to image_tag("cross.png", :height => "20"), rating, method: :delete, data: { confirm: 'Are you sure?' }, id: 'destroy_link'
+
     %tr
       %td{:align => "center"}
         by

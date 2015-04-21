@@ -18,35 +18,35 @@
         = t :country
         \:
     %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.adress.country.name
+    %td{:colspan => "2"}= @order.adress.country.name
   %tr
     %td{:align => "right"}
       %strong
         = t :city
         \:
     %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.adress.city
+    %td{:colspan => "2"}= @order.adress.city
   %tr
     %td{:align => "right"}
       %strong
         = t :adress
         \:
     %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.adress.adress
+    %td{:colspan => "2"}= @order.adress.adress
   %tr
     %td{:align => "right"}
       %strong
         = t :zipcode
         \:
     %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.adress.zipcode
+    %td{:colspan => "2"}= @order.adress.zipcode
   %tr
     %td{:align => "right"}
       %strong
         = t :phone
         \:
     %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.adress.phone
+    %td{:colspan => "2"}= @order.adress.phone
 
 %table{:width => "25%", :align => "left"}
   %tr
@@ -60,35 +60,35 @@
         = t :country
         \:
     %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.billing_adress.country.name
+    %td{:colspan => "2"}= @order.billing_adress.country.name
   %tr
     %td{:align => "right"}
       %strong
         = t :city
         \:
     %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.billing_adress.city
+    %td{:colspan => "2"}= @order.billing_adress.city
   %tr
     %td{:align => "right"}
       %strong
         = t :adress
         \:
     %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.billing_adress.adress
+    %td{:colspan => "2"}= @order.billing_adress.adress
   %tr
     %td{:align => "right"}
       %strong
         = t :zipcode
         \:
     %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.billing_adress.zipcode
+    %td{:colspan => "2"}= @order.billing_adress.zipcode
   %tr
     %td{:align => "right"}
       %strong
         = t :phone
         \:
     %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.billing_adress.phone
+    %td{:colspan => "2"}= @order.billing_adress.phone
 
 %table{:width => "25%", :align => "left"}
   %tr
@@ -122,42 +122,42 @@
         = t :number
         \:
     %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.credit_card.number
+    %td{:colspan => "2"}= @order.credit_card.number
   %tr
     %td{:align => "right"}
       %strong
         = t :cvv
         \:
     %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.credit_card.cvv
+    %td{:colspan => "2"}= @order.credit_card.cvv
   %tr
     %td{:align => "right"}
       %strong
         = t :expiration_month
         \:
     %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.credit_card.expiration_month
+    %td{:colspan => "2"}= @order.credit_card.expiration_month
   %tr
     %td{:align => "right"}
       %strong
         = t :expiration_year
         \:
     %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.credit_card.expiration_year
+    %td{:colspan => "2"}= @order.credit_card.expiration_year
   %tr
     %td{:align => "right"}
       %strong
         = t :firstnme
         \:
     %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.credit_card.firstname
+    %td{:colspan => "2"}= @order.credit_card.firstname
   %tr
     %td{:align => "right"}
       %strong
         = t :lastnme
         \:
     %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.credit_card.lastname
+    %td{:colspan => "2"}= @order.credit_card.lastname
 %br
   %table
     %tr

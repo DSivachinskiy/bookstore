@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :admins
   mount RailsAdmin::Engine => '/Admin', as: 'rails_admin'
-  resources :countries
+ 
 
   resources :billing_adresses
 

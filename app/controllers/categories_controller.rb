@@ -9,17 +9,14 @@ load_and_authorize_resource :except => [:create]
   def create
     @category = Category.new(category_params)
     @category.save
-    respond_with(@category)
-  end
-
-  def update
-    @category.update(category_params)
-    respond_with(@category)
-  end
-
-  def destroy
-    @category.destroy
-    respond_with(@category)
+    respond_to do |format|
+      if @category.save
+        format.html { redirect_to books_path, notice: 'Category succesfully created!' }     
+      else
+        format.html { redirect_to :back, notice: 'Wrong filled fields!' } 
+      
+      end
+    end
   end
 
   private

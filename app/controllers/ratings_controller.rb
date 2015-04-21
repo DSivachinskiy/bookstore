@@ -15,7 +15,9 @@ load_and_authorize_resource :except => [:create]
 
   def update
     @rating.update(rating_params)
-    respond_with(@rating)
+    Book.where(id: cookies[:id]).find do |book|
+      redirect_to book_path(book)
+    end 
   end
 
   def destroy

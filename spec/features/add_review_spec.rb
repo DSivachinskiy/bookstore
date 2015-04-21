@@ -1,6 +1,6 @@
 require 'features/features_spec_helper'
 require 'rails_helper'
-feature 'Add review' do
+feature 'review' do
   given!(:costumer) { FactoryGirl.create(:costumer) }
   given!(:author) { FactoryGirl.create(:author) }
   given!(:category) { FactoryGirl.create(:category) }
@@ -41,5 +41,16 @@ feature 'Add review' do
     expect(page).not_to have_content('review')
     expect(page).not_to have_content('title')
     expect(page).not_to have_content(4)
+  end
+
+  scenario 'update review' do
+    click_link 'update_link'
+    within('.rating') do
+      fill_in 'title_field', with: 'test_title22'
+      fill_in 'review_field', with: 'test_review22'
+      click_button 'Зберегти'
+    end
+    expect(page).to have_content('test_title22')
+    expect(page).to have_content('test_review22')
   end
 end

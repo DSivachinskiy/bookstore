@@ -10,7 +10,8 @@ class CheckoutController < ApplicationController
     else
       @adress = Adress.new
     end
-    if @billing_adress.shipping?
+    if @billing_adress.shipping? 
+      
       @adress.adress = @billing_adress.adress
       @adress.zipcode = @billing_adress.zipcode
       @adress.city = @billing_adress.city

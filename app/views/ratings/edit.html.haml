@@ -1,0 +1,4 @@
+%h1 Editing rating
+= render 'form'
+- Book.where(id: cookies[:id]).find do |book|
+  = link_to 'Back', book_path(book)

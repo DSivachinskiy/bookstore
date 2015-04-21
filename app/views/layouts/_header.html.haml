@@ -22,10 +22,11 @@
               = link_to "#{t :current_order} (#{o.order_quantity})", edit_order_path(o)
 
         %td
-          = link_to "#{t :settings}", costumer_path(current_costumer)
-          |
-          = link_to "#{I18n.t "orders"}", orders_path
-          |
+          - unless current_costumer.admin?
+            = link_to "#{t :settings}", costumer_path(current_costumer)
+            |
+            = link_to "#{I18n.t "orders"}", orders_path
+            |
           = link_to "#{I18n.t "logout"}", destroy_costumer_session_path, method: :delete
       - else
         = link_to "#{I18n.t "register"}", new_costumer_registration_path
