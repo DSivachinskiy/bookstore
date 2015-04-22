@@ -143,6 +143,9 @@
                   %br
                     %strong
                       = @adress.country.name
-            
+.footer
+  %strong= t :next
+  %br
+    = link_to image_tag("arrow.png", :height => "50"), checkout_delivery_path
             
       

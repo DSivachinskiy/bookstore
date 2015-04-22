@@ -138,4 +138,5 @@ en:
   order_update: Order succesfully updated!
   order_item_destroy: Order item was successfully destroyed!
   order_destroy: Order succesfully destroyed!
+  info: Personal info
 

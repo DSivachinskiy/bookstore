@@ -6,11 +6,11 @@
   %tr
     %td{:align => "center", :width => "35%"}
       %h3= t :accept_order
-    %td= link_to "#{t :checkout_adress}", '/checkout/adress'
-    %td= link_to "#{t :delivery}", '/checkout/delivery'
+    %td= link_to "#{t :checkout_adress}", checkout_adress_path
+    %td= link_to "#{t :delivery}", checkout_delivery_path
     %td
       %u= t :payment
-    %td= link_to "#{t :confirm}", '/checkout/confirm'
+    %td= link_to "#{t :confirm}", checkout_confirm_path
     %td
       %u= t :complete
 %table{:width => "100%"}
@@ -94,3 +94,12 @@
     %td{:width => "3%"}
     %td
       %strong= @order.total_price
+.footer
+  %strong
+    = t :back
+    &nbsp;&nbsp;&nbsp;
+    = t :next
+  %br
+    = link_to image_tag("back_arrow.png", :height => "50"), checkout_delivery_path
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    = link_to image_tag("arrow.png", :height => "50"), checkout_confirm_path

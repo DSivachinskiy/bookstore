@@ -13,7 +13,12 @@ feature 'Changing current_order' do
     login_as costumer, scope: :costumer
     visit edit_order_path(order)
   end  
-
+  scenario 'current_order content' do
+    expect(page).to have_content('test_description')
+    expect(page).to have_content('booktest')
+    expect(page).to have_content(1111)
+    expect(page).to have_content(3333)
+  end
   scenario 'Change quantity of order item' do
     
     within('.order_item') do

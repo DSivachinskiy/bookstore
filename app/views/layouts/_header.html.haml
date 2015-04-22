@@ -1,6 +1,6 @@
 %table.td_header.header
   %tr{:height => "100px"}
-    %td
+    %td{:width => "20%"}
       %h3= t :bookstore
     %td
       = link_to "#{t :home}", root_path
@@ -21,17 +21,25 @@
               = link_to image_tag("cart.png", :height => "50"), edit_order_path(o)
               = link_to "#{t :current_order} (#{o.order_quantity})", edit_order_path(o)
 
-        %td
+        %td{:width => "23%"}
           - unless current_costumer.admin?
-            = link_to "#{t :settings}", costumer_path(current_costumer)
-            |
-            = link_to "#{I18n.t "orders"}", orders_path
-            |
-          = link_to "#{I18n.t "logout"}", destroy_costumer_session_path, method: :delete
+            %table
+              %tr
+                %td
+                  = link_to "#{t :info}", costumer_path(current_costumer)
+                  |
+                %td
+                  = link_to "#{t :orders}", orders_path
+                  |
+                %td
+                  = link_to "#{t :logout}", destroy_costumer_session_path, method: :delete
+              %tr
+                %td
+                  = link_to "#{t :settings}", edit_costumer_registration_path
       - else
-        = link_to "#{I18n.t "register"}", new_costumer_registration_path
+        = link_to "#{t :register}", new_costumer_registration_path
         |
-        = link_to "#{I18n.t "login"}", new_costumer_session_path
+        = link_to "#{t :login}", new_costumer_session_path
 
           
 
