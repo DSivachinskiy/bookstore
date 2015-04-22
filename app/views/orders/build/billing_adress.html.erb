@@ -1,6 +1,0 @@
-<p>Please Fill in billing adress!</p>
-
-    <%= select(cookies[:billing_adress_id], options_for_select(BillingAdress.where(costumer_id: current_costumer.id).collect { |adress| [adress.adress, adress.id] })) %>
- 
-
-<%= link_to 'skip', next_wizard_path %>

@@ -19,32 +19,30 @@ RSpec.describe BooksController, type: :controller do
     context 'with valid attributes' do
       before do
         book.stub(:save).and_return true
+        post :create, book: book_params
       end
 
       it 'redirects to books_path' do
-        post :create, book: book_params
         expect(response).to redirect_to("#{books_path}?locale=uk")
       end
 
       it 'sends notice' do
-        post :create, book: book_params
-        expect(flash[:notice]).to have_content 'Book succesfully created!'
+        expect(flash[:notice]).to have_content 'Книга успішно створена!'
       end
     end
 
     context 'with invalid attributes' do
       before do
         Book.any_instance.stub(:save).and_return(false)
+        post :create, book: book_params
       end
 
       it 'redirects to back' do
-        post :create, book: book_params
         expect(response).to redirect_to("where_i_came_from")
       end
 
-      it 'sends notice' do
-        post :create, book: book_params
-        expect(flash[:notice]).to have_content 'Wrong filled fields!'
+      it 'sends alert' do
+        expect(flash[:alert]).to have_content 'Невірно заповнені поля!'
       end
     end
 

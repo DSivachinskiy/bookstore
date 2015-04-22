@@ -25,6 +25,17 @@ feature 'Changing current_order' do
     expect(page).to have_content(4444)
   end
 
+  scenario 'Wrong change quantity of order item' do
+    
+    within('.order_item') do
+      fill_in 'quantity', with: ''
+      click_button 'Зберегти'
+    end
+
+    expect(page).to have_content("Щось не вірно!")
+
+  end
+
   scenario 'delete order item' do
     
     click_link 'delete_button'

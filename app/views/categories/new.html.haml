@@ -1,10 +1,12 @@
+.alert2
+  = alert
 %h1= t :new_category
 = form_for(@category) do |f|
   .tab9
     .field
       = t :category_title
       %br
-        = f.text_field :title
+        = f.text_field :title, id: 'title_field'
     .actions.button4
       %br
         = f.submit

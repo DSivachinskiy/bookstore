@@ -1,22 +1,24 @@
+.alert2
+  = alert
 %h1= t :new_book
 = form_for(@book) do |f|
   .tab9
     .field
       = t :book_title
       %br
-        = f.text_field :title
+        = f.text_field :title, id: 'title_field'
     .field
       = t :description
       %br
-        = f.text_area :description
+        = f.text_area :description, id: 'description_field'
     .field
       = t :book_price
       %br
-        = f.text_field :price
+        = f.text_field :price, id: 'price_field'
     .field
       = t :books_in_stock
       %br
-        = f.number_field :books_in_stock
+        = f.number_field :books_in_stock, id: 'stock_field'
     .field
       = t :author
       %br

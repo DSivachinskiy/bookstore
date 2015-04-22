@@ -11,9 +11,9 @@ load_and_authorize_resource :except => [:create]
     @category.save
     respond_to do |format|
       if @category.save
-        format.html { redirect_to books_path, notice: 'Category succesfully created!' }     
+        format.html { redirect_to books_path, notice: t('category_create') }     
       else
-        format.html { redirect_to :back, notice: 'Wrong filled fields!' } 
+        format.html { redirect_to :back, alert: t('wrong_filled_fields') } 
       
       end
     end

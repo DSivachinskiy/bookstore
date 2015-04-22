@@ -17,31 +17,29 @@ RSpec.describe CreditCardsController, type: :controller do
     context 'with valid attributes' do
       before do
         credit_card.stub(:save).and_return true
+        post :create, credit_card: card_params
       end
 
       it 'redirects to back' do
-        post :create, credit_card: card_params
         expect(response).to redirect_to("where_i_came_from")
       end
 
       it 'sends notice' do
-        post :create, credit_card: card_params
-        expect(flash[:notice]).to have_content 'Credit card succesfully created!'
+        expect(flash[:notice]).to have_content 'Кредитна картка успішно створена!'
       end
     end
 
     context 'with invalid attributes' do
       before do
         CreditCard.any_instance.stub(:save).and_return(false)
+        post :create, credit_card: card_params
       end
 
       it 'redirects to back' do
-        post :create, credit_card: card_params
         expect(response).to redirect_to("where_i_came_from")
       end
-      it 'sends notice' do
-        post :create, credit_card: card_params
-        expect(flash[:notice]).to have_content 'Wrong filled fields!'
+      it 'sends alert' do
+        expect(flash[:alert]).to have_content 'Невірно заповнені поля!'
       end
     end
   end
@@ -53,18 +51,16 @@ RSpec.describe CreditCardsController, type: :controller do
     context 'with valid attributes' do
       before do
         costumer.stub(:credit_card).and_return credit_card
-        
         CreditCard.any_instance.stub(:update).and_return(true)
+        put :update, id: credit_card.id, credit_card: card_params
       end
 
       it 'redirects to back' do
-        put :update, id: credit_card.id, credit_card: card_params
         expect(response).to redirect_to('where_i_came_from')
       end
 
       it 'sends notice' do
-         put :update, id: credit_card.id, credit_card: card_params
-        expect(flash[:notice]).to have_content 'Credit card succesfully updated!'
+        expect(flash[:notice]).to have_content 'Кредитна картка успішно оновлена!'
       end
     end
 
@@ -72,17 +68,15 @@ RSpec.describe CreditCardsController, type: :controller do
       before do
         costumer.stub(:credit_card).and_return credit_card
         CreditCard.any_instance.stub(:update).and_return(false)
-        
+        put :update, id: credit_card.id, credit_card: card_params
       end
 
       it 'redirects to back' do
-        put :update, id: credit_card.id, credit_card: card_params
         expect(response).to redirect_to('where_i_came_from')
       end
 
       it 'sends alert' do
-        put :update, id: credit_card.id, credit_card: card_params
-       expect(flash[:notice]).to eq('Wrong filled fields!')
+       expect(flash[:alert]).to eq('Невірно заповнені поля!')
       end
     end
   

@@ -1,7 +1,0 @@
-<p id="notice"><%= notice %></p>
-<%Book.where(id: @order_item.book_id).find do |b|%>
-<%=b.title%>
-<%end%>
-<%=@order_item.price%>
-
-<%= link_to 'Back', order_items_path %>

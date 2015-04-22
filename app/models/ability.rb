@@ -4,9 +4,8 @@ class Ability
   def initialize(costumer)
 
     if costumer && costumer.admin?
-        can :manage, Book
-        can :manage, Author
-        can :manage, Category
+        can :create, Book
+        can :create, Category
 end
 
     if costumer.is_a?(Costumer)

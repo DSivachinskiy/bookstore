@@ -7,16 +7,26 @@ feature 'Add new order item to current order' do
   given!(:book) { FactoryGirl.create(:book, author: author, category: category) }
   given(:order) { FactoryGirl.create(:order) }
   
-  scenario 'A user adds book to cart successfully from book show' do
+  background do
     login_as costumer, scope: :costumer
     visit book_path(book)
+  end  
+  scenario 'A user adds book to cart successfully from book show' do
     within('#new_order_item') do
       fill_in 'new_oi', with: 4
       click_button 'Створити'
     end
-
     expect(page).to have_content("Нинішнє замовлення (4)")
     expect(page).to have_content(4444)
+  end
+
+  scenario 'wrong added order item' do
+    within('#new_order_item') do
+      fill_in 'new_oi', with: ''
+      click_button 'Створити'
+    end
+    expect(page).to have_content("Щось не вірно!")
+
   end
 
 end

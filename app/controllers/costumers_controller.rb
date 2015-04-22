@@ -18,6 +18,9 @@ def show
     @credit_card = CreditCard.new
   end
    if @billing_adress.shipping?
+    if current_costumer.adress.nil?
+        @adress = Adress.new(costumer_id: current_costumer.id)
+      end
       @adress.adress = @billing_adress.adress
       @adress.zipcode = @billing_adress.zipcode
       @adress.city = @billing_adress.city

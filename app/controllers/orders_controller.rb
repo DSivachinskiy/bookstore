@@ -24,14 +24,18 @@ class OrdersController < ApplicationController
     if current_costumer.credit_card.present?
       @order.credit_card_id = current_costumer.credit_card.id
     end
-    @order.update(order_params)
-  
-    redirect_to :back
+    if @order.update(order_params)
+     redirect_to :back, notice: t('order_update')     
+    else
+      redirect_to :back, alert: t('something_wrong') 
+    end
+    
   end
 
   def destroy
-    @order.destroy
-    redirect_to books_path
+    if @order.destroy
+      redirect_to books_path, notice: t('order_destroy')  
+    end
   end
 
   private

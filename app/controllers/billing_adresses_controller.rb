@@ -9,9 +9,9 @@ load_and_authorize_resource :except => [:create]
      
     respond_to do |format|
       if @billing_adress.save
-        format.html { redirect_to :back, notice: 'Billing adress succesfully created!' }     
+        format.html { redirect_to :back, notice: t('billing_adress_create')}     
       else
-        format.html { redirect_to :back, notice: 'Wrong filled fields!' } 
+        format.html { redirect_to :back, alert: t('wrong_filled_fields') } 
       end
     end
   end
@@ -19,9 +19,9 @@ load_and_authorize_resource :except => [:create]
   def update
     cookies[:billing_adress_id] = @billing_adress.id
     if @billing_adress.update(billing_adress_params)
-      redirect_to :back, notice: 'Billing adress succesfully updated!' 
+      redirect_to :back, notice: t('billing_adress_update') 
     else
-      redirect_to :back, notice: 'Wrong filled fields!'      
+      redirect_to :back, alert: t('wrong_filled_fields')      
     end
   end
 

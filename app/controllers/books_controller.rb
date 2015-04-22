@@ -17,9 +17,9 @@ load_and_authorize_resource :except => [:create]
     
     respond_to do |format|
       if @book.save
-        format.html { redirect_to books_path, notice: 'Book succesfully created!' }     
+        format.html { redirect_to books_path, notice: t('book_create') }     
       else
-        format.html { redirect_to :back, notice: 'Wrong filled fields!' } 
+        format.html { redirect_to :back, alert: t('wrong_filled_fields') } 
       
       end
     end

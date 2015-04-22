@@ -8,9 +8,8 @@ describe 'Costumer' do
       
       subject(:ability) { Ability.new(admin) }
    
-      it { expect(ability).to be_able_to(:manage, Book.new) }
-      it { expect(ability).to be_able_to(:manage, Author.new) }
-      it { expect(ability).to be_able_to(:manage, Category.new) }
+      it { expect(ability).to be_able_to(:create, Book.new) }
+      it { expect(ability).to be_able_to(:create, Category.new) }
 
     end
     context 'when costumer signed in as costumer' do

@@ -9,9 +9,9 @@ load_and_authorize_resource :except => [:create]
    
     respond_to do |format|
       if @credit_card.save
-        format.html { redirect_to :back, notice: 'Credit card succesfully created!' }     
+        format.html { redirect_to :back, notice: t('credit_card_create') }     
        else
-        format.html { redirect_to :back, notice: 'Wrong filled fields!' } 
+        format.html { redirect_to :back, alert: t('wrong_filled_fields') } 
       end
     end
   end
@@ -19,9 +19,9 @@ load_and_authorize_resource :except => [:create]
   def update
     cookies[:credit_card_id] = @credit_card.id
     if @credit_card.update(credit_card_params)
-      redirect_to :back, notice: 'Credit card succesfully updated!'     
+      redirect_to :back, notice: t('credit_card_update')     
     else
-      redirect_to :back, notice: 'Wrong filled fields!' 
+      redirect_to :back, alert: t('wrong_filled_fields') 
     end
   end
 

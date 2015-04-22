@@ -22,105 +22,120 @@
   %tr
     %td{:align => "center",:colspan => "2",}
       %h4= t :shipping_adress
-
     %td= link_to "#{t :edit}", checkout_adress_path, id: 'adress_link'
-  %tr
-    %td{:align => "right", :width=>"48%"}
-      %strong
-        = t :country
-        \:
-    %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.adress.country.name
-  %tr
-    %td{:align => "right"}
-      %strong
-        = t :city
-        \:
-    %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.adress.city
-  %tr
-    %td{:align => "right"}
-      %strong
-        = t :adress
-        \:
-    %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.adress.adress
-  %tr
-    %td{:align => "right"}
-      %strong
-        = t :zipcode
-        \:
-    %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.adress.zipcode
-  %tr
-    %td{:align => "right"}
-      %strong
-        = t :phone
-        \:
-    %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.adress.phone
-
+  - if current_costumer.adress.present? 
+    %tr
+      %td{:align => "right", :width=>"48%"}
+        %strong
+          = t :country
+          \:
+      %td{:width=> "4%"}
+      %td{:colspan => "2"}= current_costumer.adress.country.name
+    %tr
+      %td{:align => "right"}
+        %strong
+          = t :city
+          \:
+      %td{:width=> "4%"}
+      %td{:colspan => "2"}= current_costumer.adress.city
+    %tr
+      %td{:align => "right"}
+        %strong
+          = t :adress
+          \:
+      %td{:width=> "4%"}
+      %td{:colspan => "2"}= current_costumer.adress.adress
+    %tr
+      %td{:align => "right"}
+        %strong
+          = t :zipcode
+          \:
+      %td{:width=> "4%"}
+      %td{:colspan => "2"}= current_costumer.adress.zipcode
+    %tr
+      %td{:align => "right"}
+        %strong
+          = t :phone
+          \:
+      %td{:width=> "4%"}
+      %td{:colspan => "2"}= current_costumer.adress.phone
+  - else
+    %tr
+      %td{:colspan => "3"}
+        .alert2
+          = t :fill_shipping_adress
 %table{:width => "25%", :align => "left"}
   %tr
     %td{:align => "center",:colspan => "2",}
       %h4= t :billing_adress
 
     %td= link_to "#{t :edit}", checkout_adress_path, id: 'adress_link2'
-  %tr
-    %td{:align => "right", :width=>"48%"}
-      %strong
-        = t :country
-        \:
-    %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.billing_adress.country.name
-  %tr
-    %td{:align => "right"}
-      %strong
-        = t :city
-        \:
-    %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.billing_adress.city
-  %tr
-    %td{:align => "right"}
-      %strong
-        = t :adress
-        \:
-    %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.billing_adress.adress
-  %tr
-    %td{:align => "right"}
-      %strong
-        = t :zipcode
-        \:
-    %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.billing_adress.zipcode
-  %tr
-    %td{:align => "right"}
-      %strong
-        = t :phone
-        \:
-    %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.billing_adress.phone
-
+  - if current_costumer.billing_adress.present? 
+    %tr
+      %td{:align => "right", :width=>"48%"}
+        %strong
+          = t :country
+          \:
+      %td{:width=> "4%"}
+      %td{:colspan => "2"}= current_costumer.billing_adress.country.name
+    %tr
+      %td{:align => "right"}
+        %strong
+          = t :city
+          \:
+      %td{:width=> "4%"}
+      %td{:colspan => "2"}= current_costumer.billing_adress.city
+    %tr
+      %td{:align => "right"}
+        %strong
+          = t :adress
+          \:
+      %td{:width=> "4%"}
+      %td{:colspan => "2"}= current_costumer.billing_adress.adress
+    %tr
+      %td{:align => "right"}
+        %strong
+          = t :zipcode
+          \:
+      %td{:width=> "4%"}
+      %td{:colspan => "2"}= current_costumer.billing_adress.zipcode
+    %tr
+      %td{:align => "right"}
+        %strong
+          = t :phone
+          \:
+      %td{:width=> "4%"}
+      %td{:colspan => "2"}= current_costumer.billing_adress.phone
+  - else
+    %tr
+      %td{:colspan => "3"}
+        .alert2
+          = t :fill_billing_adress
 %table{:width => "25%", :align => "left"}
   %tr
     %td{:align => "right"}
       %h4= t :shipping
     %td
     %td= link_to "#{t :edit}", checkout_delivery_path, id: 'delivery_link'
-  %tr
-    %td{:width => "48%", :align => "right"}
-      %strong
-        = t :shipping_type
-        \:
-    %td{:width => "4%"}
-    %td
-      -if @order.ups == 5
-        = t :ups_ground
-      -if @order.ups == 10
-        = t :ups_two_day
-      -if @order.ups == 15
-        = t :ups_one_day
+  - unless @order.ups.nil? 
+    %tr
+      %td{:width => "48%", :align => "right"}
+        %strong
+          = t :shipping_type
+          \:
+      %td{:width => "4%"}
+      %td
+        -if @order.ups == 5
+          = t :ups_ground
+        -if @order.ups == 10
+          = t :ups_two_day
+        -if @order.ups == 15
+          = t :ups_one_day
+  - else
+    %tr
+      %td{:colspan => "3"}
+        .alert2
+          = t :fill_ups
 
 %table{:width => "25%", :align => "left"}
   %tr
@@ -128,48 +143,54 @@
       %h4= t :payment
     %td
     %td= link_to "#{t :edit}", checkout_payment_path, id: 'payment_link'
-  %tr
-    %td{:align => "right", :width=>"48%"}
-      %strong
-        = t :number
-        \:
-    %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.credit_card.number
-  %tr
-    %td{:align => "right"}
-      %strong
-        = t :cvv
-        \:
-    %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.credit_card.cvv
-  %tr
-    %td{:align => "right"}
-      %strong
-        = t :expiration_month
-        \:
-    %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.credit_card.expiration_month
-  %tr
-    %td{:align => "right"}
-      %strong
-        = t :expiration_year
-        \:
-    %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.credit_card.expiration_year
-  %tr
-    %td{:align => "right"}
-      %strong
-        = t :firstnme
-        \:
-    %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.credit_card.firstname
-  %tr
-    %td{:align => "right"}
-      %strong
-        = t :lastnme
-        \:
-    %td{:width=> "4%"}
-    %td{:colspan => "2"}= current_costumer.credit_card.lastname
+  - if current_costumer.credit_card.present?
+    %tr
+      %td{:align => "right", :width=>"48%"}
+        %strong
+          = t :number
+          \:
+      %td{:width=> "4%"}
+      %td{:colspan => "2"}= current_costumer.credit_card.number
+    %tr
+      %td{:align => "right"}
+        %strong
+          = t :cvv
+          \:
+      %td{:width=> "4%"}
+      %td{:colspan => "2"}= current_costumer.credit_card.cvv
+    %tr
+      %td{:align => "right"}
+        %strong
+          = t :expiration_month
+          \:
+      %td{:width=> "4%"}
+      %td{:colspan => "2"}= current_costumer.credit_card.expiration_month
+    %tr
+      %td{:align => "right"}
+        %strong
+          = t :expiration_year
+          \:
+      %td{:width=> "4%"}
+      %td{:colspan => "2"}= current_costumer.credit_card.expiration_year
+    %tr
+      %td{:align => "right"}
+        %strong
+          = t :firstname
+          \:
+      %td{:width=> "4%"}
+      %td{:colspan => "2"}= current_costumer.credit_card.firstname
+    %tr
+      %td{:align => "right"}
+        %strong
+          = t :lastname
+          \:
+      %td{:width=> "4%"}
+      %td{:colspan => "2"}= current_costumer.credit_card.lastname
+  - else
+    %tr
+      %td{:colspan => "3"}
+        .alert2
+          = t :fill_credit_card
 %br
   %table
     %tr

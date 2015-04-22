@@ -119,3 +119,22 @@ uk:
   coupon_price: Знижка з купону
   category: Категорія
   use_billing_adress: Використати цю адресу для доставки
+  fill_shipping_adress: Заповніть форму для адреси доставки
+  fill_billing_adress: Заповніть форму для адреси платника
+  fill_credit_card: Заповніть форму оплати
+  fill_ups: Виберіть метод доставки
+  shipping_adress_create: Адреса доставки успішно створена!
+  shipping_adress_update: Адреса доставки успішно оновлена!
+  wrong_filled_fields: Невірно заповнені поля!
+  billing_adress_create: Адреса платника успішно створена!
+  billing_adress_update: Адреса платника успішно оновлена!
+  something_wrong: Щось не вірно!
+  book_create: Книга успішно створена!
+  category_create: Категорія успішно створена!
+  credit_card_create: Кредитна картка успішно створена!
+  credit_card_update: Кредитна картка успішно оновлена!
+  order_item_create: Деталь замовлення успішно створена!
+  order_item_update: Деталь замовлення успішно оновлена!
+  order_update: Замовлення успішно оновлено!
+  order_item_destroy: Деталь замовлення успішно видалена!
+  order_destroy: Замовлення успішно видалено!

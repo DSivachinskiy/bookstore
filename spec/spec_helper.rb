@@ -74,8 +74,8 @@ RSpec.configure do |config|
 
   config.use_transactional_fixtures = true
   config.include Devise::TestHelpers, :type => :controller
- config.extend ControllerMacros, :type => :controller
-  
+  config.extend ControllerMacros, :type => :controller
+
   config.include Capybara::DSL
   
   # RSpec Rails can automatically mix in different behaviours to your tests

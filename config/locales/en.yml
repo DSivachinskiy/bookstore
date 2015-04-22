@@ -119,4 +119,23 @@ en:
   coupon_price: Coupon price
   category: Category
   use_billing_adress: Use this adress for shipping
+  fill_shipping_adress: Fill shipping address form
+  fill_billing_adress: Fill billing adredd form
+  fill_credit_card: Fill payment form
+  fill_ups: Choose delivery options
+  shipping_adress_create: Shipping adress succesfully created!
+  shipping_adress_update: Shipping adress succesfully updated!
+  wrong_filled_fields: Wrong filled fields!
+  billing_adress_create: Billing adress succesfully created!
+  billing_adress_update: Billing adress succesfully updated!
+  somethong_wrong: Something wrong!
+  book_create: Book succesfully created!
+  category_create: Category succesfully created!
+  credit_card_create: Credit card succesfully created!
+  credit_card_update: Credit card succesfully updated!
+  order_item_create: Order item was successfully created!
+  order_item_update: Order item was successfully updated!
+  order_update: Order succesfully updated!
+  order_item_destroy: Order item was successfully destroyed!
+  order_destroy: Order succesfully destroyed!
 

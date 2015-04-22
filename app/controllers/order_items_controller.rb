@@ -11,9 +11,9 @@ load_and_authorize_resource :except => [:create]
         
       respond_to do |format|
         if @order_item.save
-          format.html { redirect_to edit_order_path(o), notice: 'Order item was successfully created.' }
+          format.html { redirect_to edit_order_path(o), notice: t('order_item_create') }
         else
-          format.html { redirect_to :back, notice: 'Something wrong' }
+          format.html { redirect_to :back, alert: t('something_wrong') }
         end
       end
     end
@@ -25,16 +25,16 @@ load_and_authorize_resource :except => [:create]
   end  
   def update
     if @order_item.update(order_item_params)
-      redirect_to :back, notice: 'Order item was successfully updated.' 
+      redirect_to :back, notice: t('order_item_update') 
     else
-      redirect_to :back, notice: 'Something wrong' 
+      redirect_to :back, alert: t('something_wrong')
     end
   end
 
   def destroy
     @order_item.destroy
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'Order item was successfully destroyed.' }
+      format.html { redirect_to :back, notice: t('order_item_destroy') }
       format.json { head :no_content }
     end
   end

@@ -11,12 +11,12 @@ feature 'Checkout adress page' do
   context 'billing_adress' do
     scenario 'Add new billing_adress' do
       billing_adress_fill
-      expect(page).to have_content('Billing adress succesfully created!')
+      expect(page).to have_content('Адреса платника успішно створена!')
     end
 
     scenario 'wrong filled new billing_adress' do
       billing_adress_wrong_fill
-      expect(page).to have_content('Wrong filled fields!')
+      expect(page).to have_content('Невірно заповнені поля!')
     end
 
     scenario 'update billing_address' do
@@ -26,7 +26,7 @@ feature 'Checkout adress page' do
         click_button 'Зберегти'
       end  
       
-      expect(page).to have_content('Billing adress succesfully updated!')
+      expect(page).to have_content('Адреса платника успішно оновлена!')
     end
 
     scenario 'wrong filled update billing_address' do
@@ -36,7 +36,7 @@ feature 'Checkout adress page' do
         click_button 'Зберегти'
       end  
       
-      expect(page).to have_content('Wrong filled fields!')
+      expect(page).to have_content('Невірно заповнені поля!')
     end
 
     scenario 'Add new billing_adress and the same shipping_adress' do
@@ -52,12 +52,12 @@ feature 'Checkout adress page' do
   context 'shipping_adress' do
     scenario 'Add new shipping_adress' do
       shipping_adress_fill
-      expect(page).to have_content('Shipping adress succesfully created!')
+      expect(page).to have_content('Адреса доставки успішно створена!')
     end
 
     scenario 'wrong filled new shipping_adress' do
       shipping_adress_wrong_fill
-      expect(page).to have_content('Wrong filled fields!')
+      expect(page).to have_content('Невірно заповнені поля!')
      
     end
 
@@ -68,7 +68,7 @@ feature 'Checkout adress page' do
         click_button 'Зберегти'
       end  
       
-      expect(page).to have_content('Shipping adress succesfully updated!')
+      expect(page).to have_content('Адреса доставки успішно оновлена!')
     end
 
     scenario 'wrong filled update shipping_address' do
@@ -78,7 +78,7 @@ feature 'Checkout adress page' do
         click_button 'Зберегти'
       end  
       
-      expect(page).to have_content('Wrong filled fields!')
+      expect(page).to have_content('Невірно заповнені поля!')
     end
   end
 end

@@ -10,12 +10,12 @@ feature 'Checkout payment page' do
 
   scenario 'Add new credit_card' do
     credit_card_fill
-    expect(page).to have_content('Credit card succesfully created!')
+    expect(page).to have_content('Кредитна картка успішно створена!')
   end
 
   scenario 'wrong filled new credit_card' do
     credit_card_wrong_fill
-    expect(page).to have_content('Wrong filled fields!')
+    expect(page).to have_content('Невірно заповнені поля!')
   end
 
   scenario 'update credit_card' do
@@ -24,7 +24,7 @@ feature 'Checkout payment page' do
       fill_in 'credit_card_number', with: 777
       click_button 'Зберегти'
     end  
-    expect(page).to have_content('Credit card succesfully updated!')
+    expect(page).to have_content('Кредитна картка успішно оновлена!')
    
   end
 
@@ -34,7 +34,7 @@ feature 'Checkout payment page' do
       fill_in 'credit_card_cvv', with: ''
       click_button 'Зберегти'
     end  
-    expect(page).to have_content('Wrong filled fields!')
+    expect(page).to have_content('Невірно заповнені поля!')
    
   end
 end

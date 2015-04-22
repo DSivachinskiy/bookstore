@@ -1,3 +1,7 @@
+.notice
+  = notice
+.alert2
+  = alert
 %table.tab6{:align =>"left"}
   %tr
     %td{:align => "center", :width => "35%"}
@@ -22,7 +26,7 @@
         %td{:width => "30%"}
         %td
           .field
-            = f.radio_button :ups, 5, id: 'radio_5'
+            = f.radio_button :ups, 5, checked: true, id: 'radio_5'
             = f.label "#{t :ups_ground} (5)"
       %tr
         %td{:width => "30%"}
