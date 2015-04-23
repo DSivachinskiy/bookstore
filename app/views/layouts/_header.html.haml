@@ -7,12 +7,18 @@
       |
       = link_to "#{t :shop}", books_path
     %td
-      %strong= t :another_language
+      
       %br
-        - if I18n.locale == I18n.default_locale
-          = link_to "English", :locale=>'en'
-        - else
-          = link_to "Українська", :locale=>'uk'
+        .dropdown
+          %a#drop1.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            = t('another_language')
+            %span.caret
+              .dropdown-menu{"aria-labelledby" => "drop1", :role => "menu"}
+                %li{:role => "presentation"}
+                  = link_to 'English', '?locale=en'
+                %li{:role => "presentation"}
+                  = link_to 'Українська', '?locale=uk'
+        
     %td
       - if signed_in?
         - unless current_costumer.admin?

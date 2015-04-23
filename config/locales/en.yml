@@ -139,4 +139,6 @@ en:
   order_item_destroy: Order item was successfully destroyed!
   order_destroy: Order succesfully destroyed!
   info: Personal info
+  buy: Add to order
+  costumer: User
 

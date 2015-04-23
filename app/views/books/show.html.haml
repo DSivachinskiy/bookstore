@@ -18,42 +18,50 @@
       - unless current_costumer.admin?
         = form_for(@order_item) do |oi|
           %td{:align => "right"}
-            .field
+            .field.button5
               = oi.label t :quantity
               = oi.text_field :quantity, id: 'new_oi'        
-          %td
-            .actions.button2
-              = oi.submit
+          %td{:width => "14%"}
+            .actions.button4.space3
+              = oi.submit t('buy')
   %tr
     %td{:colspan => "3"}= @book.description
 %table{:width => "50%", :align => "left"}
   %tr
-    %td{:width => "20%", :align=>"center"}
-      %h4= t :reviews
+    %td{:width => "20%"}
+      .space
+        %h4= t :reviews
     - if signed_in?
       - unless current_costumer.admin?
         %td{:width => "30%"}= link_to "#{t :add_rating}", new_rating_path, id: 'rating_link'
   - @book.ratings.each do |rating|
     %tr
-      %td{:align => "center"}
-        = t :rating
-        = rating.rating_number
+      %td{:width => "30%"}
+        .space
+          = t :costumer
+          = rating.costumer.firstname
+          = rating.costumer.lastname
+    %tr
+      %td
+        .space
+          = t :rating
+          %strong
+            = rating.rating_number
       %td
         %strong= rating.title
       
       -if rating.costumer_id == current_costumer.id
-        %td
+        %td{:width => "10%"}
           =link_to "#{t :edit}", edit_rating_path(rating), id: 'update_link'
         %td  
-          = link_to image_tag("cross.png", :height => "20"), rating, method: :delete, data: { confirm: 'Are you sure?' }, id: 'destroy_link'
+          .space
+            = link_to image_tag("cross.png", :height => "20"), rating, method: :delete, data: { confirm: 'Are you sure?' }, id: 'destroy_link'
 
+    
     %tr
-      %td{:align => "center"}
-        by
-        = rating.costumer.firstname
-        = rating.costumer.lastname
-    %tr
-      %td{:colspan => "3"}= rating.texxt_review
+      %td{:colspan => "3"}
+        .space2
+          = rating.texxt_review
     %tr
       %td
         %br

@@ -15,8 +15,7 @@ end
          can :manage, Rating
         can :manage, Adress, costumer_id: costumer.id
         can :manage, BillingAdress, costumer_id: costumer.id
-        can :manage, CreditCard, costumer_id: costumer.id
-       
+        can :manage, CreditCard, costumer_id: costumer.id     
     end
   
         can :read, Book

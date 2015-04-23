@@ -32,7 +32,7 @@
               = oi.text_field :quantity, id: 'quantity'
               %br
               %br
-            .actions.button4
+            .actions.button5
               = oi.submit
         %td{:align => "center"}= o.price
         %td{:width => "25px"}= link_to image_tag("cross.png", :height => "20"), o, method: :delete, data: { confirm: 'Are you sure?' }, id: 'delete_button'
@@ -54,17 +54,18 @@
           %strong= @order.total_price
   %table.tab3{:width => "100%"}
     %tr
-      %td
+      %td{:align => "right"}
         -unless @order.order_items.count == 0
           %h4
-            = button_to "#{t :destroy}", @order, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'button'
+            .space2
+              = button_to "#{t :destroy}", @order, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'button'
       %td
         %h4= button_to "#{t :continue_shopping}", books_path, method: "get", :class => 'button'
       -unless @order.order_items.count == 0
         =form_for(@order) do |order|
           .coupon
             %td{:width => "45%", :align => "right"}
-              .field.button4
+              .field.button4.space2
                 =order.text_field :coupon_number, id: 'coupon_number'
               %td{:width => "10%"}
                 .actions.button4

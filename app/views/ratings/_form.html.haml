@@ -1,10 +1,11 @@
-%table{:align => "left"}
+%table.tab9
   .rating
     = form_for(@rating) do |f|
       %tr
         %td
           .field
             = f.label t :rating
+            %br
             = f.select(:rating_number, options_for_select(1..10))
           .field
             = f.label t :title
@@ -18,5 +19,5 @@
               = f.text_area :texxt_review, id: 'review_field'
       %tr
         %td
-          .actions
+          .actions.button4
             = f.submit

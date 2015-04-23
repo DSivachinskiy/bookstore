@@ -1,0 +1,32 @@
+.row
+  .col-xs-3
+    = link_to "#{t :home}", root_path
+    \>>
+    = link_to "#{t :shop}", books_path
+    \>>
+    = @author.firstname
+    = @author.lastname
+.row
+  .col-xs-3
+    %h3
+      = t :author
+      \-
+      = @author.firstname
+      = @author.lastname
+.row
+  .col-xs-2
+    %h3
+      = t :shop
+  .col-xs-10
+.row
+  -@books.each do |book|
+    .col-xs-3
+      = image_tag("#{book.image}.png", height: 150)
+      %br
+      = link_to book.title, book
+      %br
+      %strong
+        = t :book_price
+        \:
+        = book.price
+    .col-xs-1

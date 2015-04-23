@@ -10,6 +10,15 @@
 .alert2{
   background: linear-gradient(to top, #cc3333, #ffffff);
 }
+.space {
+  margin: 5%;
+}
+.space2 {
+  margin: 12px;
+}
+.space3 {
+  margin-left: 5px;
+}
 .tab1{
   text-align: left;
 }
@@ -18,10 +27,7 @@
   border-bottom-style: dotted;
 }
 
-.tab3 tr {
-  text-align: center;
- 
-}
+
 .tab4{
   width: 30%;
   
