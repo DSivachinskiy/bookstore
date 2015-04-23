@@ -8,9 +8,9 @@
       %h3= t :accept_order
     %td
       %u= t :checkout_adress
-    %td= link_to "#{t :delivery}", checkout_delivery_path
-    %td= link_to "#{t :payment}", checkout_payment_path
-    %td= link_to "#{t :confirm}", checkout_confirm_path
+    %td= link_to "#{t :delivery}", delivery_checkout_path
+    %td= link_to "#{t :payment}", payment_checkout_path
+    %td= link_to "#{t :confirm}", confirm_checkout_path
     %td
       %u= t :complete
 %br
@@ -146,6 +146,6 @@
 .footer
   %strong= t :next
   %br
-    = link_to image_tag("arrow.png", :height => "50"), checkout_delivery_path
+    = link_to image_tag("arrow.png", :height => "50"), delivery_checkout_path
             
       

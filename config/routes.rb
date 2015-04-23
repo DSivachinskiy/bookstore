@@ -30,11 +30,18 @@ devise_for :costumers, path_names: { sign_in: 'login', sign_out: 'logout', sign_
 resources :costumers
 
 
-get '/checkout/adress', :to  => "checkout#adress"
-get '/checkout/delivery', :to  => "checkout#delivery"
-get '/checkout/payment', :to  => "checkout#payment"
-get '/checkout/confirm', :to  => "checkout#confirm"
-get '/checkout/complete', :to  => "checkout#complete"
+resource :checkout do 
+  get :adress
+  get :delivery
+  get :payment
+  get :confirm
+  get :complete
+end
+#   '/checkout/adress', :to  => "checkout#adress"
+# get '/checkout/delivery', :to  => "checkout#delivery"
+# get '/checkout/payment', :to  => "checkout#payment"
+# get '/checkout/confirm', :to  => "checkout#confirm"
+# get '/checkout/complete', :to  => "checkout#complete"
 
 get '*unmatched_route', to: 'application#not_found'
 

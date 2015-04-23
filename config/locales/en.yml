@@ -120,7 +120,7 @@ en:
   category: Category
   use_billing_adress: Use this adress for shipping
   fill_shipping_adress: Fill shipping address form
-  fill_billing_adress: Fill billing adredd form
+  fill_billing_adress: Fill billing adress form
   fill_credit_card: Fill payment form
   fill_ups: Choose delivery options
   shipping_adress_create: Shipping adress succesfully created!

@@ -15,7 +15,6 @@ def calculate
  bprice*quantity
 end
 
-
 def save_price
   self.price = calculate
 end

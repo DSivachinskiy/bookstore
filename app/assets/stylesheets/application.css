@@ -10,6 +10,9 @@
 .alert2{
   background: linear-gradient(to top, #cc3333, #ffffff);
 }
+.alert3 a{
+  color: red;
+}
 .space {
   margin: 5%;
 }
@@ -70,7 +73,22 @@
   font-weight: 700;
   border-style: solid;
 }
+.tab11 {
+  text-align: center;
+}
+.pix {
+  width: 200px;
+}
+.tab11 input {
+  width: 200px;
+  text-align: center;
+  font-weight: 700;
+  border-style: solid;
 
+}
+.tab11 {
+  width: 200px;
+}
 .start {
   width: 60%;
 }
@@ -85,6 +103,13 @@
   height: 33px;
   border: 2px solid;
   border-radius: 5px;
+}
+.button1{
+  color: green;
+  padding: 4px;
+  border: 2px solid;
+  border-radius: 5px;
+  background-color: #dddddd;
 }
 .button2 input{
 
@@ -129,6 +154,16 @@
   bottom: 10px;
   right: 50%; 
     
+}
+.message1 {
+  position: absolute;
+  top: 35%;
+  right: 15%; 
+}
+.message2 {
+  position: absolute;
+  top: 48%;
+  right: 13%; 
 }
 h4 {
   vertical-align: bottom;

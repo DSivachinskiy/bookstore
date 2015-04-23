@@ -15,21 +15,21 @@ class ApplicationController < ActionController::Base
   end
 
  
-def current_order
- @current_order = Order.where(costumer_id: current_costumer.id).where(aasm_state: "in_progress")
- unless @current_order.present?
-   current_costumer.orders.create
- else
-   @current_order
- end  
-end
+  def current_order
+   @current_order = Order.where(costumer_id: current_costumer.id).where(aasm_state: "in_progress")
+   unless @current_order.present?
+     current_costumer.orders.create
+   else
+     @current_order
+   end  
+  end
 
-def last_book
- cookies[:id] = @book.id
-end
+  def last_book
+   cookies[:id] = @book.id
+  end
 
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale = :uk
+    I18n.locale = params[:locale] || I18n.default_locale
   end
   def default_url_options(options={})
     { :locale => I18n.locale }
@@ -39,13 +39,13 @@ end
     if exception
         logger.info "Rendering 404: #{exception.message}"
     end
+    render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
+  end
 
-  render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
-end
 protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :firstname << :lastname
-   end
+  end
 
 end

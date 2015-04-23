@@ -1,7 +1,9 @@
 require 'rails_helper'
  
 describe Book do
-  let(:book) { Book.new }
+  let(:author) { FactoryGirl.create(:author) }
+  let(:category) { FactoryGirl.create(:category) }
+  let(:book) { FactoryGirl.create(:book, author: author, category: category) }
  
   it { expect(book).to validate_presence_of(:title) }
   it { expect(book).to validate_presence_of(:price) }
@@ -11,5 +13,8 @@ describe Book do
   it { should belong_to :author }
   it { should have_many :ratings }
   it { should have_many :order_items }
-
+  it "save img" do
+   book.img
+   expect(book.image).to eq(book.id)
+  end
 end

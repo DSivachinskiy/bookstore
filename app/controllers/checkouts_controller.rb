@@ -1,4 +1,5 @@
-class CheckoutController < ApplicationController
+class CheckoutsController < ApplicationController
+
   def adress
   	unless current_costumer.billing_adress.nil?
       @billing_adress = current_costumer.billing_adress

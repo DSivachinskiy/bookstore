@@ -73,4 +73,4 @@
                   %h4=order.submit t :coupon
         %td{:align => "center"}
           %h4
-            = button_to "#{t :accept_order}", '/checkout/adress', method: "get", :class => 'button'
+            = link_to "#{t :accept_order}", adress_checkout_path, :class => 'button1'

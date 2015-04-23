@@ -119,8 +119,8 @@ uk:
   coupon_price: Знижка з купону
   category: Категорія
   use_billing_adress: Використати цю адресу для доставки
-  fill_shipping_adress: Заповніть форму для адреси доставки
-  fill_billing_adress: Заповніть форму для адреси платника
+  fill_shipping_adress: Заповніть адресу доставки
+  fill_billing_adress: Заповніть адресу платника
   fill_credit_card: Заповніть форму оплати
   fill_ups: Виберіть метод доставки
   shipping_adress_create: Адреса доставки успішно створена!

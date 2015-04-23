@@ -1,29 +1,43 @@
+
 %h2
   = t :edit_costumer
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  .tab9
+  %table.tab11.user
     .field
-      = t :email
-      %br/
-      = f.email_field :email, autofocus: true
-    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-      %div
-        Currently waiting confirmation for: #{resource.unconfirmed_email}
+      %tr
+        %td= t :email
+      %tr
+        %td= f.email_field :email, autofocus: true, id: "email"
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        %div
+          Currently waiting confirmation for: #{resource.unconfirmed_email}
     .field
-      = t :password
-      %i= t :password_message
-      %br/
-      = f.password_field :password, autocomplete: "off"
+      %tr 
+        %td= t :password
+      .message1  
+        %i= t :password_message
+      %tr
+        %td
+          = f.password_field :password, autocomplete: "off", id: "password"
     .field
-      = t :password_confirmation
-      %br/
-      = f.password_field :password_confirmation, autocomplete: "off"
+      %tr
+        %td
+          = t :password_confirmation
+      %tr
+        %td
+          = f.password_field :password_confirmation, autocomplete: "off", id: "password_confirmation"
     .field
-      = t :current_password
-      %i= t :current_password_message
-      %br/
-      = f.password_field :current_password, autocomplete: "off"
+      %tr
+        %td
+          = t :current_password
+      .message2
+        %i= t :current_password_message
+      %tr
+        %td
+          = f.password_field :current_password, autocomplete: "off", id: "current_password"
     .actions
-      .button4
-        %br
-        = f.submit
+      %tr
+        %td
+          .button4
+            %br
+            = f.submit

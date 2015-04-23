@@ -15,7 +15,7 @@ feature 'Checkout confirm page' do
 
   background do
     login_as costumer, scope: :costumer
-    visit checkout_confirm_path
+    visit confirm_checkout_path
   end  
   
   context 'page content' do

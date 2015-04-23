@@ -11,7 +11,7 @@ feature 'Checkout delivery page' do
 
   background do
     login_as costumer, scope: :costumer
-    visit checkout_delivery_path
+    visit delivery_checkout_path
   end  
 
   context 'Adding delivery options' do

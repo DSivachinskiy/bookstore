@@ -6,7 +6,7 @@ feature 'Checkout adress page' do
 
   background do
     login_as costumer, scope: :costumer
-    visit checkout_adress_path
+    visit adress_checkout_path
   end  
   context 'billing_adress' do
     scenario 'Add new billing_adress' do

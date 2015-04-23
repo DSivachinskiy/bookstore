@@ -2,10 +2,16 @@ require 'features/features_spec_helper'
 require 'rails_helper'
 feature 'Checkout payment page' do
   given!(:costumer) { FactoryGirl.create(:costumer) }
+  given!(:author) { FactoryGirl.create(:author) }
+  given!(:category) { FactoryGirl.create(:category) }
+  given!(:book) { FactoryGirl.create(:book, author: author, category: category) }
+  given(:order) { FactoryGirl.create(:order, costumer: costumer) }
+  given!(:order_item) { FactoryGirl.create(:order_item, order: order, book: book) }
+  given!(:coupon) { FactoryGirl.create(:coupon) }
   
   background do
     login_as costumer, scope: :costumer
-    visit costumer_path(costumer)
+    visit payment_checkout_path
   end 
 
   scenario 'Add new credit_card' do
